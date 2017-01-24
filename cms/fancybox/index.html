@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fancyBox - Fancy jQuery Lightbox Alternative | Demonstration</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" />
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox({
+				"onClosed": function(){
+            		alert("Testing! FancyBox closed.");
+        		}
+			});
+
+			
+
+
+		});
+	</script>
+	
+</head>
+<body>
+		<li><a class="fancybox fancybox.ajax" href="ajax.txt?id=9">Ajax</a></li>
+</body>
+</html>
