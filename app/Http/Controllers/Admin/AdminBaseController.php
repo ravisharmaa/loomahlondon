@@ -18,13 +18,31 @@ class AdminBaseController extends AppBaseController
     protected $css_path;
     protected $js_path;
     protected $upload_folder;
+    protected $base_route;
+    protected $view_path;
 
 
     public function __construct()
     {
-        
-        $this->css_path = config('doublard.backend_assets.css');
-        $this->js_path  = config('doublard.backend_assets.js');
+
+        $this->css_path             = config('doublard.backend_assets.css');
+        $this->js_path              = config('doublard.backend_assets.js');
+        $this->upload_folder        = config('doublard.backend_assets.upload_locs.upload_folder');
+
     }
 
+    public function siteDefaultVars($view_path, $extra_values= null)
+    {
+       /*
+        * Documentation: This standard function loads default variables used in each view file.
+        * */
+        View::composer($view_path, function ($view) use($view_path, $extra_values) {
+           $view->with('base_route',    $this->base_route);
+           $view->with('view_path',     $this->view_path);
+           $view->with('header',        $this->header);
+           $view->with('sidebar',       $this->sidebar);
+           $view->with('upload_folder', $this->upload_folder);
+           $view->with('css_path',      $this->css_path);
+        });
+    }
 }

@@ -16,7 +16,7 @@ return [
                     'footer'    =>  'includes.footer',
                 ],
 
-                'upload_folder'     =>  [
+                'upload_locs'     =>  [
                     'upload_folder' =>  'images/',
                 ],
             ],
