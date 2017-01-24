@@ -7,8 +7,8 @@
  */
 /*
  *
- * This function returns an array of desired value
+ * This page returns an array of desired value.
  * */
 return [
-        'SUCCESS_MESSAGE'   =>    
+        'SUCCESS_MESSAGE'   =>  ""
 ];
