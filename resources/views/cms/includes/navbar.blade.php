@@ -4,12 +4,12 @@
             <h1> {{Auth::user()->username}}</h1>
             <h2> Welcome {{AppHelper::getConfigValues('site-admin')}} Username:({{Auth::user()->username}})  </h2>
             <div class="plate">
-                <a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="../" target="_blank" class="visitsite">Visit Site</a> |
-                <a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="login.php" class="dashboard">Dashboard</a> |
+                <a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="{{url('/')}}" target="_blank" class="visitsite">Visit Site</a> |
+                <a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="{{route($base_route)}}" class="dashboard">Dashboard</a> |
 
                 <a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="login.php?p_id=admin_users" class="adminuser">User Profile</a> |
                 {{--<a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="login.php?p_id=change_password" class="changepassword">Change Password</a> | */?>--}}
-                <a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="logout.php" class="logout">Logout</a>
+                <a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="{{route('cms.logout')}}" class="logout">Logout</a>
             </div>
         </div>
         <div class="right"></div>
