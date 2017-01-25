@@ -1,7 +1,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Content Management System :: </title>
-    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" href="{{asset('assets/backend/images/favicon.ico')}}" />
 
 {{--Custom Style-Sheet Used By the Template--}}
 <link href="{{asset($css_path.'mystyle.css')}}" rel="stylesheet" type="text/css" />

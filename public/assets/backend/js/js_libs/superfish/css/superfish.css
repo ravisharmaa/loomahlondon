@@ -53,7 +53,7 @@
 	*white-space: normal; /* ...unless you support IE7 (let it wrap) */
 	-webkit-transition: background .2s;
 	transition: background .2s;
-	background: url(../../images/menu_separator.gif) no-repeat right;
+	background: url(../../../../images/menu_separator.gif) no-repeat right;
 }
 .sf-menu ul li {
 	background: #1f1918;

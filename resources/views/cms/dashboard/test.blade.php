@@ -5,8 +5,8 @@
 <div class="header">
     <div class="wrapper">
         <div class="left">
-            <h1></h1>
-            <h2>Welcome  </h2>
+            <h1>Welcome {{Auth::user()->name}}</h1>
+            <h2> {{Auth::user()->username}}  </h2>
             <div class="plate">
                 <a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="../" target="_blank" class="visitsite">Visit Site</a> |
                 <a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="login.php" class="dashboard">Dashboard</a> |
