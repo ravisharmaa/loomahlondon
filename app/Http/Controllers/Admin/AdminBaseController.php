@@ -28,6 +28,7 @@ class AdminBaseController extends AppBaseController
         $this->css_path             = config('doublard.backend_assets.css');
         $this->js_path              = config('doublard.backend_assets.js');
         $this->upload_folder        = config('doublard.backend_assets.upload_locs.upload_folder');
+        $this->header               = config('doublard.backend_assets.pages.header');
 
     }
 

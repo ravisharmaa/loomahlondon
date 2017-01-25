@@ -11,9 +11,9 @@ return [
                 'js'    =>  'assets/backend/js/',
 
                 'pages'         =>  [
-                    'navbar'    =>  'includes.navbar',
-                    'header'    =>  'includes.header',
-                    'footer'    =>  'includes.footer',
+                    'navbar'    =>  'cms.includes.navbar',
+                    'header'    =>  'cms.includes.header',
+                    'footer'    =>  'cms.includes.footer',
                 ],
 
                 'upload_locs'     =>  [
