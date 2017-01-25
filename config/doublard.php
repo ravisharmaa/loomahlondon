@@ -7,8 +7,8 @@
  */
 return [
             'backend_assets'=>[
-                'css'   =>  'assets/css/',
-                'js'    =>  'assets/js',
+                'css'   =>  'assets/backend/css/',
+                'js'    =>  'assets/backend/js/',
 
                 'pages'         =>  [
                     'navbar'    =>  'includes.navbar',

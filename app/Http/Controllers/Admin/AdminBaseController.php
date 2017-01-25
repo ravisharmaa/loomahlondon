@@ -43,6 +43,8 @@ class AdminBaseController extends AppBaseController
            $view->with('sidebar',       $this->sidebar);
            $view->with('upload_folder', $this->upload_folder);
            $view->with('css_path',      $this->css_path);
+           $view->with('js_path',      $this->js_path);
         });
+        return $view_path;
     }
 }

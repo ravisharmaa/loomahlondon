@@ -31,7 +31,7 @@ Route::group(['prefix'=>'cms',                'as'=>'cms.',             'namespa
  *  Application Core-Start
  * */
 
-$this->group(['prefix'=>'cms/',              'as'=>'cms.',               'middleware'=>'auth',      'namespace'=>'Admin\\'], function() {
-    $this->get('dashboard',                   ['as'=>'dashboard.index',   'uses'=>'DashboardController']);
+$this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'middleware'=>'auth',      'namespace'=>'Admin\\'], function() {
+    $this->get('dashboard',                     ['as'=>'dashboard',   'uses'=>'DashboardController']);
 });
 

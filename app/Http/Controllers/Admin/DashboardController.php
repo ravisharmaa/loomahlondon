@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\AdminBaseController;
 class DashboardController extends AdminBaseController
 {
     protected $base_route   =   'cms.dashboard';
-    protected $view_path    =   'cms.dashboard.index';
+    protected $view_path    =   'cms.dashboard.test';
 
     public function __invoke()
     {
