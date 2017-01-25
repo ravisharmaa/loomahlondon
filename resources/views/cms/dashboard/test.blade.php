@@ -1,3 +1,4 @@
+{{dd(AppHelper::getConfigValues('location'))}}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 @include($header)
@@ -5,8 +6,8 @@
 <div class="header">
     <div class="wrapper">
         <div class="left">
-            <h1>Welcome {{Auth::user()->name}}</h1>
-            <h2> {{Auth::user()->username}}  </h2>
+            <h1> {{Auth::user()->name}}</h1>
+            <h2> Welcome {{Config::get('doublard.site-configs.site-admin')}} Username:({{Auth::user()->username}})  </h2>
             <div class="plate">
                 <a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="../" target="_blank" class="visitsite">Visit Site</a> |
                 <a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="login.php" class="dashboard">Dashboard</a> |

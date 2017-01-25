@@ -23,6 +23,6 @@ return [
 
             'site-configs'          =>  [
                     'pagination_limit'  =>  10,
-                    'site-admin'        =>  'XXXXX',
+                    'site-admin'        =>  'Marcus Doublard',
             ],
 ];
