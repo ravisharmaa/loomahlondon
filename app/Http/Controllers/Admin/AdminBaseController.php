@@ -14,6 +14,7 @@ class AdminBaseController extends AppBaseController
 {
     protected $header;
     protected $footer;
+    protected $navbar;
     protected $sidebar;
     protected $css_path;
     protected $js_path;
@@ -29,6 +30,7 @@ class AdminBaseController extends AppBaseController
         $this->js_path              = config('doublard.backend_assets.js');
         $this->upload_folder        = config('doublard.backend_assets.upload_locs.upload_folder');
         $this->header               = config('doublard.backend_assets.pages.header');
+        $this->navbar               = config('doublard.backend_assets.pages.navbar');
 
     }
 
@@ -44,7 +46,8 @@ class AdminBaseController extends AppBaseController
            $view->with('sidebar',       $this->sidebar);
            $view->with('upload_folder', $this->upload_folder);
            $view->with('css_path',      $this->css_path);
-           $view->with('js_path',      $this->js_path);
+           $view->with('js_path',       $this->js_path);
+           $view->with('navbar',        $this->navbar);
         });
         return $view_path;
     }
