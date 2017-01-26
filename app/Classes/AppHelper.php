@@ -39,7 +39,6 @@ class AppHelper
      * Params: array
      *
      * */
-
     public static function renderHtmlForDashboard(array $params, $type='page')
     {
         ($type==='page')

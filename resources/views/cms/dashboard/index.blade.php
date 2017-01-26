@@ -97,6 +97,5 @@
     </script>
     <div class="clearboth"></div>
 @endsection
-
 @section('extra-scripts')
 @endsection
