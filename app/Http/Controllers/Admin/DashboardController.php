@@ -23,7 +23,7 @@ class DashboardController extends AdminBaseController
         $this->routes['home']       = 'cms.login';
         $this->routes['about']      = 'cms.login';
         $this->routes['contact']    = 'cms.login';
-        dd(MyLibrary::isMySignature($this->routes));
+        return $this->routes;
     }
 
     public function __invoke()
