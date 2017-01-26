@@ -12,24 +12,17 @@
     </div>
 
     <div class="mpleft">
-        <div class="maintitle" style="padding-left: 10px;"><b>Home</b></div>
-        {!! Lang::get('helptext.HELP_TEXT_PAGE',['page'=>'Home']) !!}
-            <br>
-            <a href="login.php?p_id=manage_home" class="dashboard_btn">Click Here</a> </div>
+        {!! AppHelper::renderHtmlForDashboard(['maintitle','home','cms.login']) !!}
+    </div>
     </div>
     <div class="mpleft">
-        <div class="maintitle" style="padding-left: 10px;"><b>About</b></div>
-        {!! Lang::get('helptext.HELP_TEXT_PAGE',['page'=>'About']) !!}
-            <br>
-            <a href="login.php?p_id=manage_about" class="dashboard_btn">Click Here</a> </div>
+        {!! AppHelper::renderHtmlForDashboard(['maintitle','about','cms.login']) !!}
+    </div>
     </div>
     <div class="mpright">
-        <div class="maintitle" style="padding-left: 10px;"><b>Contact</b></div>
-        {!! Lang::get('helptext.HELP_TEXT_PAGE',['page'=>'Contact']) !!}
-            <br>
-            <a href="login.php?p_id=manage_contactus" class="dashboard_btn">Click Here</a> </div>
+        {!! AppHelper::renderHtmlForDashboard(['maintitle','about','cms.login']) !!}
     </div>
-
+    </div>
     <div class="spacer20"></div>
     <h1>Products</h1>
     <div class="spacer20"></div>

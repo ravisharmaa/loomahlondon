@@ -7,7 +7,7 @@
  */
 namespace App\Classes;
 use App\Model\SiteConfig;
-
+use Illuminate\Support\Facades\Lang;
 
 class AppHelper
 {
@@ -33,6 +33,25 @@ class AppHelper
                    return "Could not complete your request";
                }
            }
+
+    }
+
+    /*
+     * Params: array
+     *
+     * */
+
+
+    public static function renderHtmlForDashboard(array $params)
+    {
+       $help= Lang::get('helptext.HELP_TEXT_PAGE',['page'=>$params[1]]);
+        if(array_count_values($params)>3){
+            $html = "<div class='$params[0]' style='padding-left: 10px;'><b>".ucfirst($params[1])."</b></div>
+                    $help<br>
+                        <a href='$params[2]' class='dashboard_btn'>Click Here</a>";
+            return $html;
+        }
+
 
     }
 }
