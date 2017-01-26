@@ -32,7 +32,6 @@
 
     <div class="mpleft">
         {!! AppHelper::renderHtmlForDashboard(['textiles','cms.login'],'product') !!}
-
     </div>
     </div>
 
