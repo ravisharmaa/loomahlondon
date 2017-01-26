@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: ravi
+ * User: bastola.ravi@gmail.com
  * Date: 2017-01-24
  * Time: 3:54 PM
  */
@@ -36,7 +36,9 @@ class AppHelper
 
     }
     /*
-     * Params: array
+     * The first parameter in this function accepts an array as the parameters to determine
+     * the fields and the second param defines the type which is again
+     * used by the lang directory.
      *
      * */
     public static function renderHtmlForDashboard(array $params, $type='page')
