@@ -12,77 +12,70 @@
     </div>
 
     <div class="mpleft">
-        {!! AppHelper::renderHtmlForDashboard(['maintitle','home','cms.login']) !!}
+        {!! AppHelper::renderHtmlForDashboard(['home','cms.logout']) !!}
     </div>
     </div>
+
     <div class="mpleft">
-        {!! AppHelper::renderHtmlForDashboard(['maintitle','about','cms.login']) !!}
+        {!! AppHelper::renderHtmlForDashboard(['about','cms.login']) !!}
     </div>
     </div>
+
     <div class="mpright">
-        {!! AppHelper::renderHtmlForDashboard(['maintitle','about','cms.login']) !!}
+        {!! AppHelper::renderHtmlForDashboard(['contact','cms.login']) !!}
     </div>
     </div>
     <div class="spacer20"></div>
+
     <h1>Products</h1>
     <div class="spacer20"></div>
+
     <div class="mpleft">
-        <div class="maintitle" style="padding-left: 10px;"><b>Textiles</b></div>
-        {!! Lang::get('helptext.HELP_TEXT_PRODUCT',['product'=>'textiles']) !!}
-            <br>
-            <a href="login.php?p_id=manage_textiles&id=1" class="dashboard_btn">Click Here</a> </div>
+        {!! AppHelper::renderHtmlForDashboard(['textiles','cms.login'],'product') !!}
+
+    </div>
     </div>
 
     <div class="mpleft">
-        <div class="maintitle" style="padding-left: 10px;"><b>Wallpapers</b></div>
-        {!! Lang::get('helptext.HELP_TEXT_PRODUCT',['product'=>'wallpaper']) !!}
-            <br>
-            <a href="login.php?p_id=manage_wallpapers&id=2" class="dashboard_btn">Click Here</a> </div>
+        {!! AppHelper::renderHtmlForDashboard(['resources','cms.login'],'product') !!}
     </div>
+    </div>
+
     <div class="mpright">
-        <div class="maintitle" style="padding-left: 10px;"><b>Decorative Pieces</b></div>
-        {!! Lang::get('helptext.HELP_TEXT_PRODUCT',['product'=>'decorative piece']) !!}
-            <br>
-            <a href="login.php?p_id=manage_decorative_pieces&id=3" class="dashboard_btn">Click Here</a> </div>
+        {!! AppHelper::renderHtmlForDashboard(['decorative pieces','cms.login']) !!}
+    </div>
     </div>
 
     <div class="spacer20"></div>
+
     <h1>The Edit</h1>
     <div class="spacer20"></div>
     <div class="mpleft">
-        <div class="maintitle" style="padding-left: 10px;"><b>All News</b></div>
-        {!! Lang::get('helptext.HELP_TEXT_PAGE',['page'=>'news']) !!}
-            <br>
-            <a href="login.php?p_id=manage_blogs" class="dashboard_btn">Click Here</a> </div>
+        {!! AppHelper::renderHtmlForDashboard(['all news','cms.login']) !!}
     </div>
+    </div>
+
     <div class="mpleft">
-        <div class="maintitle" style="padding-left: 10px;"><b>Resources</b></div>
-        {!! Lang::get('helptext.HELP_TEXT_PAGE',['page'=>'resources']) !!}
-            <br>
-            <a href="login.php?p_id=manage_resources" class="dashboard_btn">Click Here</a> </div>
+        {!! AppHelper::renderHtmlForDashboard(['resources','cms.login']) !!}
+    </div>
     </div>
 
     <div class="mpright">
-        <div class="maintitle" style="padding-left: 10px;"><b>Instagram</b></div>
-        {!! Lang::get('helptext.HELP_TEXT_PAGE',['page'=>'instagram']) !!}
-            <br>
-            <a href="login.php?p_id=manage_instagram" class="dashboard_btn">Click Here</a> </div>
+        {!! AppHelper::renderHtmlForDashboard(['instagram','cms.login']) !!}
     </div>
+    </div>
+
     <div class="spacer20"></div>
     <div class="mpleft">
-        <div class="maintitle" style="padding-left: 10px;"><b>Gallery</b></div>
-        {!! Lang::get('helptext.HELP_TEXT_PAGE',['page'=>'gallery']) !!}
-            <br>
-            <a href="login.php?p_id=manage_gallery" class="dashboard_btn">Click Here</a> </div>
+        {!! AppHelper::renderHtmlForDashboard(['gallery','cms.login']) !!}
+    </div>
     </div>
     <div class="spacer20"></div>
     <h1>Terms & conditions and Sales Order</h1>
     <div class="spacer20"></div>
     <div class="mpleft">
-        <div class="maintitle" style="padding-left: 10px;"><b>Terms & conditions</b></div>
-        {!! Lang::get('helptext.HELP_TEXT_PAGE',['page'=>'terms & conditions']) !!}
-            <br>
-            <a href="login.php?p_id=manage_legal&page=1" class="dashboard_btn">Click Here</a> </div>
+        {!! AppHelper::renderHtmlForDashboard(['terms & conditions','cms.login']) !!}
+    </div>
     </div>
 
 

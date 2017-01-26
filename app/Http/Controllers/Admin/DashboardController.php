@@ -14,9 +14,12 @@ class DashboardController extends AdminBaseController
 {
     protected $base_route   =   'cms.dashboard';
     protected $view_path    =   'cms.dashboard.index';
+    protected $routes       =   [];
 
     public function __invoke()
     {
+        $this->routes['home']       =   'cms.home';
+        $this->routes['dashboard']  =   'cms.dashboard';
         return view(parent::siteDefaultVars($this->view_path));
     }
 }

@@ -41,17 +41,26 @@ class AppHelper
      *
      * */
 
-
-    public static function renderHtmlForDashboard(array $params)
+    public static function renderHtmlForDashboard(array $params, $type='page')
     {
-       $help= Lang::get('helptext.HELP_TEXT_PAGE',['page'=>$params[1]]);
-        if(array_count_values($params)>3){
-            $html = "<div class='$params[0]' style='padding-left: 10px;'><b>".ucfirst($params[1])."</b></div>
+       if($type==='page'){
+           $help= Lang::get('helptext.HELP_TEXT_PAGE',['page'=>$params[0]]);
+            if(array_count_values($params)>2){
+                $route= (route($params[1]));
+                $html = "<div class='maintitle' style='padding-left: 10px;'><b>".ucfirst($params[0])."</b></div>
                     $help<br>
-                        <a href='$params[2]' class='dashboard_btn'>Click Here</a>";
-            return $html;
-        }
-
-
+                        <a href=".$route." class='dashboard_btn'>Click Here</a>";
+                return $html;
+            }
+       } else {
+           $help= Lang::get('helptext.HELP_TEXT_PRODUCT',['product'=>$params[0]]);
+           if(array_count_values($params)>2){
+               $route= (route($params[1]));
+               $html = "<div class='maintitle' style='padding-left: 10px;'><b>".ucfirst($params[0])."</b></div>
+                    $help<br>
+                        <a href=".$route." class='dashboard_btn'>Click Here</a>";
+               return $html;
+           }
+       }
     }
 }
