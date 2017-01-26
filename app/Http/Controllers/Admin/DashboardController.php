@@ -7,7 +7,9 @@
  */
 
 namespace App\Http\Controllers\Admin;
+use App\Classes\AppHelper;
 use App\Http\Controllers\Admin\AdminBaseController;
+use App\Library\MyLibrary;
 
 
 class DashboardController extends AdminBaseController
@@ -21,7 +23,7 @@ class DashboardController extends AdminBaseController
         $this->routes['home']       = 'cms.login';
         $this->routes['about']      = 'cms.login';
         $this->routes['contact']    = 'cms.login';
-        return $this->routes;
+        dd(MyLibrary::isMySignature($this->routes));
     }
 
     public function __invoke()

@@ -1,8 +1,6 @@
 @extends('cms.layout.master')
 @section('extra-styles')
-
 @endsection
-
 @section('main-content')
     <h1>{{$extra_values['scope']}}</h1>
     <div class="clearboth"></div>
@@ -34,7 +32,6 @@
     <style>
         .cke_top {
             display:none;
-
         }
         .cke_bottom {
             background: none;
@@ -49,7 +46,6 @@
             font-size: 16px;
             line-height: 1.6;
             text-align: center;
-
         }
         #cke_1_resizer{
             display:none;
@@ -65,14 +61,13 @@
                     <textarea type="text" name="content_desc"  class="myeditors" style="width:99%; height:30px; font-weight:bold; text-transform: uppercase; color:#2a2a2a;font-family: "BrandonGM";">xxxx</textarea>
                 </td>
             </tr>
-
             <tr>
                 <td class="formleft" style="border-right:0">&nbsp;</td>
                 <td class="formright" style="height:36px;">
                     <input style="float:right;" type="button" value="Save" class="mybtn save_content" />
                     <div class="saving" style="float:right;">Saving...</div>
                     <div class="saved" style="float:right;">Successfully Saved.</div>
-                </td>
+                </td>3.
             </tr>
         </table>
         <input type="hidden" name="content_id" value="xx" />
