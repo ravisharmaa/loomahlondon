@@ -12,7 +12,7 @@
     </div>
 
     <div class="mpleft">
-        {!! AppHelper::renderHtmlForDashboard(['home','cms.logout']) !!}
+        {!! AppHelper::renderHtmlForDashboard(['home','cms.home']) !!}
     </div>
     </div>
 
