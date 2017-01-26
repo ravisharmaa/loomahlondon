@@ -64,7 +64,6 @@
         {!! AppHelper::renderHtmlForDashboard(['instagram','cms.login']) !!}
     </div>
     </div>
-
     <div class="spacer20"></div>
     <div class="mpleft">
         {!! AppHelper::renderHtmlForDashboard(['gallery','cms.login']) !!}
@@ -77,8 +76,6 @@
         {!! AppHelper::renderHtmlForDashboard(['terms & conditions','cms.login']) !!}
     </div>
     </div>
-
-
     <div class="mpleft">
         <div class="maintitle" style="padding-left: 10px;"><b>Orders</b></div>
         <div class="maincont" style="padding: 10px; text-align: left;">View sales orders. <br>
