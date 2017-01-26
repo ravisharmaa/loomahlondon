@@ -4,7 +4,7 @@
 @endsection
 
 @section('main-content')
-    <h1>Home Page</h1>
+    <h1>{{$extra_values['scope']}}</h1>
     <div class="clearboth"></div>
     <div class="breadcrumb">
         <a href="login.php">Dashboard</a> &raquo; Home Page
@@ -26,36 +26,9 @@
             <a href="ajax/home_slideimage_add.php" class="slide_add_link fancybox.ajax">Add a slide image</a>
         </div>
         <div class="clearboth"></div>
-        <script>
-            $(function(){
-                $('.slide_add_link').fancybox({
-                    'beforeClose': function(){
-                        $.ajax({
-                            url: 'ajax/home_slideimage_show.php',
-                            type: 'post',
-                            data: {},
-                            success: function(data){
-                                $('#slideshow_block').html(data);
-                            }
-                        });
-                    }
-                });
-            });
-        </script>
+
         <div id="slideshow_block">
             <div class="pleasewait">Please wait...</div>
-            <script>
-                $(function(){
-                    $.ajax({
-                        url: 'ajax/home_slideimage_show.php',
-                        type: 'post',
-                        data: {},
-                        success: function(data){
-                            $('#slideshow_block').html(data);
-                        }
-                    });
-                });
-            </script>
         </div>
     </div>
     <style>
@@ -81,8 +54,6 @@
         #cke_1_resizer{
             display:none;
         }
-
-
     </style>
     <div class="info">
         Please overwrite the paragraph for the home page that you wish to have.
@@ -90,7 +61,6 @@
     <form id="form_page_content">
         <table border="0px" class="myform">
             <tr>
-                <!-- <td class="formleft" style="width:50%">Title</td>-->
                 <td class="formright" colspan="2">
                     <textarea type="text" name="content_desc"  class="myeditors" style="width:99%; height:30px; font-weight:bold; text-transform: uppercase; color:#2a2a2a;font-family: "BrandonGM";">xxxx</textarea>
                 </td>
@@ -107,30 +77,6 @@
         </table>
         <input type="hidden" name="content_id" value="xx" />
     </form>
-    <script>
-        $(function(){
-            $('.save_content').click(function(){
-                var t=$(this);
-                t.hide();
-                $('.saving').show();
-                $.ajax({
-                    url: 'ajax/featured_content_save.php',
-                    type: 'post',
-                    data: $('#form_page_content').serialize(),
-                    success: function(){
-                        $('.saving').fadeOut(function(){
-                            $('.saved').fadeIn(function(){
-                                $(this).fadeOut(2000,function(){
-                                    t.show();
-                                });
-                            });
-                        });
-                        alertify.success('Successfully Saved.');
-                    }
-                })
-            });
-        });
-    </script>
     <div class="accordion"><a href="JavaScript:void(0);" rel="page_seo" class="accordiontab" <?php if(isset($show_tab) and $show_tab=="page_seo") echo "style='background: url(images/tgup.png) no-repeat right #E30B5D;'"; ?>>CLICK HERE TO EDIT SEO FOR THE HOME PAGE</a></div>
     <div id="page_seo" class="accordionblock" style="display:<?php echo (isset($show_tab) and $show_tab=="page_seo")?"block":"none"; ?>;">
         <div class="info">
@@ -161,31 +107,82 @@
             </table>
             <input type="hidden" name="content_id" value="xx" />
         </form>
-        <script>
-            $(function(){
-                $('.save_seo').click(function(){
-                    var t=$(this);
-                    t.hide();
-                    $('.saving').show();
-                    $.ajax({
-                        url: 'ajax/content_seo_save.php',
-                        type: 'post',
-                        data: $('#form_page_seo').serialize(),
-                        success: function(){
-                            $('.saving').fadeOut(function(){
-                                $('.saved').show().delay(1000).fadeOut(function(){
-                                    t.show();
-                                });
-                            });
-                            alertify.success('Successfully Saved.');
-                        }
-                    })
-                });
-            });
-        </script>
     </div>
 @endsection
 
 @section('extra-scripts')
-
+    <script>
+        $(function(){
+            $.ajax({
+                url: 'ajax/home_slideimage_show.php',
+                type: 'post',
+                data: {},
+                success: function(data){
+                    $('#slideshow_block').html(data);
+                }
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            $('.save_seo').click(function(){
+                var t=$(this);
+                t.hide();
+                $('.saving').show();
+                $.ajax({
+                    url: 'ajax/content_seo_save.php',
+                    type: 'post',
+                    data: $('#form_page_seo').serialize(),
+                    success: function(){
+                        $('.saving').fadeOut(function(){
+                            $('.saved').show().delay(1000).fadeOut(function(){
+                                t.show();
+                            });
+                        });
+                        alertify.success('Successfully Saved.');
+                    }
+                })
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            $('.save_content').click(function(){
+                var t=$(this);
+                t.hide();
+                $('.saving').show();
+                $.ajax({
+                    url: 'ajax/featured_content_save.php',
+                    type: 'post',
+                    data: $('#form_page_content').serialize(),
+                    success: function(){
+                        $('.saving').fadeOut(function(){
+                            $('.saved').fadeIn(function(){
+                                $(this).fadeOut(2000,function(){
+                                    t.show();
+                                });
+                            });
+                        });
+                        alertify.success('Successfully Saved.');
+                    }
+                })
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            $('.slide_add_link').fancybox({
+                'beforeClose': function(){
+                    $.ajax({
+                        url: 'ajax/home_slideimage_show.php',
+                        type: 'post',
+                        data: {},
+                        success: function(data){
+                            $('#slideshow_block').html(data);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 @endsection

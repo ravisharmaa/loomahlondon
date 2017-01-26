@@ -48,6 +48,7 @@ class AdminBaseController extends AppBaseController
            $view->with('css_path',      $this->css_path);
            $view->with('js_path',       $this->js_path);
            $view->with('navbar',        $this->navbar);
+           $view->with('extra_values',  $extra_values);
         });
         return $view_path;
     }

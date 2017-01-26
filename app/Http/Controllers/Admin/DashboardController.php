@@ -33,6 +33,13 @@ class DashboardController extends AdminBaseController
     public function home()
     {
         $view_path= 'cms.home';
-        return view(parent::siteDefaultVars($view_path.'.home'));
+        return view(parent::siteDefaultVars($view_path.'.home', $this->getExtraValues()));
+    }
+
+    public function getExtraValues()
+    {
+        $extra_values= [];
+        $extra_values['scope'] = 'Home';
+        return $extra_values;
     }
 }
