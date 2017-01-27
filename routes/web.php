@@ -18,6 +18,7 @@ Route::get('/', function () {
  * Authentication System...!!!NEVER EVER MESS WITH THESE !!!
  *
  * */
+Auth::routes();
 Route::group(['prefix'=>'cms',                'as'=>'cms.',             'namespace'=>'Auth\\'], function(){
     $this->get('',                           ['as'=>'login',             'uses'=>'LoginController@getLogin']);
     $this->post('',                          ['as'=>'login',             'uses'=>'LoginController@login']);

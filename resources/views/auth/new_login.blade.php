@@ -43,7 +43,7 @@
                     </div>
                     <input class="txtfield_input" style="padding:2px 5px;border: 1px solid #ab9b94;" type="text" name="captcha" value="" />
                 </div>
-                <div class="btnfields"><input class="btnfield_input" type="submit" name="submitted" value="Login" style="border: 1px solid #ab9b94;" /> <a href="#" style="text-decoration:none;">Forgot Password?</a></div>
+                <div class="btnfields"><input class="btnfield_input" type="submit" name="submitted" value="Login" style="border: 1px solid #ab9b94;" /> <a href="{{url('password/reset')}}" style="text-decoration:none;">Forgot Password?</a></div>
         </div>
 
     </form><br />
