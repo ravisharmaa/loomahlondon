@@ -54,6 +54,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        $this->validateCaptcha($request->get('CaptchaCode'));
         $this->validateLogin($request);
         $data= $request->only(['username','password']);
         if(!Auth::attempt($data)){
@@ -70,7 +71,9 @@ class LoginController extends Controller
     public function validateLogin(Request $request)
     {
         $this->validate($request, [
-            $this->username() => 'required', 'password' => 'required',
+            $this->username() =>    'required',
+            'password'        =>    'required',
+            'captcha'         =>    'required'
         ]);
 
     }
@@ -79,5 +82,10 @@ class LoginController extends Controller
     {
         Auth::logout();
         return redirect()->route('cms.login');
+    }
+
+    protected function validateCaptcha($captcha)
+    {
+
     }
 }

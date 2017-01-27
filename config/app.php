@@ -192,7 +192,7 @@ return [
         /*
          * Simple Captcha Package
          * */
-        LaravelCaptcha\Providers\LaravelCaptchaServiceProvider::class,
+        Mews\Captcha\CaptchaServiceProvider::class,
         /*
          * Custom Service Provider
          * */
@@ -260,8 +260,10 @@ return [
          * */
         'Image' => Intervention\Image\Facades\Image::class,
 
-
-
+        /*
+         * Laravel mew-captcha
+         * */
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
         /*
          * Custom Facade
          * */
