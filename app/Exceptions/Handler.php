@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Auth;
 
 class Handler extends ExceptionHandler
 {
@@ -44,17 +45,20 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+
         if($this->isHttpException($exception))
         {
             switch ($exception->getStatusCode())
             {
                 //not found
                 case '404':
+                Auth::logout();
                 return redirect()->guest('/');
                 break;
 
                 //internal error
                 case '500':
+                Auth::logout();
                 return redirect()->guest('/');
                 break;
 

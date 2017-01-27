@@ -1,8 +1,8 @@
 <div class="header">
     <div class="wrapper">
         <div class="left">
-            <h1> {{Auth::user()->username}}</h1>
-            <h2> Welcome {{AppHelper::getConfigValues('site-admin')}} Username:({{Auth::user()->username}})  </h2>
+            <h1> {{Auth::user()->name}}</h1>
+            <h2> Welcome {{AppHelper::getConfigValues('site-admin')}} (Username:{{Auth::user()->username}})  </h2>
             <div class="plate">
                 <a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="{{url('/')}}" target="_blank" class="visitsite">Visit Site</a> |
                 <a style="font: 11px/15px Arial,Helvetica,sans-serif;padding: 0;" href="{{route($base_route)}}" class="dashboard">Dashboard</a> |
