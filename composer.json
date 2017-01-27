@@ -9,7 +9,9 @@
         "laravel/framework": "5.3.*",
         "barryvdh/laravel-debugbar": "^2.3",
         "intervention/image": "^2.3",
-        "laravelcollective/html": "^5.3"
+        "laravelcollective/html": "^5.3",
+        "anhskohbo/no-captcha": "^2.2",
+        "captcha-com/laravel-captcha": "4.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -20,7 +22,8 @@
     },
     "autoload": {
         "classmap": [
-            "database"
+            "database",
+            "App\\Library\\MyLibrary.php"
         ],
         "psr-4": {
             "App\\": "app/"

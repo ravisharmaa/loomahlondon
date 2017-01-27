@@ -1,0 +1,1 @@
+{{\App\Library\MyLibrary::text('select',['class'=>'form-control'])}}

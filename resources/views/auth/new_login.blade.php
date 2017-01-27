@@ -5,6 +5,7 @@
     <title>Content Management System | </title>
     <link rel="shortcut icon" href="images/favicon.ico" />
     <link href="{{asset('assets/backend/css/mystyle.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
 </head>
 <body>
 <div class="wrapper">
@@ -31,10 +32,15 @@
                     <strong>{{$errors->first('password')}}</strong>
                 @endif
             </div>
-            <div class="txtfield_login"><input class="txtfield_input" style="padding:2px 5px;border: 1px solid #ab9b94;" type="password" name="password" value="" /></div>
-            <div class="btnfields"><input class="btnfield_input" type="submit" name="submitted" value="Login" style="border: 1px solid #ab9b94;" /> <a href="#" style="text-decoration:none;">Forgot Password?</a></div>
+            <div class="txtfield_login">
+                <input class="txtfield_input" style="padding:2px 5px;border: 1px solid #ab9b94;" type="password" name="password" value="" /></div>
+                {!! captcha_image_html('ExampleCaptcha') !!}
+                <input type="text" id="CaptchaCode" name="CaptchaCode">
+                <div class="btnfields"><input class="btnfield_input" type="submit" name="submitted" value="Login" style="border: 1px solid #ab9b94;" /> <a href="#" style="text-decoration:none;">Forgot Password?</a></div>
         </div>
+
     </form><br />
 </div>
 </body>
+
 </html>

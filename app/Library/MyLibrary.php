@@ -14,6 +14,8 @@ use App\Library\Bootstrap;
 class MyLibrary extends Bootstrap
 {
     protected $methods= ['get','post','put','patch','delete'];
+    protected static $html;
+    protected static $model;
 
     public static function isMySignature($data)
     {
@@ -23,15 +25,20 @@ class MyLibrary extends Bootstrap
         }
     }
 
+    public static function label()
+    {
+        //the form label goes here
+    }
+
     protected static function open()
     {
         //this opens the form when called
     }
 
-    public static function text(array $params, $extra_values=[])
+    public static function text($name, $params=[])
     {
-        $html = "<input type='text' name='$params[0]'>";
-        return $html;
+        dd($params);
+        echo self::$html = "<input type='' name=''>";
     }
 
     protected static function close()

@@ -184,7 +184,15 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        /*
+         * Google  Captcha Package
+         * */
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
+        /*
+         * Simple Captcha Package
+         * */
+        LaravelCaptcha\Providers\LaravelCaptchaServiceProvider::class,
         /*
          * Custom Service Provider
          * */
