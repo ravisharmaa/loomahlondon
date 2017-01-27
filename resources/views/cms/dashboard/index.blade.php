@@ -1,4 +1,4 @@
-@extends('cms.layout.master')
+\@extends('cms.layout.master')
 @section('extra-styles')
 @endsection
 @section('main-content')

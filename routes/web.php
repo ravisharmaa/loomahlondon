@@ -10,7 +10,6 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,12 +17,13 @@ Route::get('/', function () {
  * Authentication System...!!!NEVER EVER MESS WITH THESE !!!
  *
  * */
-Auth::routes();
 Route::group(['prefix'=>'cms',                'as'=>'cms.',             'namespace'=>'Auth\\'], function(){
     $this->get('',                           ['as'=>'login',             'uses'=>'LoginController@getLogin']);
     $this->post('',                          ['as'=>'login',             'uses'=>'LoginController@login']);
     $this->get('logout',                     ['as'=>'logout',            'uses'=>'LoginController@logout']);
+    $this->get('password/reset',             ['as'=>'reset.password',    'uses'=>'ResetPasswordController@showLinkRequestForm']);
 });
+
 /*
  * End Authentication
  * */
