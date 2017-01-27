@@ -36,9 +36,11 @@
                 <div class="txtfield_login">
                 {!! Captcha::img('inverse')!!} <br/>
                     <div class="label_login">Security Check:</div>
+                    <div class="label_login" style="color:#900;" >
                     @if($errors->has('captcha'))
                         <strong>{{$errors->first('captcha')}}</strong>
                     @endif
+                    </div>
                     <input class="txtfield_input" style="padding:2px 5px;border: 1px solid #ab9b94;" type="text" name="captcha" value="" />
                 </div>
                 <div class="btnfields"><input class="btnfield_input" type="submit" name="submitted" value="Login" style="border: 1px solid #ab9b94;" /> <a href="#" style="text-decoration:none;">Forgot Password?</a></div>

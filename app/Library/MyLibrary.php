@@ -30,20 +30,20 @@ class MyLibrary extends Bootstrap
         //the form label goes here
     }
 
-    protected static function open()
+    public static function open()
     {
-        //this opens the form when called
+        echo self:: $html = 'in_open';
     }
 
     public static function text($name, $params=[])
     {
-        dd($params);
-        echo self::$html = "<input type='' name=''>";
+        echo self::$html = "<input type='text' name='$name'>";
     }
 
-    protected static function close()
+    public static function close()
     {
-        //this closes the form
+
+        echo self::$html = "</form>";
     }
 
     protected static function textarea()
