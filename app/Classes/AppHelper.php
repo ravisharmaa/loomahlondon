@@ -25,15 +25,14 @@ class AppHelper
     public static function getConstantValues($input)
     {
         $data= config('doublard.site-configs');
-           foreach ($data as $key => $value)
-           {
-               if($input===$value){
-                   return  $value;
-               } else {
-                   return "Could not complete your request";
-               }
-           }
-
+        foreach ($data as $key  => $value)
+        {
+            if($input==$value)
+            {
+               $input=$value;
+            }
+        }
+        return $value;
     }
     /*
      * The first parameter in this function accepts an array as the parameters to determine

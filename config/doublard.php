@@ -23,6 +23,8 @@ return [
 
             'site-configs'          =>  [
                     'pagination_limit'  =>  10,
-                    'site-admin'        =>  'Marcus Doublard',
+                    'site-admin'        =>  'Marcus Paul',
+                    'location'          =>  'The Printworks, 14 Claremont,Hastings, East Sussex TN34 1HA',
+                    'phone'             =>  '+44 1424 403000',
             ],
 ];
