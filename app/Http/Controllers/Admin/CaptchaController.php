@@ -19,5 +19,6 @@ class CaptchaController extends AdminBaseController
         $data = Session:: put('captcha', $captcha->code());
         return view('cms.test')->with('data', $data);
 
+
     }
 }
