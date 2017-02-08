@@ -13,6 +13,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+$this->get('/captcha', "Admin\\CaptchaController@start");
 /*
  * Authentication System...!!!NEVER EVER MESS WITH THESE !!!
  *
@@ -40,6 +41,7 @@ $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'mid
      * For Testing purposes
      * */
     $this->get('/test',                         ['as'=>'test',                              'uses'=>'TestController@test']);
+
 
 });
 
