@@ -39,6 +39,35 @@
         {!! AppHelper::renderHtmlForDashboard(['Contact Us','cms.login']) !!}
     </div>
     </div>
+
+    {{--<div class="mpright">--}}
+    {{--{!! AppHelper::renderHtmlForDashboard(['decorative pieces','cms.login']) !!}--}}
+    {{--</div>--}}
+    {{--</div>--}}
+
+    {{--<div class="spacer20"></div>--}}
+
+    {{--<h1>The Edit</h1>--}}
+    {{--<div class="spacer20"></div>--}}
+    {{--<div class="mpleft">--}}
+    {{--{!! AppHelper::renderHtmlForDashboard(['all news','cms.login']) !!}--}}
+    {{--</div>--}}
+    {{--</div>--}}
+
+    {{--<div class="mpleft">--}}
+    {{--{!! AppHelper::renderHtmlForDashboard(['resources','cms.login']) !!}--}}
+    {{--</div>--}}
+    {{--</div>--}}
+
+    {{--<div class="mpright">--}}
+    {{--{!! AppHelper::renderHtmlForDashboard(['instagram','cms.login']) !!}--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--<div class="spacer20"></div>--}}
+    {{--<div class="mpleft">--}}
+    {{--{!! AppHelper::renderHtmlForDashboard(['gallery','cms.login']) !!}--}}
+    {{--</div>--}}
+    {{--</div>--}}
     <div class="spacer20"></div>
     <h1>Terms & conditions and Sales Order</h1>
     <div class="spacer20"></div>

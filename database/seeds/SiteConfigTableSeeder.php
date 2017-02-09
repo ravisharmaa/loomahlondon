@@ -15,7 +15,7 @@ class SiteConfigTableSeeder extends Seeder
         $site_configs = [
             [
                 'key'       =>  'site-admin',
-                'value'     =>  'Marcus Doublard'
+                'value'     =>  'Marcus Paul'
             ],
             [
                 'key'       =>  'email',

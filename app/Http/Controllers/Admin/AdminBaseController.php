@@ -21,6 +21,7 @@ class AdminBaseController extends AppBaseController
     protected $upload_folder;
     protected $base_route;
     protected $view_path;
+    protected $menus;
 
 
     public function __construct()
@@ -31,6 +32,7 @@ class AdminBaseController extends AppBaseController
         $this->upload_folder        = config('doublard.backend_assets.upload_locs.upload_folder');
         $this->header               = config('doublard.backend_assets.pages.header');
         $this->navbar               = config('doublard.backend_assets.pages.navbar');
+        $this->menus                = config('doublard.menus');
 
     }
 
@@ -48,6 +50,7 @@ class AdminBaseController extends AppBaseController
            $view->with('css_path',      $this->css_path);
            $view->with('js_path',       $this->js_path);
            $view->with('navbar',        $this->navbar);
+           $view->with('menus',         $this->menus);
            $view->with('extra_values',  $extra_values);
         });
         return $view_path;

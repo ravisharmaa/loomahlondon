@@ -27,4 +27,21 @@ return [
                     'location'          =>  'The Printworks, 14 Claremont,Hastings, East Sussex TN34 1HA',
                     'phone'             =>  '+44 1424 403000',
             ],
+
+            'menus'                 =>[
+                    'home'                  =>  'Home',
+                    'rug_designs'           =>  'Rug Designs',
+                    'bespoke_rug_service'   =>  'Bespoke Rug Service',
+                    'about_us'              =>  'About Us',
+                    'contact_us'            =>  'Contact Us',
+            ],
+
+            'frontend_assets'        =>[
+                    'css_path'       => 'assets/frontend/css/',
+                    'js_path'        => 'assets/frontend/js/',
+
+                'pages'             =>[
+                    'header'        =>  'frontend.includes.header',
+                ],
+            ],
 ];

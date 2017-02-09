@@ -18,14 +18,6 @@ class DashboardController extends AdminBaseController
     protected $view_path    =   'cms.dashboard.index';
     protected $routes       =   [];
 
-    protected function getRoutes()
-    {
-        $this->routes['home']       = 'cms.login';
-        $this->routes['about']      = 'cms.login';
-        $this->routes['contact']    = 'cms.login';
-        return $this->routes;
-    }
-
     public function __invoke()
     {
         $route_data         = $this->getRoutes();
@@ -43,5 +35,13 @@ class DashboardController extends AdminBaseController
         $extra_values= [];
         $extra_values['scope'] = 'Home';
         return $extra_values;
+    }
+
+    protected function getRoutes()
+    {
+        $this->routes['home']       = 'cms.login';
+        $this->routes['about']      = 'cms.login';
+        $this->routes['contact']    = 'cms.login';
+        return $this->routes;
     }
 }
