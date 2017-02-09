@@ -64,4 +64,4 @@
 
     });
 </script>
-<script src="js/custom.js"></script>
+<script src="{{asset($front_js.'custom.js')}}"></script>

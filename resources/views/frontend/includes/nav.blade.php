@@ -11,7 +11,6 @@
                 <span></span>
             </div>
         </div>
-
         <div class="row">
             <div class="col-md-4">
                 <nav class="mp-nav pull-left fadeIn overlay" id="overlay">
@@ -39,7 +38,6 @@
 
                 </div>
             </div>
-
             <div class="col-md-4 hidden-xs hidden-sm">
                 <nav class="mp-nav pull-right fadeIn">
                     <ul>
