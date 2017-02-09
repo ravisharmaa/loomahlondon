@@ -12,12 +12,12 @@ use App\Http\Controllers\Frontend\FrontendBaseController;
 
 class FrontendController extends FrontendBaseController
 {
-    protected $view_path    =   'frontend.layout';
-    protected $base_route   =   'frontend.home';
+    protected $view_path    =   'frontend';
+    protected $base_route   =   'frontend';
 
     public function __invoke()
     {
-        return view(parent::loadDefaultVars($this->view_path.'.master'));
+        return view(parent::loadDefaultVars($this->view_path.'.home'));
     }
 
     public function rugDesigns()
