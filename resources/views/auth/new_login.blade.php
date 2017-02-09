@@ -12,7 +12,7 @@
     <form action="{{url('/cms')}}" method="post">
         {{ csrf_field() }}
         <div class="login">
-            <h1 class="login-logo">ADMIN WEBSITE</h1>
+            <h1 class="login-logo">MARCUS PAUL</h1>
             <div class="label_login" style="color:#900;" >
                 @if(Session::has('message'))
                     {!! Session::get('message') !!}

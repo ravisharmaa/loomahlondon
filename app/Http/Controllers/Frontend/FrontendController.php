@@ -19,4 +19,24 @@ class FrontendController extends FrontendBaseController
     {
         return view(parent::loadDefaultVars($this->view_path.'.master'));
     }
+
+    public function rugDesigns()
+    {
+
+    }
+
+    public function beSpokeRugs()
+    {
+
+    }
+
+    public function aboutUs()
+    {
+
+    }
+
+    public function contactUs()
+    {
+
+    }
 }

@@ -51,5 +51,11 @@ class AppHelper
                         <a href=".(route($params[1]))." class='dashboard_btn'>Click Here</a>";
                 return $html;
             }
+
+    }
+
+    public static function getDefaultRouteParams($route)
+    {
+        return $data = 'marcus-paul'.".".$route;
     }
 }

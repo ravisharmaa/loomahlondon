@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>@include($header)</head>
-<body class="mp-ho-nav">
+<body class="{{Request::is('/')?'mp-ho-nav':''}}">
     <div class="preloader"></div>
     <i class="preloader-logo" style="display:none;"></i>
     @include($nav)
