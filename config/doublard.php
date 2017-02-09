@@ -42,6 +42,7 @@ return [
 
                 'pages'             =>[
                     'header'        =>  'frontend.includes.header',
+                    'nav-bar'       =>  'frontend.includes.nav-bar',
                 ],
             ],
 ];

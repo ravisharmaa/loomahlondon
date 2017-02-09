@@ -6,17 +6,17 @@
  * Time: 11:11 AM
  */
 
-namespace App\Http\Controllers\Fronted;
-use App\Http\Controllers\Fronted\FrontendBaseController;
+namespace App\Http\Controllers\Frontend;
+use App\Http\Controllers\Frontend\FrontendBaseController;
 
 
 class FrontendController extends FrontendBaseController
 {
-    protected $view_path    =   'frontend.home';
+    protected $view_path    =   'frontend.layout';
     protected $base_route   =   'frontend.home';
 
     public function __invoke()
     {
-        return view(parent::loadDefaultVars($this->view_path.'.index'));
+        return view(parent::loadDefaultVars($this->view_path.'.master'));
     }
 }

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>@include($header)</head>
+
 <body class="mp-ho-nav">
-<div class="preloader"></div>
-<i class="preloader-logo" style="display:none;"></i>
-
-<?php include('includes/nav.php') ?>
-
+    <div class="preloader"></div>
+    <i class="preloader-logo" style="display:none;"></i>
+        @section('nav-bar')
+            @include($nav)
+        @stop
 <section class="wrap parallax">
     <ul id="cbp-bislideshow" class="cbp-bislideshow">
         <li>
