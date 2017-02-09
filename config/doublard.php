@@ -37,12 +37,13 @@ return [
             ],
 
             'frontend_assets'        =>[
-                    'css_path'       => 'assets/frontend/css/',
-                    'js_path'        => 'assets/frontend/js/',
+                    'css_path'       =>     'assets/frontend/css/',
+                    'js_path'        =>     'assets/frontend/js/',
+                    'test_images'    =>     'assets/frontend/images/',
 
                 'pages'             =>[
                     'header'        =>  'frontend.includes.header',
-                    'nav-bar'       =>  'frontend.includes.nav-bar',
+                    'nav-bar'       =>  'frontend.includes.nav',
                 ],
             ],
 ];

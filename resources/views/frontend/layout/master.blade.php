@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>@include($header)</head>
-
 <body class="mp-ho-nav">
     <div class="preloader"></div>
     <i class="preloader-logo" style="display:none;"></i>
@@ -11,7 +10,7 @@
 <section class="wrap parallax">
     <ul id="cbp-bislideshow" class="cbp-bislideshow">
         <li>
-            <img src="<?php echo SITE_URL; ?>images/home/hand-spun-wool.jpg" alt="Hand Spun Wool"
+            <img src="{{asset($test_images_url.'home/hand-spun-wool.jpg')}}" alt="Hand Spun Wool"
                  title="Hand Spun Wool"/>
             <div class="mp-ban-caption">
                 <h2 class="wow fadeInDown">Suppliers of</h2>
@@ -20,7 +19,7 @@
             </div>
         </li>
         <li>
-            <img src="<?php echo SITE_URL; ?>images/home/rug-loom.jpg" alt="Rug Loom" title="Rug Loom"/>
+            <img src="{{asset($test_images_url.'home/rug-loom.jpg')}}" alt="Rug Loom" title="Rug Loom"/>
             <div class="mp-ban-caption">
                 <h2 class="wow fadeInDown">Suppliers of</h2>
                 <h1 class="wow fadeInDown">Contemporary Rugs</h1>
@@ -28,14 +27,14 @@
             </div>
         </li>
         <li>
-            <img src="<?php echo SITE_URL; ?>images/home/hand-dyed.jpg" alt="Hand Dyed" title="Hand Dyed"/>
+            <img src="{{asset($test_images_url.'home/hand-dyed.jpg')}}" alt="Hand Dyed" title="Hand Dyed"/>
             <div class="mp-ban-caption">
                 <h2 class="wow fadeInDown">Suppliers of</h2>
                 <h1 class="wow fadeInDown">Contemporary Rugs</h1>
                 <h2 class="wow fadeInDown">Manufactured with traditional Tibetan artisans</h2>
             </div>
         </li>
-        <li><img src="<?php echo SITE_URL; ?>images/home/shearing-and-finishing.jpg" alt="Shearing and Finishing"
+        <li><img src="{{asset($test_images_url.'home/shearing-and-finishing.jpg')}}" alt="Shearing and Finishing"
                  title="Shearing and Finishing"/>
             <div class="mp-ban-caption">
                 <h2 class="wow fadeInDown">Suppliers of</h2>

@@ -1,0 +1,92 @@
+@mixin translateY($value){
+	-webkit-transform: translateY($value);
+	-moz-transform: translateY($value);
+	-o-transform: translateY($value);
+	-ms-transform: translateY($value);
+	transform: translateY($value);
+}
+@mixin transformscale($value){
+	-webkit-transform: scale($value);
+	-moz-transform: scale($value);
+	-o-transform: scale($value);
+	-ms-transform: scale($value);
+	transform: scale($value);
+}
+
+@mixin radius($pixel){
+	-webkit-border-radius: $pixel;
+	-moz-border-radius: $pixel;
+	-o-border-radius: $pixel;
+	-ms-border-radius: $pixel;
+	border-radius: $pixel;
+}
+
+@mixin translateX($value){
+	-webkit-transform: translateX($value);
+	-moz-transform: translateX($value);
+	-o-transform: translateX($value);
+	-ms-transform: translateX($value);
+	transform: translateX($value);
+}
+
+@mixin translate($value, $value2){
+	-webkit-transform: translate($value, $value2);
+	-moz-transform: translate($value, $value2);
+	-o-transform: translate($value, $value2);
+	-ms-transform: translate($value, $value2);
+	transform: translate($value, $value2);
+}
+
+@mixin easing($time){
+	-webkit-transition: all $time ease-in-out;
+	-moz-transition: all $time ease-in-out;
+	-o-transition: all $time ease-in-out;
+	-ms-transition: all $time ease-in-out;
+	transition: all $time ease-in-out;
+}
+
+@mixin translate3d($time1, $time2, $time3){
+	-webkit-transform: translate3d($time1, $time2, $time3);
+	-moz-transform: translate3d($time1, $time2, $time3);
+	-ms-transform: translate3d($time1, $time2, $time3);
+	-o-transform: translate3d($time1, $time2, $time3);
+	transform: translate3d($time1, $time2, $time3);
+}
+
+@mixin rotate( $y, $x, $z){
+	-webkit-transform: translateY($y) translateX($x) rotate($z);
+	-ms-transform: translateY($y) translateX($x) rotate($z);
+	-o-transform: translateY($y) translateX($x) rotate($z);
+	-moz-transform: translateY($y) translateX($x) rotate($z);
+	transform: translateY($y) translateX($x) rotate($z);
+}
+
+@mixin ease($property, $duration, $method){
+	-webkit-transition: $property $duration $method;
+	-o-transition: $property $duration $method;
+	transition: $property $duration $method;
+}
+
+@mixin cubic($time){
+	-webkit-transition:all $time cubic-bezier(0.785, 0.135, 0.15, 0.86);
+	-moz-transition: all $time cubic-bezier(0.785, 0.135, 0.15, 0.86);
+	-o-transition: all $time cubic-bezier(0.785, 0.135, 0.15, 0.86);
+	-ms-transition: all $time cubic-bezier(0.785, 0.135, 0.15, 0.86);
+	transition: all $time cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+@mixin translate3d($time1, $time2, $time3){
+	-webkit-transform: translate3d($time1, $time2, $time3);
+	-moz-transform: translate3d($time1, $time2, $time3);
+	-ms-transform: translate3d($time1, $time2, $time3);
+	-o-transform: translate3d($time1, $time2, $time3);
+	transform: translate3d($time1, $time2, $time3);
+}
+
+@mixin transition-delay($delay) {
+    -moz-transition-delay:    $delay;
+    -o-transition-delay:      $delay;
+    -webkit-transition-delay: $delay;
+    transition-delay:         $delay;
+}
+
+

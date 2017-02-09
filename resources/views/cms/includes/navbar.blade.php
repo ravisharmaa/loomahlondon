@@ -17,7 +17,7 @@
         <div class="nav">
             <ul class="sf-menu">
                 @foreach($menus as $key => $value)
-                <li><a href="#">{{$value}}</a></li>
+                     <li><a href="#">{{$value}}</a></li>
                 @endforeach
             </ul>
         </div>
