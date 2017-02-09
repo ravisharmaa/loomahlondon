@@ -42,6 +42,7 @@ return [
                     'test_images'    =>     'assets/frontend/images/',
 
                 'pages'             =>[
+                    'master'        =>  'frontend.layout.master',
                     'header'        =>  'frontend.includes.header',
                     'nav-bar'       =>  'frontend.includes.nav',
                     'footer'        =>  'frontend.includes.footer',

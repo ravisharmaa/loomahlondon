@@ -22,21 +22,22 @@ class FrontendController extends FrontendBaseController
 
     public function rugDesigns()
     {
-
+        return view(parent::loadDefaultVars($this->view_path.'.rug-designs'));
     }
 
     public function beSpokeRugs()
     {
-
+        return view(parent::loadDefaultVars($this->view_path.'.bespoke-rug-service'));
     }
 
     public function aboutUs()
     {
-
+        dd('hello');
+        return view(parent::loadDefaultVars($this->view_path.'.about-us'));
     }
 
     public function contactUs()
     {
-
+        return view(parent::loadDefaultVars($this->view_path.'.contact-us'));
     }
 }

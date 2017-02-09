@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>@include($header)</head>
+<head>
+    @include($header)
+</head>
 @yield('extra-css')
 <body class="{{Request::is('/')?'mp-ho-nav':''}}">
     <div class="preloader"></div>

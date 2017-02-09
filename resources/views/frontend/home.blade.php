@@ -1,4 +1,6 @@
-@extends('frontend.layout.master')
+@extends($master)
+@section('extra-css')
+@endsection
 @section('home-section')
     <section class="wrap parallax">
         <ul id="cbp-bislideshow" class="cbp-bislideshow">
@@ -79,5 +81,9 @@
             <div class="clearfix"></div>
         </div>
     </div>
+@endsection
+
+@section('extra-scripts')
+
 @endsection
 

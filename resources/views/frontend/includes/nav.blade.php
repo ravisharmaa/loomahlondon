@@ -16,17 +16,17 @@
                 <nav class="mp-nav pull-left fadeIn overlay" id="overlay">
                     <div class="mob-nav">
                         <ul>
-                            <li class="{{Request::is('marcus-paul/rug-designs*')?'active':''}}">
-                                <a href="rug-designs.php" class="anchor">Rug Designs</a>
+                            <li class="{{Request::is('rug-designs*')?'active':''}}">
+                                <a href="{{route(AppHelper::getDefaultRouteParams('rug-designs'))}}" class="anchor">Rug Designs</a>
                             </li>
-                            <li class="{{Request::is('marcus-paul/bespoke-rug-service*')?'active':''}}">
-                                <a href="bespoke-rug-service.php" class="anchor">Bespoke Rug Service</a>
+                            <li class="{{Request::is('bespoke-rug-service*')?'active':''}}">
+                                <a href="{{route(AppHelper::getDefaultRouteParams('bespoke-rug-service'))}}" class="anchor">Bespoke Rug Service</a>
                             </li>
-                            <li class="{{Request::is('marcus-paul/about-us*')?'active':''}}">
-                                <a href="about-us.php" class="anchor">About Us</a>
+                            <li class=" visible-xs visible-sm {{Request::is('about-us*')?'active':''}}">
+                                <a href="{{route(AppHelper::getDefaultRouteParams('about-us'))}}" class="anchor">About Us</a>
                             </li>
-                            <li class="{{Request::is('marcus-paul/contact-us*')?'active':''}}">
-                                <a href="contact-us.php" class="anchor">Contact us</a>
+                            <li class=" visible-xs visible-sm {{Request::is('contact-us*')?'active':''}}">
+                                <a href="{{route(AppHelper::getDefaultRouteParams('contact-us'))}}" class="anchor">Contact us</a>
                             </li>
                         </ul>
                     </div>
@@ -43,11 +43,11 @@
             <div class="col-md-4 hidden-xs hidden-sm">
                 <nav class="mp-nav pull-right fadeIn">
                     <ul>
-                        <li class="{{Request::is('marcus-paul/about-us/*')?'active':''}}">
-                            <a href="about-us.php">About Us</a>
+                        <li class="{{Request::is('about-us*')?'active':''}}">
+                            <a href="{{route(AppHelper::getDefaultRouteParams('about-us'))}}">About Us</a>
                         </li>
-                        <li class="{{Request::is('marcus-paul/contact-us/*')?'active':''}}">
-                            <a href="contact-us.php">Contact us</a>
+                        <li class="{{Request::is('contact-us*')?'active':''}}">
+                            <a href="{{route(AppHelper::getDefaultRouteParams('contact-us'))}}">Contact us</a>
                         </li>
                     </ul>
                 </nav>

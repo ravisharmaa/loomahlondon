@@ -38,12 +38,13 @@ $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'mid
     $this->get('home',                          ['as'=>'home',                              'uses'=>'DashboardController@home']);
 });
 
-Route::get('/',  ['as'=>'marcus-paul.home', 'uses'=>'Frontend\\FrontendController']);
-Route::group(['prefix'=>'marcus-paul/', 'as'=>'marcus-paul.', 'namespace'=>'Frontend\\'], function(){
-    $this->get('rug-designs',           ['as'=>'rug-designs',      'uses'=>    'FrontendController@rugDesigns']);
-    $this->get('bespoke-rug-service',   ['as'=>'bespoke-rugs',     'uses'=>    'FrontendController@beSpokeRugs']);
-    $this->get('about-us',              ['as'=>'about-us',         'uses'=>    'FrontendController@aboutUs']);
-    $this->get('contact-us',            ['as'=>'contact-us',       'uses'=>     'FrontendController@contactUs']);
+Route::get('/',                         ['as'=>'marcus-paul.home', 'uses'=>'Frontend\\FrontendController']);
+
+Route::group(['prefix'=>'', 'as'=>'marcus-paul.', 'namespace'=>'Frontend\\'], function(){
+    $this->get('rug-designs',           ['as'=>'rug-designs',               'uses'=>    'FrontendController@rugDesigns']);
+    $this->get('bespoke-rug-service',   ['as'=>'bespoke-rug-service',       'uses'=>    'FrontendController@beSpokeRugs']);
+    $this->get('about-us',              ['as'=>'about-us',                  'uses'=>    'FrontendController@aboutUs']);
+    $this->get('contact-us',            ['as'=>'contact-us',                'uses'=>     'FrontendController@contactUs']);
 
 });
 

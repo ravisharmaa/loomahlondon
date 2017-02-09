@@ -15,6 +15,7 @@ class FrontendBaseController extends AppBaseController
     protected $header;
     protected $nav;
     protected $footer;
+    protected $master;
     protected $front_css;
     protected $front_js;
     protected $test_image_url;
@@ -27,8 +28,9 @@ class FrontendBaseController extends AppBaseController
         $this->front_css        =   config('doublard.frontend_assets.css_path');
         $this->front_js         =   config('doublard.frontend_assets.js_path');
         $this->nav              =   config('doublard.frontend_assets.pages.nav-bar');
-        $this->test_image_url  =   config('doublard.frontend_assets.test_images');
+        $this->test_image_url   =   config('doublard.frontend_assets.test_images');
         $this->footer           =   config('doublard.frontend_assets.pages.footer');
+        $this->master           =   config('doublard.frontend_assets.pages.master');
     }
 
     public function loadDefaultVars($view_path)
@@ -41,7 +43,8 @@ class FrontendBaseController extends AppBaseController
             $view->with('view_path',        $this->view_path);
             $view->with('nav',              $this->nav);
             $view->with('footer',           $this->footer);
-            $view->with('test_image_url',  $this->test_image_url);
+            $view->with('test_image_url',   $this->test_image_url);
+            $view->with('master',           $this->master);
         });
         return $view_path;
     }
