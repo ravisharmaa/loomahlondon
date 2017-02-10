@@ -40,6 +40,7 @@
         </ul>
         <div class="swipe-target"></div>
     </section>
+    <div class="clearfix"></div>
 @endsection
 
 @section('content')
