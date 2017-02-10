@@ -4,6 +4,8 @@
 
 @endsection
 @section('home-section')
+@endsection
+@section('content')
     <div class="mp-section">
         <div class="mp-coll-bg mp-con-detail">
             <h1>Contact Us</h1>
@@ -12,48 +14,9 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6">
                         <div class="form-body le-ri-padding">
-                            <form class="form-horizontal">
-                                <div class="form-group ma-btm">
-                                    <div class="col-md-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                            <input id="prependedtext" name="prependedtext" class="form-control" placeholder="Full Name" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group ma-btm">
-                                    <div class="col-md-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                                            <input id="prependedtext" name="prependedtext" class="form-control" placeholder="Email Address" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Textarea -->
-                                <div class="form-group ma-btm">
-                                    <div class="col-md-12">
-                                        <textarea class="form-control" id="textarea" placeholder="If you have a particular enquiry and would like to send us a message please write it here." name="textarea" ></textarea>
-                                    </div>
-                                </div>
-
-                                <!-- Textarea -->
-                                <div class="form-group">
-                                    <div class="col-xs-6 col-sm-4 col-md-5">
-                                        <img src="captcha/captchaForContactusForm.php?characters=6&amp;width=140&amp;height=35" class="capcha-img">
-                                    </div>
-                                    <div class="col-xs-6 col-sm-8 col-md-7">
-                                        <input id="prependedtext" name="prependedtext" class="form-control" placeholder="" type="text">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <a href="#" class="btn mp-btn-sub">Submit</a>
-                                    </div>
-                                </div>
-                            </form>
+                            {{Form ::open(['route'=> $base_route.'.send-mail','method'=>'POST','class'=>'form-horizontal'])}}
+                                @include('frontend.partials._forms._contactform', ['submitBtn'=>'Submit'])
+                            {{Form::close()}}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6">

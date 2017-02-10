@@ -33,9 +33,9 @@ class FrontendBaseController extends AppBaseController
         $this->master           =   config('doublard.frontend_assets.pages.master');
     }
 
-    public function loadDefaultVars($view_path)
+    public function loadDefaultVars($view_path, $extra_values=null)
     {
-        View::composer($view_path, function($view) use ($view_path) {
+        View::composer($view_path, function($view) use ($view_path,$extra_values) {
             $view->with('base_route',       $this->base_route);
             $view->with('header',           $this->header);
             $view->with('front_css',        $this->front_css);
@@ -44,8 +44,11 @@ class FrontendBaseController extends AppBaseController
             $view->with('nav',              $this->nav);
             $view->with('footer',           $this->footer);
             $view->with('test_image_url',   $this->test_image_url);
+            $view->with('extra_values',     $extra_values);
             $view->with('master',           $this->master);
         });
         return $view_path;
     }
+
+
 }

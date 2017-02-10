@@ -45,23 +45,6 @@
         if (!!window.chrome) {
             jQuery.scrollSpeed(80, 800);
         }
-        // $('.cbp-bislideshow').bind('touchmove', function(event) {
-        // 	event.preventDefault();
-        // }, false);
-
-        // $(".swipe-target").touchwipe({
-
-        // 	wipeLeft: function() {
-        // 		navigate.cbp-biprev('');
-        // 	},
-        // 	wipeRight: function() {
-        // 		navigate.cbp-binext('');
-        // 	},
-        // 	min_move_x: 20,
-        // 	preventDefaultEvents: true,
-        // 	//alert(abc);
-        // })
-
     });
 </script>
 <script src="{{asset($front_js.'custom.js')}}"></script>

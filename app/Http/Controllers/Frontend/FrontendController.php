@@ -8,16 +8,21 @@
 
 namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Frontend\FrontendBaseController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Requests\ContactRequest;
 
 
 class FrontendController extends FrontendBaseController
 {
     protected $view_path    =   'frontend';
-    protected $base_route   =   'frontend';
+    protected $base_route   =   'marcus-paul';
+    protected $extra_values =   [];
 
     public function __invoke()
     {
-        return view(parent::loadDefaultVars($this->view_path.'.home'));
+        $this->extra_values['route_name']   =  Route::currentRouteName();
+        return view(parent::loadDefaultVars($this->view_path.'.home',$this->extra_values));
     }
 
     public function rugDesigns()
@@ -39,5 +44,10 @@ class FrontendController extends FrontendBaseController
     public function contactUs()
     {
         return view(parent::loadDefaultVars($this->view_path.'.contact-us'));
+    }
+
+    public function sendMail(ContactRequest $request)
+    {
+        dd($request);
     }
 }

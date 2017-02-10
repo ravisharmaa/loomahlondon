@@ -58,4 +58,9 @@ class AppHelper
     {
         return $data = 'marcus-paul'.".".$route;
     }
+
+    public static function getCssClasses($input)
+    {
+        dd($input);
+    }
 }
