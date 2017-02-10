@@ -13,7 +13,7 @@ class ContactRequest extends FormRequest
      */
     protected $rules = [
                 'full_name' =>  'required',
-                'email'     =>  'required',
+                'email'     =>  'required | email',
                 'message'   =>  'required'
     ];
 

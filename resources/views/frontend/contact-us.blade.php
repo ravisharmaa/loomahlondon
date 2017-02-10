@@ -51,5 +51,34 @@
                 effect : "fadeIn"
             });
         });
+
+       $("document").ready(function(){
+          $("#btn").click(function (e) {
+                e.preventDefault();
+                var name        =   $("#full_name").val();
+                var email       =   $("#email").val();
+                var message     =   $("#message").val();
+                var _token      =   '{{ csrf_token() }}';
+                var params      =   {'full_name':name,'email':email,'message':message,'_token':_token };
+                    $.ajax({
+                        method  : "POST",
+                        url     : '{{route($base_route.'.send-mail')}}',
+                        data    : params,
+                        error: function(request){
+                            var response = $.parseJSON(request.responseText);
+                            console.log(response);
+                        },
+                        success: function (data){
+                            console.log(data);
+                            return false;
+                            var data = $.parseJSON(data);
+//                            console.log(data.email);
+                        }
+                    });
+
+
+
+          });
+       });
     </script>
 @endsection

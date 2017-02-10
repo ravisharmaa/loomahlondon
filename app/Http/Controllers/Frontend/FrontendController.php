@@ -48,6 +48,6 @@ class FrontendController extends FrontendBaseController
 
     public function sendMail(ContactRequest $request)
     {
-        dd($request);
+       dd($request);
     }
 }

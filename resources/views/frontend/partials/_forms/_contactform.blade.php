@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-            {{Form::text('full_name', null,['id'=>"prependedtext", 'class'=>"form-control",'placeholder'=>"Full Name"])}}
+            {{Form::text('full_name', null,['id'=>"full_name", 'class'=>"form-control",'placeholder'=>"Full Name"])}}
         </div>
     </div>
 </div>
@@ -10,13 +10,13 @@
     <div class="col-md-12">
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-            {{Form::text('email', null,['id'=>"prependedtext", 'class'=>"form-control",'placeholder'=>"Email"])}}
+            {{Form::text('email', null,['id'=>"email", 'class'=>"form-control",'placeholder'=>"Email"])}}
         </div>
     </div>
 </div>
 <div class="form-group ma-btm">
     <div class="col-md-12">
-        {{Form::textarea('message',null,['class'=>"form-control" ,'id'=>"textarea" ,'placeholder'=>"If you have a particular enquiry and would like to send us a message please write it here."])}}
+        {{Form::textarea('message',null,['class'=>"form-control" ,'id'=>"message" ,'placeholder'=>"If you have a particular enquiry and would like to send us a message please write it here."])}}
     </div>
 </div>
 
@@ -31,6 +31,6 @@
 
 <div class="form-group">
     <div class="col-md-12">
-        {{Form::button($submitBtn,['class'=>'btn mp-btn-sub','type'=>'submit'])}}
+        {{Form::button($submitBtn,['id'=>'btn','class'=>'btn mp-btn-sub','type'=>'submit'])}}
     </div>
 </div>
