@@ -5,7 +5,7 @@
             Provide the Rug name and its image that you wish to add.
         </div>
 
-        {{Form::open([$base_route.'.store','method'=>'POST','id'=>'form_rug_add','enctype'=>'multipart/form-data'])}}
+        {{Form::open(['route'=>$base_route.'.store','method'=>'POST','id'=>'form_rug_add','enctype'=>'multipart/form-data','files'=>true])}}
             @include('cms.rug-designs.partials._form',['btnText'=>'Save'])
        {{Form::close()}}
         <script>
@@ -24,23 +24,20 @@
                         'product_name':product_name,
                         'product_description':product_description,
                         'product_knotcnt':product_knotcnt,
-                        'rug_image': rug_image,
+                        'product_size': product_size,
+                        'rug_image':rug_image,
                         '_token':_token
                     };
-
                     $.ajax({
-                        "method"    :"POST",
-                        'url'       : '{{$base_route.'.store'}}',
-                        'dataType'  :   'text',
-                        data        : params,
+                        url: '{{$base_route.'.store'}}',
+                        type: 'post',
+                        data: params,
+                        error:function (request) {
+                            console.log(request.responseText);
+                        },
+                        success: function(data){
+                            console.log(data);
 
-                        error: function(request) {
-                            var response = jQuery.parseJSON(request.responseText);
-                        },
-                        success: function(data) {
-                                consoloe.log(data);
-                                return false;
-                        },
                             $("#cat_image").upload("ajax/category_image_upload.php?id="+id,function(res){
                                 $(location).attr('href','login.php?p_id=manage_products&id='+id);
                             },function(data) {
