@@ -9,7 +9,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\AdminBaseController;
 use App\Model\ProductDetail;
-use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 use App\Model\Product;
 use Illuminate\Support\Str;
 
@@ -29,7 +29,7 @@ class RugDesignsController extends AdminBaseController
         return view(parent::siteDefaultVars($this->view_path.'.add'));
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $data = Product::create([
             'product_name'      =>  $request->get('product_name'),

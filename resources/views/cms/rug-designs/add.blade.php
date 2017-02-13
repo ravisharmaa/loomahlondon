@@ -18,16 +18,16 @@
                     var product_knotcnt         =           $("#product_knotcnt").val();
                     var product_size            =           $("#product_size").val();
                     var rug_image               =           $("#rug_image").val();
+                    var _token                  =           '{{ csrf_token() }}';
+                    var params                  =           {
+                                                             'product_name':product_name,
+                                                            'product_description':product_description,
+                                                            'product_knotcnt':product_knotcnt,
+                                                            'product_size': product_size,
+                                                            'rug_image':rug_image,
+                                                            '_token':_token
+                                                            };
                     $('.saving').show();
-                    var _token                  =   '{{ csrf_token() }}';
-                    var params                  =   {
-                        'product_name':product_name,
-                        'product_description':product_description,
-                        'product_knotcnt':product_knotcnt,
-                        'product_size': product_size,
-                        'rug_image':rug_image,
-                        '_token':_token
-                    };
                     $.ajax({
                         url: '{{$base_route.'.store'}}',
                         type: 'post',

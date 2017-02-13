@@ -17,9 +17,9 @@ class CreateTblProductDetailsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('product_id')->nullable();
             $table->string('product_knotcnt')->nullable();
-            $table->string('size')->nullable();
-            $table->string('width')->nullable();
-            $table->string('repeat')->nullable();
+            $table->string('product_size')->nullable();
+            $table->string('product_width')->nullable();
+            $table->string('product_repeat')->nullable();
             $table->string('product_images')->nullable();
             $table->integer('product_order')->nullable();
             $table->integer('product_status')->nullable();

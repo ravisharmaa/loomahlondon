@@ -10,11 +10,11 @@
             <a href="login.php">Dashboard</a> »Rug Designs
         </div>
         <div class="info">
-            Provided below are the collections that feature within the Rug Designs  page.
+            Provided below are the collections that feature within the Rug Designs page.
             <br><br>
-            Click the "Add a collection" button below if you wish to add a Rug Design.
+            Click the "Add a rug" button below if you wish to add a Rug Design.
             <br><br>
-            Click on the image or pencil icon to manage its constituent products.
+            Click on the image or pencil icon to manage it.
             <br><br>
             In the unlikely event that you wish to delete a collection, click on the cross icon associated with it. You will be shown a warning alert should you wish to do this.
             <br><br>
@@ -25,9 +25,22 @@
         </div>
         <div class="clearboth"></div>
         <script>
-            $(function(){
+           /* $(function(){
                 $('.rug_add_link').fancybox();
-            });
+
+            });*/
+           $(".rug_add_link").click(function(e){
+              e.preventDefault();
+              $('.rug_add_link').fancybox();
+              $.ajax({
+                  method: "GET",
+                  url: '{{route($base_route.'.add')}}',
+                  success:function(request){
+                    console.log(request.responseText);
+                  },
+
+              });
+           });
         </script>
         <div id="cat_block"><ul id="sorter" class="polaroid ui-sortable">
                 <li id="sortdata_36">
