@@ -48,7 +48,7 @@ class FrontendController extends FrontendBaseController
         return view(parent::loadDefaultVars($this->view_path.'.contact-us'));
     }
 
-    public function sendMail(Request $request)
+    public function sendMail(ContactRequest $request)
     {
       $data = [
             'fullname'   =>         $request->get('full_name'),
@@ -57,10 +57,11 @@ class FrontendController extends FrontendBaseController
       ];
 
       Mail::send($this->mail.'.subscription',['data'=>$data], function ($message) use ($data){
-          $message->from('marcuspaul@maildriver.com','Marcus Paul');
+          $message->from('marcus@marcuspaul.com','Marcus Paul');
           $message->to($data['email']);
-          $message->subject("Thanks");
+          $message->subject("FW: Marcus Paul Ltd: Enquiry Received");
       });
+      return response()->json('Success');
 
 
 

@@ -48,7 +48,9 @@
 
     <script>
        $("document").ready(function(){
-           $(".alert alert-danger").hide();
+           $("#danger_name").hide();
+           $("#danger_email").hide();
+           $("#danger_message").hide();
            $("#btn").click(function (e) {
                 e.preventDefault();
                 var name        =   $("#full_name").val();
@@ -62,10 +64,10 @@
                         data    : params,
                         error: function(request){
                             var response = jQuery.parseJSON(request.responseText);
-                            console.log(response);
-                            if(response)
-                            {
-
+                            if (response){
+                                $("#danger_name").html('<li>' +response.full_name +'</li>').show();
+                                $("#danger_email").html('<li>' +response.email +'</li>').show();
+                                $("#danger_message").html('<li>' +response.message +'</li>').show();
                             }
                         },
                         success: function (data){

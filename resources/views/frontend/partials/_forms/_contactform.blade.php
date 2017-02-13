@@ -1,7 +1,5 @@
-<div class="alert alert-danger">
-    <span class="full_name">
+<div id="danger_name" class="alert alert-danger">
 
-    </span>
 </div>
 <div class="form-group ma-btm">
     <div class="col-md-12">
@@ -12,10 +10,7 @@
     </div>
 </div>
 
-<div class="alert alert-danger">
-    <span class="full_name">
-
-    </span>
+<div id="danger_email" class="alert alert-danger">
 </div>
 
 <div class="form-group ma-btm">
@@ -27,10 +22,7 @@
     </div>
 </div>
 
-<div class="alert alert-danger">
-    <span class="full_name">
-
-    </span>
+<div id="danger_message" class="alert alert-danger">
 </div>
 
 <div class="form-group ma-btm">
@@ -47,7 +39,6 @@
         {{--<input id="prependedtext" name="prependedtext" class="form-control" placeholder="" type="text">--}}
     {{--</div>--}}
 {{--</div>--}}
-
 <div class="form-group">
     <div class="col-md-12">
         {{Form::button($submitBtn,['id'=>'btn','class'=>'btn mp-btn-sub','type'=>'submit'])}}
