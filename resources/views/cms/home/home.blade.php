@@ -5,7 +5,7 @@
     <h1>{{$extra_values['scope']}}</h1>
     <div class="clearboth"></div>
     <div class="breadcrumb">
-        <a href="login.php">Dashboard</a> &raquo; Home Page
+        <a href="login.php">Dashboard</a> &raquo; Rug Designs
     </div>
     <div class="accordion"><a href="JavaScript:void(0);" rel="slide_show" class="accordiontab" <?php if(isset($show_tab) and $show_tab=="slide_show") echo "style='background: url(images/tgup.png) no-repeat right #E30B5D;'"; ?>>CLICK HERE TO MANAGE IMAGES FOR THE SLIDESHOW</a></div>
     <div id="slide_show" class="accordionblock" style="display:<?php echo (isset($show_tab) and $show_tab=="slide_show")?"block":"none"; ?>;">
