@@ -8,7 +8,10 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\AdminBaseController;
+use App\Model\ProductDetail;
 use Illuminate\Http\Request;
+use App\Model\Product;
+use Illuminate\Support\Str;
 
 
 class RugDesignsController extends AdminBaseController
@@ -28,7 +31,18 @@ class RugDesignsController extends AdminBaseController
 
     public function store(Request $request)
     {
-        dd($request);
+        $data = Product::create([
+            'product_name'      =>  $request->get('product_name'),
+            'product_desc'      =>  $request->get('product_description'),
+            'product_alias'     =>  str_slug($request->get('product_name')),
+        ]);
+        ProductDetail::create([
+            'product_id'            =>  $data->id,
+            'product_knotcnt'       =>  $request->get('product_knotcnt'),
+            'product_size'          =>  $request->get('product_size'),
+        ]);
+        return redirect()->route($this->base_route);
+
     }
 
 
