@@ -57,9 +57,9 @@ class FrontendController extends FrontendBaseController
       ];
 
       Mail::send($this->mail.'.subscription',['data'=>$data], function ($message) use ($data){
-          $message->from('marcuspauls.com');
+          $message->from('marcuspaul@maildriver.com','Marcus Paul');
           $message->to($data['email']);
-          $message->subject('Hey thanks for Contacting we Will let you know');
+          $message->subject("Thanks");
       });
 
 
