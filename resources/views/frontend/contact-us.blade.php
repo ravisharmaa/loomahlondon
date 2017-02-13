@@ -1,9 +1,9 @@
+
 @extends($master)
-
 @section('extra-css')
-
 @endsection
 @section('home-section')
+    <div class="mp-wrapper">
 @endsection
 @section('content')
     <div class="mp-section">
@@ -65,9 +65,9 @@
                         error: function(request){
                             var response = jQuery.parseJSON(request.responseText);
                             if (response){
-                                $("#danger_name").html('<li>' +response.full_name +'</li>').show();
-                                $("#danger_email").html('<li>' +response.email +'</li>').show();
-                                $("#danger_message").html('<li>' +response.message +'</li>').show();
+                                (response.full_name)    ? $("#danger_name").html('<li>' +response.full_name +'</li>').show():   $("#danger_name").hide();
+                                (response.email)        ? $("#danger_email").html('<li>' +response.email +'</li>').show():      $("#danger_email").hide();
+                                (response.message)      ? $("#danger_message").html('<li>' +response.message +'</li>').show():  $("#danger_message").hide();
                             }
                         },
                         success: function (data){

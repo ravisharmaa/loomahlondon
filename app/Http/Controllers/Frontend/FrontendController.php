@@ -39,12 +39,12 @@ class FrontendController extends FrontendBaseController
 
     public function aboutUs()
     {
-        dd('hello');
         return view(parent::loadDefaultVars($this->view_path.'.about-us'));
     }
 
     public function contactUs()
     {
+        $this->extra_values['route_name']   =  Route::currentRouteName();
         return view(parent::loadDefaultVars($this->view_path.'.contact-us'));
     }
 
@@ -62,10 +62,5 @@ class FrontendController extends FrontendBaseController
           $message->subject("FW: Marcus Paul Ltd: Enquiry Received");
       });
       return response()->json('Success');
-
-
-
-
-
     }
 }

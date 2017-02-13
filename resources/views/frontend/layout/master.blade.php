@@ -12,8 +12,6 @@
 
     @yield('home-section')
 
-    <div class="mp-home-wrapper">
-
         <div class="container-fluid">
             @yield('content')
     </div>

@@ -41,6 +41,7 @@
         <div class="swipe-target"></div>
     </section>
     <div class="clearfix"></div>
+    <div class="mp-home-wrapper">
 @endsection
 
 @section('content')
