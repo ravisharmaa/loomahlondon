@@ -17,7 +17,7 @@ class RugDesignsController extends AdminBaseController
 
     public function index()
     {
-        return view(parent::siteDefaultVars($this->view_path), $this->getExtraValues());
+        return view(parent::siteDefaultVars($this->view_path.'.index'), $this->getExtraValues());
     }
 
 

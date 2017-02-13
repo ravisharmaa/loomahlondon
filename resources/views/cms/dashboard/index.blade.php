@@ -17,7 +17,7 @@
     </div>
 
     <div class="mpleft">
-        {!! AppHelper::renderHtmlForDashboard(['Rug Designs','cms.login']) !!}
+        {!! AppHelper::renderHtmlForDashboard(['Rug Designs','cms.rug-designs']) !!}
     </div>
     </div>
 

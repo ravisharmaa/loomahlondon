@@ -15,7 +15,7 @@ class CreateTblProductDetailsTable extends Migration
     {
         Schema::create('tbl_product_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('product_id');
+            $table->unsignedInteger('product_id')->nullable();
             $table->string('product_knotcnt')->nullable();
             $table->string('size')->nullable();
             $table->string('width')->nullable();
