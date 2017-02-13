@@ -4,71 +4,15 @@
 @endsection
 
 @section('main-content')
-    <div class="container" style="margin-bottom:0;">
-        <h1 style="width:500px;">Wallpapers</h1>
+        <h1 style="width:500px;">Rug Designs</h1>
         <div class="clearboth"></div>
         <div class="breadcrumb">
-            <a href="login.php">Dashboard</a> »Wallpapers
+            <a href="login.php">Dashboard</a> »Rug Designs
         </div>
         <div class="info">
-            Please overwrite the title and paragraph for the wallpapers page that you wish to have.
-        </div>
-        <form id="form_page_content">
-            <table border="0" class="myform">
-                <tbody><tr>
-
-                    <td class="formright" colspan="2" style="text-align:center;"><input style="text-transform:uppercase;width:98%; text-align:center; font-size: 19px; font-weight: 100;letter-spacing: 0.5px;" type="text" name="cat_banner_title" value="wallpaper Collections" class="mytextbox"></td>
-                </tr>
-                <tr>
-                    <!--<td class="formleft" style="width:23%">Description</td>-->
-                    <td class="formright" colspan="2">
-      <textarea type="text" name="cat_banner_desc" style="width:99%; min-height:75px;  margin-right:20px;  padding:15px 5px; color: #2a2a2a;font-size: 16px;font-weight: normal;text-rendering: optimizelegibility; text-align:left" class="mytextbox">An exceptional collection of hand crafted wallpapers, designed and printed by specialist artisans/designers from across the world has been sourced and edited by Nicola Lawrence.  Each of the designers is listed below.  By clicking on a name/image you will be taken to the designer’s individual page, from where all papers and colourways may be viewed and ordered.
-
-As stated in 'About', Nicola Lawrence will be adding further beautiful collections over the next few weeks and months.</textarea>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="formleft" style="border-right:0">&nbsp;</td>
-                    <td class="formright" style="height:36px;">
-                        <input style="float:right;" type="button" value="Save" class="mybtn save_content">
-                        <div class="saving" style="float:right;">Saving...</div>
-                        <div class="saved" style="float:right;">Successfully Saved.</div>
-                    </td>
-                </tr>
-                </tbody></table>
-            <input type="hidden" name="cat_id" value="2">
-        </form>
-        <script>
-            $(function(){
-                $('.save_content').click(function(){
-                    var t=$(this);
-                    t.hide();
-                    $('.saving').show();
-                    $.ajax({
-                        url: 'ajax/parent_content_save.php',
-                        type: 'post',
-                        data: $('#form_page_content').serialize(),
-                        success: function(){
-                            $('.saving').fadeOut(function(){
-                                $('.saved').fadeIn(function(){
-                                    $(this).fadeOut(2000,function(){
-                                        t.show();
-                                    });
-                                });
-                            });
-                            alertify.success('Successfully Saved.');
-                        }
-                    })
-                });
-            });
-        </script>
-
-
-        <div class="info">
-            Provided below are the collections that feature within the wallpapers  page.
+            Provided below are the collections that feature within the Rug Designs  page.
             <br><br>
-            Click the "Add a collection" button below if you wish to add a collection.
+            Click the "Add a collection" button below if you wish to add a Rug Design.
             <br><br>
             Click on the image or pencil icon to manage its constituent products.
             <br><br>
@@ -77,12 +21,12 @@ As stated in 'About', Nicola Lawrence will be adding further beautiful collectio
             If you wish to change the order in which collections are displayed, you can drag and drop to an alternative position.
         </div>
         <div class="myadd">
-            <a href="ajax/category_add.php?id=2" class="cat_add_link fancybox.ajax">Add a collection</a>
+            <a href="{{route($base_route.'.add')}}" class="rug_add_link fancybox.ajax">Add a rug</a>
         </div>
         <div class="clearboth"></div>
         <script>
             $(function(){
-                $('.cat_add_link').fancybox();
+                $('.rug_add_link').fancybox();
             });
         </script>
         <div id="cat_block"><ul id="sorter" class="polaroid ui-sortable">
@@ -430,7 +374,7 @@ As stated in 'About', Nicola Lawrence will be adding further beautiful collectio
                 });
             </script>
         </div>	<div class="clearboth"></div>
-    </div>
+
 @endsection
 
 @section('footer')

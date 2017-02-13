@@ -18,9 +18,10 @@ Route::group(['prefix'=>'cms',                'as'=>'cms.',             'namespa
 });
 
 $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'middleware'=>'auth',      'namespace'=>'Admin\\'], function() {
-    $this->get('dashboard',                     ['as'=>'dashboard',                         'uses'=>'DashboardController']);
-    $this->get('home',                          ['as'=>'home',                              'uses'=>'DashboardController@home']);
-    $this->get('rug-designs',                   ['as'=>'rug-designs',                       'uses'=>'RugDesignsController@index']);
+    $this->get('dashboard',                     ['as'=>'dashboard.index',                           'uses'=>'DashboardController']);
+    $this->get('home',                          ['as'=>'home',                                      'uses'=>'DashboardController@home']);
+    $this->get('rug-designs',                   ['as'=>'rug-designs',                               'uses'=>'RugDesignsController@index']);
+    $this->get('rug-designs/add',               ['as'=>'rug-designs.add',                           'uses'=>'RugDesignsController@add']);
 });
 
 Route::get('/',                                 ['as'=>'marcus-paul.home', 'uses'=>'Frontend\\FrontendController']);
