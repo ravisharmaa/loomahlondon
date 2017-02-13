@@ -15,6 +15,14 @@
 <script src="{{asset($front_js.'cbpBGSlideshow.min.js')}}"></script>
 <script src="{{asset($front_js.'touchSwipe.js')}}"></script>
 <script src="{{asset($front_js.'plugin.js')}}"></script>
+<script src="{{asset($front_js.'custom.js')}}"></script>
+<script>
+    $(function() {
+        $(".load").lazyload({
+            effect : "fadeIn"
+        });
+    });
+</script>
 <script>
     $(function () {
         cbpBGSlideshow.init();
@@ -47,4 +55,4 @@
         }
     });
 </script>
-<script src="{{asset($front_js.'custom.js')}}"></script>
+

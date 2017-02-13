@@ -45,15 +45,11 @@
     </div>
 @endsection
 @section('extra-scripts')
-    <script>
-        $(function() {
-            $(".load").lazyload({
-                effect : "fadeIn"
-            });
-        });
 
+    <script>
        $("document").ready(function(){
-          $("#btn").click(function (e) {
+           $(".alert alert-danger").hide();
+           $("#btn").click(function (e) {
                 e.preventDefault();
                 var name        =   $("#full_name").val();
                 var email       =   $("#email").val();
@@ -65,13 +61,16 @@
                         url     : '{{route($base_route.'.send-mail')}}',
                         data    : params,
                         error: function(request){
-                            var response = $.parseJSON(request.responseText);
+                            var response = jQuery.parseJSON(request.responseText);
                             console.log(response);
+                            if(response)
+                            {
+
+                            }
                         },
                         success: function (data){
                             console.log(data);
-                            return false;
-                            var data = $.parseJSON(data);
+                            var data = jQuery.parseJSON(data);
 //                            console.log(data.email);
                         }
                     });

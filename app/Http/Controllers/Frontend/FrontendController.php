@@ -11,6 +11,7 @@ use App\Http\Controllers\Frontend\FrontendBaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Requests\ContactRequest;
+use Illuminate\Support\Facades\Mail;
 
 
 class FrontendController extends FrontendBaseController
@@ -18,6 +19,7 @@ class FrontendController extends FrontendBaseController
     protected $view_path    =   'frontend';
     protected $base_route   =   'marcus-paul';
     protected $extra_values =   [];
+    protected $mail         =   'frontend.emails';
 
     public function __invoke()
     {
@@ -46,8 +48,23 @@ class FrontendController extends FrontendBaseController
         return view(parent::loadDefaultVars($this->view_path.'.contact-us'));
     }
 
-    public function sendMail(ContactRequest $request)
+    public function sendMail(Request $request)
     {
-       dd($request);
+      $data = [
+            'fullname'   =>         $request->get('full_name'),
+            'email'      =>         $request->get('email'),
+            'message'    =>         $request->get('message'),
+      ];
+
+      Mail::send($this->mail.'.subscription',['data'=>$data], function ($message) use ($data){
+          $message->from('marcuspauls.com');
+          $message->to($data['email']);
+          $message->subject('Hey thanks for Contacting we Will let you know');
+      });
+
+
+
+
+
     }
 }

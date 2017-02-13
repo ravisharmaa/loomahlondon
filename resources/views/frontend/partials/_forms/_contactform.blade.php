@@ -1,3 +1,8 @@
+<div class="alert alert-danger">
+    <span class="full_name">
+
+    </span>
+</div>
 <div class="form-group ma-btm">
     <div class="col-md-12">
         <div class="input-group">
@@ -6,6 +11,13 @@
         </div>
     </div>
 </div>
+
+<div class="alert alert-danger">
+    <span class="full_name">
+
+    </span>
+</div>
+
 <div class="form-group ma-btm">
     <div class="col-md-12">
         <div class="input-group">
@@ -14,6 +26,13 @@
         </div>
     </div>
 </div>
+
+<div class="alert alert-danger">
+    <span class="full_name">
+
+    </span>
+</div>
+
 <div class="form-group ma-btm">
     <div class="col-md-12">
         {{Form::textarea('message',null,['class'=>"form-control" ,'id'=>"message" ,'placeholder'=>"If you have a particular enquiry and would like to send us a message please write it here."])}}
