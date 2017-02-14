@@ -17,7 +17,7 @@ class CreateTblProductsTable extends Migration
             $table->increments('product_id');
             $table->string('product_name',100)->nullable();
             $table->string('product_alias',100)->nullable();
-            $table->string('product_desc')->nullable();
+            $table->text('product_desc')->nullable();
             $table->string('product_image')->nullable();
             $table->timestamps();
         });

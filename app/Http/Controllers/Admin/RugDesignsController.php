@@ -24,7 +24,8 @@ class RugDesignsController extends AdminBaseController
 
     public function index()
     {
-        return view(parent::siteDefaultVars($this->view_path.'.index'), $this->getExtraValues());
+        $data = Product::select('product_id','product_name','product_desc')->get();
+        return view(parent::siteDefaultVars($this->view_path.'.index'), $this->getExtraValues(), compact('data'));
     }
 
     public function add()
@@ -66,6 +67,13 @@ class RugDesignsController extends AdminBaseController
         $data = Product::findOrFail($id);
         $data->delete();
         return redirect()->route($this->base_route);
+    }
+
+    public function show()
+    {
+
+        $data = Product::select('product_id','product_name','product_desc','product_image')->get();
+        return view(parent::siteDefaultVars($this->view_path.'.partials._showdata'), compact('data'));
     }
 
 

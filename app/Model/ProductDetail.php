@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class ProductDetail extends Model
 {
     protected $table        =   'tbl_product_details';
-    protected $fillable     =   ['product_id','product_name','product_knotcnt','size'];
+    protected $fillable     =   ['product_id','product_name','product_knotcnt','product_size'];
 
 
 
-    public function product_detail()
+    public function product()
     {
-        return $this->belongsTo('App\Model\Product');
+        return $this->belongsTo('App\Model\Product','product_id');
     }
 
 }
