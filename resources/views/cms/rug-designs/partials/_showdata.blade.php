@@ -16,8 +16,8 @@
         <div class="polaroidoption">
             <a href="login.php?p_id=manage_products&amp;id=36"><img src="{{asset($default_images.'icon_edit.png')}}"
                                                                     width="24" height="24" border="0"></a>
-            <a href="JavaScript:void(0);" class="cat_del_link" rel="36"><img
-                        src="{{asset($default_images.'icon_delete.png')}}" width="24" height="24" border="0"></a>
+            <a href="JavaScript:void(0);" onclick="return confirm('Do you want to delete this?')"  class="rug_del_link" rel="36"><img
+                        src="{{asset($default_images.'icon_delete.png')}}" data-id = "{{$d->product_id}}" width="24" height="24" border="0"></a>
 
             <div style="float:right;width:66px;padding-top:5px;">
                 <label><input type="checkbox" id="checkbox-36" class="publish_product" checked=""> Publish</label>
@@ -30,3 +30,15 @@
     @endforeach
 </ul>
 <div class="clearboth"></div>
+
+<script>
+    $("document").ready(function(){
+        $(".rug_del_link").click(function(){
+            $this  = $(this);
+            $.ajax({
+                url : '{{route($base_route.'.delete')}}+'$this.attr('data-id)'
+
+           })
+        });
+    });
+</script>
