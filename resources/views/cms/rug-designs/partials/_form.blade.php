@@ -15,7 +15,7 @@
     <tr>
         <td class="formleft">Knot Count</td>
         <td class="formright">
-            {{Form::text('product_knotcnt',null,['class'=>'mytextbox','id'=>'product_knotcnt'])}}
+            {{Form::number('product_knotcnt',null,['class'=>'mytextbox','id'=>'product_knotcnt'])}}
         </td>
     </tr>
 
@@ -29,7 +29,10 @@
     <tr>
         <td class="formleft">Upload Thumbnail Image</td>
         <td class="formright">
-            {{Form::file('product_image',null,['id'=>'rug_image'])}}
+            {{--<a href="{{$base_route,'cropit_replace_image'}}">--}}
+                {{--<input type="file" name="product_image" id="rug_image" class="replace_product_thumbnail_image fancybox.ajax">--}}
+            {{--</a>--}}
+            {{Form::file('product_image',null,['id'=>'rug_image','class'=>'rug_image'])}}
             <br /><b>The uploaded image will appear on the  page.
                 <br />The dimension of this image should be px in height. Please note that if the dimensions of the image are different than suggested the image will either appear as squashed or compromised in quality.</b>
         </td>

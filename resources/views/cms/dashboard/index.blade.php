@@ -11,34 +11,34 @@
         <p style="margin-top:10px;">Please click the required area that you wish to manage below:</p>
     </div>
 
-    <div class="mpleft">
-        {!! AppHelper::renderHtmlForDashboard(['home','cms.home']) !!}
-    </div>
-    </div>
+    {{--<div class="mpleft">--}}
+        {{--{!! AppHelper::renderHtmlForDashboard(['home','cms.home']) !!}--}}
+    {{--</div>--}}
+    {{--</div>--}}
 
     <div class="mpleft">
         {!! AppHelper::renderHtmlForDashboard(['Rug Designs','cms.rug-designs']) !!}
     </div>
     </div>
 
-    <div class="mpright">
-        {!! AppHelper::renderHtmlForDashboard(['Bespoke Rug Service','cms.login']) !!}
-    </div>
-    </div>
+    {{--<div class="mpright">--}}
+        {{--{!! AppHelper::renderHtmlForDashboard(['Bespoke Rug Service','cms.login']) !!}--}}
+    {{--</div>--}}
+    {{--</div>--}}
     <div class="spacer20"></div>
 
 
     <div class="spacer20"></div>
 
-    <div class="mpleft">
-        {!! AppHelper::renderHtmlForDashboard(['About Us','cms.login']) !!}
-    </div>
-    </div>
+    {{--<div class="mpleft">--}}
+        {{--{!! AppHelper::renderHtmlForDashboard(['About Us','cms.login']) !!}--}}
+    {{--</div>--}}
+    {{--</div>--}}
 
-    <div class="mpleft">
-        {!! AppHelper::renderHtmlForDashboard(['Contact Us','cms.login']) !!}
-    </div>
-    </div>
+    {{--<div class="mpleft">--}}
+        {{--{!! AppHelper::renderHtmlForDashboard(['Contact Us','cms.login']) !!}--}}
+    {{--</div>--}}
+    {{--</div>--}}
     <div class="spacer20"></div>
     <h1>Terms & conditions and Sales Order</h1>
     <div class="spacer20"></div>

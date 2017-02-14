@@ -7,7 +7,7 @@
         <h1 style="width:500px;">Rug Designs</h1>
         <div class="clearboth"></div>
         <div class="breadcrumb">
-            <a href="login.php">Dashboard</a> »Rug Designs
+            <a href="{{route('cms.dashboard')}}">Dashboard</a> »Rug Designs
         </div>
         <div class="info">
             Provided below are the collections that feature within the Rug Designs page.
@@ -25,22 +25,22 @@
         </div>
         <div class="clearboth"></div>
         <script>
-           /* $(function(){
+            $(function(){
                 $('.rug_add_link').fancybox();
 
-            });*/
-           $(".rug_add_link").click(function(e){
-              e.preventDefault();
-              $('.rug_add_link').fancybox();
-              $.ajax({
-                  method: "GET",
-                  url: '{{route($base_route.'.add')}}',
-                  success:function(request){
-                    console.log(request.responseText);
-                  },
+            });
+           {{--$(".rug_add_link").click(function(e){--}}
+              {{--e.preventDefault();--}}
+              {{--$('.rug_add_link').fancybox();--}}
+              {{--$.ajax({--}}
+                  {{--method: "GET",--}}
+                  {{--url: '{{route($base_route.'.add')}}',--}}
+                  {{--success:function(request){--}}
+                    {{--console.log(request.responseText);--}}
+                  {{--},--}}
 
-              });
-           });
+              {{--});--}}
+
         </script>
         <div id="cat_block"><ul id="sorter" class="polaroid ui-sortable">
                 <li id="sortdata_36">
@@ -57,8 +57,8 @@
                         </div>
                     </div>
                     <div class="polaroidoption">
-                        <a href="login.php?p_id=manage_products&amp;id=36"><img src="images/icon_edit.png" width="24" height="24" border="0"></a>
-                        <a href="JavaScript:void(0);" class="cat_del_link" rel="36"><img src="images/icon_delete.png" width="24" height="24" border="0"></a>
+                        <a href="login.php?p_id=manage_products&amp;id=36"><img src="{{asset($default_images.'icon_edit.png')}}" width="24" height="24" border="0"></a>
+                        <a href="JavaScript:void(0);" class="cat_del_link" rel="36"><img src="{{asset($default_images.'icon_delete.png')}}" width="24" height="24" border="0"></a>
 
                         <div style="float:right;width:66px;padding-top:5px;">
                             <label><input type="checkbox" id="checkbox-36" class="publish_product" checked=""> Publish</label>
@@ -276,7 +276,7 @@
                     </div>
                     <div class="polaroidoption">
                         <a href="login.php?p_id=manage_products&amp;id=35"><img src="images/icon_edit.png" width="24" height="24" border="0"></a>
-                        <a href="JavaScript:void(0);" class="cat_del_link" rel="35"><img src="images/icon_delete.png" width="24" height="24" border="0"></a>
+                        <a href="" class="rug_del_link" rel="35"><img src="images/icon_delete.png" width="24" height="24" border="0"></a>
 
                         <div style="float:right;width:66px;padding-top:5px;">
                             <label><input type="checkbox" id="checkbox-35" class="publish_product" checked=""> Publish</label>
@@ -300,7 +300,8 @@
                             });
                         }
                     });
-                    $('.cat_del_link').click(function(){
+                    $('.rug_del_link').click(function(e){
+                        e.preventDefault();
                         if(confirm("Are you sure that you wish to delete this category?")){
                             var t=$(this);
                             $.ajax({

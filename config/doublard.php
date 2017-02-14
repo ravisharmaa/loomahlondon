@@ -7,8 +7,9 @@
  */
 return [
             'backend_assets'=>[
-                'css'   =>  'assets/backend/css/',
-                'js'    =>  'assets/backend/js/',
+                'css'               =>  'assets/backend/css/',
+                'js'                =>  'assets/backend/js/',
+                'default_images'     =>  'assets/backend/images/',
 
                 'pages'         =>  [
                     'navbar'    =>  'cms.includes.navbar',
@@ -29,11 +30,12 @@ return [
             ],
 
             'menus'                 =>[
-                    'home'                  =>  'Home',
+
                     'rug_designs'           =>  'Rug Designs',
-                    'bespoke_rug_service'   =>  'Bespoke Rug Service',
-                    'about_us'              =>  'About Us',
-                    'contact_us'            =>  'Contact Us',
+//                    'bespoke_rug_service'   =>  'Bespoke Rug Service',
+//                    'about_us'              =>  'About Us',
+//                    'contact_us'            =>  'Contact Us',
+//                    'home'                  =>  'Home',
             ],
 
             'frontend_assets'        =>[

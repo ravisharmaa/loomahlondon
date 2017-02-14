@@ -84,7 +84,7 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME','ravi@doubladdesign.com'),
+    'username' => env('MAIL_USERNAME','marcuspaul@doublarddesign.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -97,7 +97,7 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD','Rav!B@st0la'),
+    'password' => env('MAIL_PASSWORD','1gVin9$7'),
 
     /*
     |--------------------------------------------------------------------------

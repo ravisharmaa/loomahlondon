@@ -46,7 +46,7 @@
                             <br />United Kingdom
                             <br />Tel: +44 (0)1424 403000
                         </td>
-                        <td width='180' valign='top' style='font-size:10px;line-height:16px;'>
+                        <td width='220' valign='top' style='font-size:10px;line-height:16px;'>
                             <b>DISTRIBUTED BY TIM PAGE CARPETS</b>
                             <br />Design Centre Chelsea Harbour
                             <br />Lots Road

@@ -10,6 +10,13 @@
        {{Form::close()}}
         <script>
             $(function(){
+                $("document").ready(function(){
+                    $("#rug_image").click(function(){
+                        var rug_image = $(this);
+                        console.log(rug_image);
+                    })
+                });
+
                 $('.rug_add').click(function(){
                     var t=$(this);
                     t.hide();
@@ -46,5 +53,7 @@
                     })
                 });
             });
+
+
         </script>
     </div>
