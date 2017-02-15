@@ -48,14 +48,14 @@ class RugDesignsController extends AdminBaseController
 
             $data = Product::create([
                 'product_name' => $request->get('product_name'),
-                'product_desc' => $request->get('product_description'),
+                'product_desc' => $request->get('product_desc'),
                 'product_alias' => str_slug($request->get('product_name')),
                 'product_image' => $imageName
             ]);
             ProductDetail::create([
-                'product_id' => $data->id,
-                'product_knotcnt' => $request->get('product_knotcnt'),
-                'product_size' => $request->get('product_size'),
+                'product_id'        => $data->product_id,
+                'product_knotcnt'   => $request->get('product_knotcnt'),
+                'product_size'      => $request->get('product_size'),
             ]);
             return redirect()->route($this->base_route);
         }
@@ -75,6 +75,13 @@ class RugDesignsController extends AdminBaseController
 
         $data = Product::select('product_id','product_name','product_desc','product_image')->get();
         return view(parent::siteDefaultVars($this->view_path.'.partials._showdata'), compact('data'));
+    }
+
+
+    public function edit($id)
+    {
+        $data = Product::findOrFail($id);
+        return view(parent::siteDefaultVars($this->view_path.'.edit'), compact('data'));
     }
 
 

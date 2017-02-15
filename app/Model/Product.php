@@ -14,7 +14,7 @@ class Product extends Model
 
     public function product_detail()
     {
-        return $this->hasOne('App\Model\ProductDetail');
+        return $this->hasOne('App\Model\ProductDetail','product_id');
     }
 
 }

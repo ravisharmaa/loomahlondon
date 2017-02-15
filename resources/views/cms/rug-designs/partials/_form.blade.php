@@ -8,7 +8,8 @@
     <tr>
         <td class="formleft">Description</td>
         <td class="formright">
-            {{Form::textarea('product_description',null,['class'=>'mytextarea','id'=>'product_description'])}}
+            {{Form::textarea('product_desc',null,['class'=>'mytextarea','id'=>'product_description'])}}
+
         </td>
     </tr>
 

@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="polaroidoption">
-            <a href="login.php?p_id=manage_products&amp;id=36"><img src="{{asset($default_images.'icon_edit.png')}}"
+            <a href="{{route($base_route.'.edit', $d->product_id)}}"><img src="{{asset($default_images.'icon_edit.png')}}"
                                                                     width="24" height="24" border="0"></a>
             <a href="JavaScript:void(0);" onclick="return confirm('Do you want to delete this?')"  data-id = "{{$d->product_id}}" class="rug_del_link" rel="36"><img
                         src="{{asset($default_images.'icon_delete.png')}}" width="24" height="24" border="0"></a>
@@ -44,7 +44,7 @@
                 },
                 success:function(data)
                 {
-                    console.log(data);
+                    $this.parent().parent().hide();
                 }
 
             })

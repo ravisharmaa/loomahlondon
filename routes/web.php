@@ -24,7 +24,10 @@ $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'mid
     $this->get('rug-designs/add',               ['as'=>'rug-designs.add',                                   'uses'=>'RugDesignsController@add']);
     $this->post('rug-designs/store',            ['as'=>'rug-designs.store',                                 'uses'=>'RugDesignsController@store']);
     $this->get('rug-designs/show',              ['as'=>'rug-designs.show-products',                         'uses'=>'RugDesignsController@show']);
-    $this->get('rug-designs/delete/{id}',        ['as'=>'rug-designs.delete',                                'uses'=>'RugDesignsController@delete']);
+    $this->get('rug-designs/delete/{id}',       ['as'=>'rug-designs.delete',                                'uses'=>'RugDesignsController@delete']);
+    $this->get('rug-designs/edit/{id}',         ['as'=>'rug-designs.edit',                                  'uses'=>'RugDesignsController@edit']);
+    $this->get('rug-designs/update/{id}',       ['as'=>'rug-designs.update',                                'uses'=>'RugDesignsController@update']);
+
 });
 
 Route::get('/',                                 ['as'=>'marcus-paul.home', 'uses'=>'Frontend\\FrontendController']);

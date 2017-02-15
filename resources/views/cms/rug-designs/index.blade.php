@@ -29,18 +29,6 @@
                 $('.rug_add_link').fancybox();
 
             });
-           {{--$(".rug_add_link").click(function(e){--}}
-              {{--e.preventDefault();--}}
-              {{--$('.rug_add_link').fancybox();--}}
-              {{--$.ajax({--}}
-                  {{--method: "GET",--}}
-                  {{--url: '{{route($base_route.'.add')}}',--}}
-                  {{--success:function(request){--}}
-                    {{--console.log(request.responseText);--}}
-                  {{--},--}}
-
-              {{--});--}}
-
         </script>
         <div id="cat_block">
             <div class="pleasewait">Please wait...</div>
