@@ -16,27 +16,33 @@
     <tr>
         <td class="formleft">Knot Count</td>
         <td class="formright">
-            {{Form::number('product_knotcnt', AppHelper::getProductRelationValues($data, 'product_knotcnt'),['class'=>'mytextbox','id'=>'product_knotcnt'])}}
+            {{Form::text('product_knotcnt', isset($data) ? AppHelper::getProductRelationValues($data, 'product_knotcnt'):null,['class'=>'mytextbox','id'=>'product_knotcnt'])}}
         </td>
     </tr>
 
     <tr>
         <td class="formleft">Size</td>
         <td class="formright">
-            {{Form::text('product_size',AppHelper::getProductRelationValues($data, 'product_size'),['class'=>'mytextbox','id'=>'product_size'])}}
+            {{Form::text('product_size', isset($data) ? AppHelper::getProductRelationValues($data, 'product_size') : null,['class'=>'mytextbox','id'=>'product_size'])}}
         </td>
     </tr>
 
     <tr>
+        @if(isset($data->product_image))
+            <td class="formleft">Previous Thumbnail Image</td>
+            <td class="formright">
+                <img src="{{asset('images/'.$data->product_image)}}"  height ="150"  border="0">
+            </td>
+        @endif
+    </tr>
+    <tr>
         <td class="formleft">Upload Thumbnail Image</td>
         <td class="formright">
-            {{--<a href="{{$base_route,'cropit_replace_image'}}">--}}
-                {{--<input type="file" name="product_image" id="rug_image" class="replace_product_thumbnail_image fancybox.ajax">--}}
-            {{--</a>--}}
             {{Form::file('product_image',null,['id'=>'rug_image','class'=>'rug_image'])}}
             <br /><b>The uploaded image will appear on the  page.
                 <br />The dimension of this image should be px in height. Please note that if the dimensions of the image are different than suggested the image will either appear as squashed or compromised in quality.</b>
         </td>
+
     </tr>
     <tr  class="myform hide" style="display:none">
     <tr>

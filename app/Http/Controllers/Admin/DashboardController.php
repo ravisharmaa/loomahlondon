@@ -7,6 +7,7 @@
  */
 
 namespace App\Http\Controllers\Admin;
+use App\Captcha\Captcha;
 use App\Classes\AppHelper;
 use App\Http\Controllers\Admin\AdminBaseController;
 use App\Library\MyLibrary;

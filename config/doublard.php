@@ -31,7 +31,7 @@ return [
 
             'menus'                 =>[
 
-                    'rug_designs'           =>  'Rug Designs',
+                    'cms.rug-designs'    =>  'Rug Designs',
 //                    'bespoke_rug_service'   =>  'Bespoke Rug Service',
 //                    'about_us'              =>  'About Us',
 //                    'contact_us'            =>  'Contact Us',

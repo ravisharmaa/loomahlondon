@@ -4,7 +4,7 @@
 @section('main-content')
     <h1>{{$data->product_name}}</h1>
     <div class="goback" style="width:330px;">
-        <a href="login.php?p_id=manage_wallpapers&id=2">Back to Rug Create Page</a>    </div>
+        <a href="login.php?p_id=manage_wallpapers&id=2">Back to {{$extra_values['scope']}}</a>    </div>
     <div class="clearboth"></div>
     <div class="breadcrumb">
         <a href="#">Dashboard</a> &raquo;
@@ -17,7 +17,7 @@
         <div class="info">
             Provide the title, description and its image that you wish to update.
         </div>
-        <form id="form_cat_edit">
+
         {{Form::model($data,['route'=>[$base_route.'.update',$data->product_id],'method'=>'PUT','id'=>'form_rug_add','enctype'=>'multipart/form-data','files'=>true])}}
             @include('cms.rug-designs.partials._form',['btnText'=>'Save'])
         {{Form::close()}}

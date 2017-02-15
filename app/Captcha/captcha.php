@@ -36,15 +36,14 @@ class Captcha
 
     }
 
-    private function randomText()
+    public static function randomText()
     {
         $string = '';
         $letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
             for($i=0; $i<=6; $i++)
             {
-                $string .= $letters[rand(0, count($letters-1))];
+                $string .= $letters[rand(0, count($letters)-1)];
             }
-            $this->code = $string;
             return $string;
     }
 }

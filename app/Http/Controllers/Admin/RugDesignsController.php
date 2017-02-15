@@ -47,8 +47,8 @@ class RugDesignsController extends AdminBaseController
             $image->move($this->upload_folder, $imageName);
 
             $data = Product::create([
-                'product_name' => $request->get('product_name'),
-                'product_desc' => $request->get('product_desc'),
+                'product_name'  => $request->get('product_name'),
+                'product_desc'  => $request->get('product_desc'),
                 'product_alias' => str_slug($request->get('product_name')),
                 'product_image' => $imageName
             ]);
@@ -81,10 +81,36 @@ class RugDesignsController extends AdminBaseController
     public function edit($id)
     {
         $data = Product::findOrFail($id);
-        return view(parent::siteDefaultVars($this->view_path.'.edit'), compact('data'));
+        return view(parent::siteDefaultVars($this->view_path.'.edit',$this->getExtraValues()), compact('data'));
     }
 
+    public function update(Request $request, $id)
+    {
+        $data                   =   Product::findOrFail($id);
+        $product_detail         =   ProductDetail::find($data->product_id);
+        $data->product_name     =   $request->get('product_name');
+        $data->product_desc     =   $request->get('product_desc');
 
+        if($request->hasFile('product_image'))
+        {
+            File::delete(public_path().'/' .$this->upload_folder. $data->product_image);
+            $image          = $request->file('product_image');
+            $filename       = $image->getClientOriginalName();
+            $filename       = pathinfo($filename, PATHINFO_FILENAME);
+            $imageName      = str_slug($filename) . '.' . $image->getClientOriginalExtension();
+            if (is_dir($this->upload_folder) == false) {
+                File::makeDirectory($this->upload_folder, 0777, true);
+            }
+            $image->move($this->upload_folder, $imageName);
+            $data->product_image = $imageName;
+        }
+        $data->save();
+        $product_detail->product_knotcnt =   $request->get('product_knotcnt');
+        $product_detail->product_width  =   $request->get('product_width');
+        $product_detail->save();
+        return redirect()->route($this->base_route);
+
+    }
 
     public function getExtraValues()
     {

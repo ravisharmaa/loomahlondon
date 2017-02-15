@@ -26,7 +26,7 @@ $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'mid
     $this->get('rug-designs/show',              ['as'=>'rug-designs.show-products',                         'uses'=>'RugDesignsController@show']);
     $this->get('rug-designs/delete/{id}',       ['as'=>'rug-designs.delete',                                'uses'=>'RugDesignsController@delete']);
     $this->get('rug-designs/edit/{id}',         ['as'=>'rug-designs.edit',                                  'uses'=>'RugDesignsController@edit']);
-    $this->get('rug-designs/update/{id}',       ['as'=>'rug-designs.update',                                'uses'=>'RugDesignsController@update']);
+    $this->put('rug-designs/update/{id}',       ['as'=>'rug-designs.update',                                'uses'=>'RugDesignsController@update']);
 
 });
 
