@@ -75,18 +75,18 @@
             });
         });
     </script>
-    <div class="accordion"><a href="JavaScript:void(0);" rel="pro_list" class="accordiontab" style='background: url(images/tgup.png) no-repeat right #E30B5D;'>CLICK HERE TO MANAGE THE PRODUCTS WITHIN THE BENNISON</a></div>
+    <div class="accordion"><a href="JavaScript:void(0);" rel="pro_list" class="accordiontab" style='background: url(images/tgup.png) no-repeat right #E30B5D;'>CLICK HERE TO MANAGE THE COLOURWAYS WITHIN THE {{ucwords($data->product_name)}}</a></div>
     <div id="pro_list" class="accordionblock" style="display:block;">
         <div class="info">
-            Provided below are the products that feature within the bennison products page.
+            Provided below are the products that feature within the {{$data->product_name}} rugs page.
             <br /><br />
-            Click the "Add a product" button below if you wish to add a product.
+            Click the "Add a Colourway" button below if you wish to add a colourway.
             <br /><br />
             Click on the image or pencil icon to edit its detail.
             <br /><br />
-            In the unlikely event that you wish to delete a product, click on the cross icon associated with it. You will be shown a warning alert should you wish to do this.
+            In the unlikely event that you wish to delete a colourway, click on the cross icon associated with it. You will be shown a warning alert should you wish to do this.
             <br /><br />
-            If you wish to change the order in which products are displayed, you can drag and drop a product to an alternative position.
+            If you wish to change the order in which colourways are displayed, you can drag and drop a colourway to an alternative position.
         </div>
         <div class="myadd">
             <a href="ajax/product_add.php?id=36" class="product_add_link fancybox.ajax">Add a product</a>
@@ -113,61 +113,8 @@
             </script>
         </div>
     </div>
+    <div class="clearboth"></div>
 
-    <div class="accordion"><a href="JavaScript:void(0);" rel="cat_seo" class="accordiontab" >CLICK HERE TO EDIT SEO FOR THE BENNISON PAGE</a></div>
-    <div id="cat_seo" class="accordionblock" style="display:none;">
-        <div class="info">
-            Please provide the SEO contents for the bennison page that you wish to have.
-        </div>
-        <form id="form_page_seo">
-            <table border="0" class="myform">
-                <tr>
-                    <td class="formleft">Title tag</td>
-                    <td class="formright"><input type="text" name="cat_titletag" value="" class="mytextbox" /></td>
-                </tr>
-                <tr>
-                    <td class="formleft">Meta keywords</td>
-                    <td class="formright"><textarea name="cat_metakeywords" class="mytextarea"></textarea></td>
-                </tr>
-                <tr>
-                    <td class="formleft">Meta description</td>
-                    <td class="formright"><textarea name="cat_metadescription" class="mytextarea"></textarea></td>
-                </tr>
-                <tr>
-                    <td class="formleft">&nbsp;</td>
-                    <td class="formright" style="height:36px;">
-                        <input type="button" value="Save" class="mybtn save_seo" />
-                        <div class="saving">Saving...</div>
-                        <div class="saved">Successfully Saved.</div>
-                    </td>
-                </tr>
-            </table>
-            <input type="hidden" name="cat_id" value="36" />
-        </form>
-        <script>
-            $(function(){
-                $('.save_seo').click(function(){
-                    var t=$(this);
-                    t.hide();
-                    $('.saving').show();
-                    $.ajax({
-                        url: 'ajax/cat_seo_save.php',
-                        type: 'post',
-                        data: $('#form_page_seo').serialize(),
-                        success: function(){
-                            $('.saving').fadeOut(function(){
-                                $('.saved').show().delay(1000).hide(function(){
-                                    t.show();
-                                });
-                            });
-                            alertify.success('Successfully Saved.');
-                        }
-                    })
-                });
-            });
-        </script>
-    </div>	<div class="clearboth"></div>
-    </div>
 
 @endsection
 

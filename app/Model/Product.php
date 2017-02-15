@@ -17,4 +17,9 @@ class Product extends Model
         return $this->hasOne('App\Model\ProductDetail','product_id');
     }
 
+    public function colourways()
+    {
+        return $this->hasMany('App\Model\Colourway');
+    }
+
 }
