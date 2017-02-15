@@ -18,12 +18,13 @@ Route::group(['prefix'=>'cms',                'as'=>'cms.',             'namespa
 });
 
 $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'middleware'=>'auth',      'namespace'=>'Admin\\'], function() {
-    $this->get('dashboard',                     ['as'=>'dashboard',                           'uses'=>'DashboardController']);
-    $this->get('home',                          ['as'=>'home',                                      'uses'=>'DashboardController@home']);
-    $this->get('rug-designs',                   ['as'=>'rug-designs',                               'uses'=>'RugDesignsController@index']);
-    $this->get('rug-designs/add',               ['as'=>'rug-designs.add',                           'uses'=>'RugDesignsController@add']);
-    $this->post('rug-designs/store',            ['as'=>'rug-designs.store',                          'uses'=>'RugDesignsController@store']);
-    $this->get('rug-designs/show',              ['as'=>'rug-designs.show-products',                          'uses'=>'RugDesignsController@show']);
+    $this->get('dashboard',                     ['as'=>'dashboard',                                         'uses'=>'DashboardController']);
+    $this->get('home',                          ['as'=>'home',                                              'uses'=>'DashboardController@home']);
+    $this->get('rug-designs',                   ['as'=>'rug-designs',                                       'uses'=>'RugDesignsController@index']);
+    $this->get('rug-designs/add',               ['as'=>'rug-designs.add',                                   'uses'=>'RugDesignsController@add']);
+    $this->post('rug-designs/store',            ['as'=>'rug-designs.store',                                 'uses'=>'RugDesignsController@store']);
+    $this->get('rug-designs/show',              ['as'=>'rug-designs.show-products',                         'uses'=>'RugDesignsController@show']);
+    $this->get('rug-designs/delete/{id}',        ['as'=>'rug-designs.delete',                                'uses'=>'RugDesignsController@delete']);
 });
 
 Route::get('/',                                 ['as'=>'marcus-paul.home', 'uses'=>'Frontend\\FrontendController']);

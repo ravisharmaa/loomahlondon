@@ -65,6 +65,7 @@ class RugDesignsController extends AdminBaseController
     public function delete($id)
     {
         $data = Product::findOrFail($id);
+        File::delete(public_path().'/' .$this->upload_folder. $data->product_image);
         $data->delete();
         return redirect()->route($this->base_route);
     }
@@ -75,6 +76,7 @@ class RugDesignsController extends AdminBaseController
         $data = Product::select('product_id','product_name','product_desc','product_image')->get();
         return view(parent::siteDefaultVars($this->view_path.'.partials._showdata'), compact('data'));
     }
+
 
 
     public function getExtraValues()

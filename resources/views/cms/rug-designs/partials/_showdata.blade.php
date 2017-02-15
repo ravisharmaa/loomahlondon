@@ -16,8 +16,8 @@
         <div class="polaroidoption">
             <a href="login.php?p_id=manage_products&amp;id=36"><img src="{{asset($default_images.'icon_edit.png')}}"
                                                                     width="24" height="24" border="0"></a>
-            <a href="JavaScript:void(0);" onclick="return confirm('Do you want to delete this?')"  class="rug_del_link" rel="36"><img
-                        src="{{asset($default_images.'icon_delete.png')}}" data-id = "{{$d->product_id}}" width="24" height="24" border="0"></a>
+            <a href="JavaScript:void(0);" onclick="return confirm('Do you want to delete this?')"  data-id = "{{$d->product_id}}" class="rug_del_link" rel="36"><img
+                        src="{{asset($default_images.'icon_delete.png')}}" width="24" height="24" border="0"></a>
 
             <div style="float:right;width:66px;padding-top:5px;">
                 <label><input type="checkbox" id="checkbox-36" class="publish_product" checked=""> Publish</label>
@@ -34,11 +34,22 @@
 <script>
     $("document").ready(function(){
         $(".rug_del_link").click(function(){
-            $this  = $(this);
+           var $this  = $(this);
+           var id     =  $this.attr('data-id');
             $.ajax({
-                url : '{{route($base_route.'.delete')}}+'$this.attr('data-id)'
+                url : '{{url('cms/rug-designs/delete')}}'+'/'+id,
+                type: "GET",
+                error:function(request){
+                    console.log(request.responseText);
+                },
+                success:function(data)
+                {
+                    console.log(data);
+                }
 
-           })
-        });
+            })
+
+           });
+
     });
 </script>
