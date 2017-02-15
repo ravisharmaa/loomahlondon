@@ -16,14 +16,14 @@
     <tr>
         <td class="formleft">Knot Count</td>
         <td class="formright">
-            {{Form::number('product_knotcnt',null,['class'=>'mytextbox','id'=>'product_knotcnt'])}}
+            {{Form::number('product_knotcnt', AppHelper::getProductRelationValues($data, 'product_knotcnt'),['class'=>'mytextbox','id'=>'product_knotcnt'])}}
         </td>
     </tr>
 
     <tr>
         <td class="formleft">Size</td>
         <td class="formright">
-            {{Form::text('product_size',null,['class'=>'mytextbox','id'=>'product_size'])}}
+            {{Form::text('product_size',AppHelper::getProductRelationValues($data, 'product_size'),['class'=>'mytextbox','id'=>'product_size'])}}
         </td>
     </tr>
 

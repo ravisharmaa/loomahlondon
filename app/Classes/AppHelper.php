@@ -54,8 +54,10 @@ class AppHelper
         return $data = 'marcus-paul'.".".$route;
     }
 
-    public function getProductRelationValues()
+    public static function getProductRelationValues($model_var, $relation)
     {
-        
+        if($model_var->product_detail){
+            return $model_var->product_detail->$relation;
+        }
     }
 }
