@@ -8,19 +8,17 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\AdminBaseController;
-use App\Model\ProductDetail;
-use App\Http\Requests\ProductRequest;
+use App\Model\Colourway;
 use App\Model\Product;
-use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 
-class RugDesignsController extends AdminBaseController
+class ColourwaysController extends AdminBaseController
 {
-    protected $base_route       =   'cms.rug-designs';
-    protected $view_path        =   'cms.rug-designs';
+    protected $base_route       =   'cms.rug-designs.colourway';
+    protected $view_path        =   'cms.colourway';
     protected $upload_folder    =   'images/rugs/';
 
     public function index()
@@ -29,41 +27,46 @@ class RugDesignsController extends AdminBaseController
         return view(parent::siteDefaultVars($this->view_path.'.index'), $this->getExtraValues(), compact('data'));
     }
 
-    public function add()
+    public function add($id)
     {
-        return view(parent::siteDefaultVars($this->view_path.'.add'));
+        $product_data = Product::findOrFail($id);
+        return view(parent::siteDefaultVars($this->view_path.'.add'),compact('product_data'));
     }
 
     public function store(Request $request)
     {
-
-        $imageName = null;
-        if($request->hasFile('product_image')) {
-            $image = $request->file('product_image');
-            $filename = $image->getClientOriginalName();
-            $filename = pathinfo($filename, PATHINFO_FILENAME);
-            $imageName = str_slug($filename) . '.' . $image->getClientOriginalExtension();
+        $imageName_th = null;
+        $imageName_lg = null;
+        if ($request->hasFile('colourway_th_image') && $request->hasFile('colourway_lg_image')) {
+            $colourway_th_image = $request->file('colourway_th_image');
+            $colourway_lg_image = $request->file('colourway_lg_image');
+            $filename_th = $colourway_th_image->getClientOriginalName();
+            $filename_lg = $colourway_lg_image->getClientOriginalName();
+            $filename_lg = pathinfo($filename_lg, PATHINFO_FILENAME);
+            $filename_th = pathinfo($filename_th, PATHINFO_FILENAME);
+            $imageName_th = str_slug($filename_th) . '.' . $colourway_th_image->getClientOriginalExtension();
+            $imageName_lg = str_slug($filename_lg) . '.' . $colourway_lg_image->getClientOriginalExtension();
             if (is_dir($this->upload_folder) == false) {
                 File::makeDirectory($this->upload_folder, 0777, true);
             }
-            $image->move($this->upload_folder, $imageName);
+            $colourway_th_image->move($this->upload_folder . 'colourway/th/', $imageName_th);
+            $colourway_lg_image->move($this->upload_folder . 'colourway/lg/', $imageName_lg);
         }
-            $data = Product::create([
-                'product_name'  => $request->get('product_name'),
-                'product_desc'  => $request->get('product_desc'),
-                'product_alias' => str_slug($request->get('product_name')),
-                'product_image' => $imageName
-            ]);
-
-            ProductDetail::create([
-                'product_id'        => $data->product_id,
-                'product_knotcnt'   => $request->get('product_knotcnt'),
-                'product_size'      => $request->get('product_size'),
-            ]);
-        return redirect()->route($this->base_route.'.edit',[$data]);
-
+        $last_order = Colourway::max('colourway_order')?Colourway::max('colourway_order'):1;
+        $data = Colourway::create([
+            'product_id' => $request->get('product_id'),
+            'colourway_name' => $request->get('colourway_name'),
+            'colourway_description' => $request->get('colourway_name'),
+            'colourway_alias' => str_slug($request->get('colourway_name')),
+            'colourway_th_image' => $imageName_th,
+            'colourway_lg_image' => $imageName_lg,
+            'colourway_default' => $request->get('colourway_default'),
+            'colourway_order' => $last_order++,
+        ]);
+        return redirect()->route($this->base_route);
     }
 
+        //$colourway_order = Colourway::max('colourway_order')?Colourway::max('colourway_order'):1
 
     public function delete($id)
     {

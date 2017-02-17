@@ -18,15 +18,18 @@ Route::group(['prefix'=>'cms',                'as'=>'cms.',             'namespa
 });
 
 $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'middleware'=>'auth',      'namespace'=>'Admin\\'], function() {
-    $this->get('dashboard',                     ['as'=>'dashboard',                                         'uses'=>'DashboardController']);
-    $this->get('home',                          ['as'=>'home',                                              'uses'=>'DashboardController@home']);
-    $this->get('rug-designs',                   ['as'=>'rug-designs',                                       'uses'=>'RugDesignsController@index']);
-    $this->get('rug-designs/add',               ['as'=>'rug-designs.add',                                   'uses'=>'RugDesignsController@add']);
-    $this->post('rug-designs/store',            ['as'=>'rug-designs.store',                                 'uses'=>'RugDesignsController@store']);
-    $this->get('rug-designs/show',              ['as'=>'rug-designs.show-products',                         'uses'=>'RugDesignsController@show']);
-    $this->get('rug-designs/delete/{id}',       ['as'=>'rug-designs.delete',                                'uses'=>'RugDesignsController@delete']);
-    $this->get('rug-designs/edit/{id}',         ['as'=>'rug-designs.edit',                                  'uses'=>'RugDesignsController@edit']);
-    $this->put('rug-designs/update/{id}',       ['as'=>'rug-designs.update',                                'uses'=>'RugDesignsController@update']);
+    $this->get('dashboard',                         ['as'=>'dashboard',                                         'uses'=>'DashboardController']);
+    $this->get('home',                              ['as'=>'home',                                              'uses'=>'DashboardController@home']);
+    $this->get('rug-designs',                       ['as'=>'rug-designs',                                       'uses'=>'RugDesignsController@index']);
+    $this->get('rug-designs/add',                   ['as'=>'rug-designs.add',                                   'uses'=>'RugDesignsController@add']);
+    $this->post('rug-designs/store',                ['as'=>'rug-designs.store',                                 'uses'=>'RugDesignsController@store']);
+    $this->get('rug-designs/show',                  ['as'=>'rug-designs.show-products',                         'uses'=>'RugDesignsController@show']);
+    $this->get('rug-designs/delete/{id}',           ['as'=>'rug-designs.delete',                                'uses'=>'RugDesignsController@delete']);
+    $this->get('rug-designs/edit/{id}',             ['as'=>'rug-designs.edit',                                  'uses'=>'RugDesignsController@edit']);
+    $this->put('rug-designs/update/{id}',           ['as'=>'rug-designs.update',                                'uses'=>'RugDesignsController@update']);
+    $this->get('rug-designs/colourway/{id}',        ['as'=>'rug-designs.colourway.add',                         'uses'=>'ColourwaysController@add']);
+    $this->post('rug-designs/colourway/save',       ['as'=>'rug-designs.colourway.store',                       'uses'=>'ColourwaysController@store']);
+
 
 });
 

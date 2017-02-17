@@ -44,11 +44,6 @@
                         },
                         success: function(data){
                             console.log(data);
-
-                            $("#cat_image").upload("ajax/category_image_upload.php?id="+id,function(res){
-                                $(location).attr('href','login.php?p_id=manage_products&id='+id);
-                            },function(data) {
-                            });
                         }
                     })
                 });

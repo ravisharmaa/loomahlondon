@@ -23,7 +23,7 @@ class CreateTblColourwaysTable extends Migration
             $table->string('colourway_lg_image')->nullable();
             $table->boolean('colourway_default')->default('1');
             $table->integer('colourway_order')->nullable();
-            $table->boolean('colourway_status')->nullable();
+            $table->integer('colourway_status')->nullable();
             $table->foreign('product_id')->references('product_id')->on('tbl_products')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

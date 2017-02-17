@@ -10,7 +10,7 @@ class Colourway extends Model
     protected $primaryKey   =   'colourway_id';
 
     protected $fillable     =   [
-        'colourway_id','product_id','colourway_name','colourway_alias','colourway_alias','colourway_description',
+        'product_id','colourway_name','colourway_alias','colourway_description',
         'colourway_th_image','colourway_lg_image','colourway_default','colourway_order','colourway_status'
     ];
 
