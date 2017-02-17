@@ -91,7 +91,7 @@
         <div class="myadd">
             <a href="{{route($base_route.'.colourway.add',[$data->product_id])}}" class="colourway_add_link fancybox.ajax">Add a colourway for {{$data->product_name}}</a>
         </div>
-        <div class="clearboth"></div>
+        <div  data-attr="{{$data->product_id}}" class="clearboth"></div>
         <script>
             $(function(){
                 $('.colourway_add_link').fancybox();
@@ -102,9 +102,9 @@
             <script>
                 $(function(){
                     $.ajax({
-                        url: 'ajax/product_show.php',
-                        type: 'post',
-                        data: { id: '36' },
+                        url: '{{route($base_route.'.colourway.show',[$data->product_id])}}',
+                        type: 'get',
+                        data: {},
                         success: function(data){
                             $('#pro_block').html(data);
                         }

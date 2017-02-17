@@ -29,8 +29,7 @@ $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'mid
     $this->put('rug-designs/update/{id}',           ['as'=>'rug-designs.update',                                'uses'=>'RugDesignsController@update']);
     $this->get('rug-designs/colourway/{id}',        ['as'=>'rug-designs.colourway.add',                         'uses'=>'ColourwaysController@add']);
     $this->post('rug-designs/colourway/save',       ['as'=>'rug-designs.colourway.store',                       'uses'=>'ColourwaysController@store']);
-
-
+    $this->get('rug-designs/colourway/show/{id}',   ['as'=>'rug-designs.colourway.show',                        'uses'=>'ColourwaysController@show']);
 });
 
 Route::get('/',                                 ['as'=>'marcus-paul.home', 'uses'=>'Frontend\\FrontendController']);

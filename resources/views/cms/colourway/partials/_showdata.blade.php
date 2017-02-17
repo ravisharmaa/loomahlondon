@@ -1,22 +1,22 @@
 <ul id="sorter" class="polaroid ui-sortable">
-    @foreach($data as $d)
-    <li id="sortdata_{{$d->product_id}}">
+    @foreach($data['colourways'] as $colourway)
+    <li id="sortdata_{{$colourway->colourway_id}}">
         <div class="polaroidimg">
             <a href="#">
-                <img src="{{asset('images/'.$d->product_image)}}" width="200" border="0">
+                <img src="{{asset('images/colourway/th/'.$colourway->colourway_th_image)}}" width="200" border="0">
             </a>
         </div>
         <div class="polaroidlabel">
             <div class="tr">
                 <div class="td">
-                    <span class="cat_sn">1</span>{{$d->product_name}}
+                    <span class="cat_sn">1. </span>{{$colourway->colourway_name}}
                 </div>
             </div>
         </div>
         <div class="polaroidoption">
-            <a href="{{route($base_route.'.edit', $d->product_id)}}"><img src="{{asset($default_images.'icon_edit.png')}}"
+            <a href=""><img src="{{asset($default_images.'icon_edit.png')}}"
                                                                     width="24" height="24" border="0"></a>
-            <a href="JavaScript:void(0);" onclick="return confirm('Do you want to delete this?')"  data-id = "{{$d->product_id}}" class="rug_del_link" rel="36"><img
+            <a href="JavaScript:void(0);" onclick="return confirm('Do you want to delete this?')"  data-id = "" class="rug_del_link" rel="36"><img
                         src="{{asset($default_images.'icon_delete.png')}}" width="24" height="24" border="0"></a>
 
             <div style="float:right;width:66px;padding-top:5px;">
@@ -27,7 +27,7 @@
             </div>
         </div>
     </li>
-    @endforeach
+   @endforeach
 </ul>
 <div class="clearboth"></div>
 

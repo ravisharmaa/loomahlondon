@@ -76,11 +76,12 @@ class ColourwaysController extends AdminBaseController
         return redirect()->route($this->base_route);
     }
 
-    public function show()
+    public function show($id)
     {
-
-        $data = Product::select('product_id','product_name','product_desc','product_image')->get();
-        return view(parent::siteDefaultVars($this->view_path.'.partials._showdata'), compact('data'));
+       $data = [];
+       $data['product']     =   Product::findOrFail($id);
+       $data['colourways']  =   $data['product']->colourways()->get();
+       return view(parent::siteDefaultVars($this->view_path.'.partials._showdata'),compact('data'));
     }
 
 

@@ -19,7 +19,7 @@ class Product extends Model
 
     public function colourways()
     {
-        return $this->hasMany('App\Model\Colourway');
+        return $this->hasMany('App\Model\Colourway','product_id');
     }
 
 }
