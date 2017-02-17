@@ -13,6 +13,7 @@ use App\Model\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 
 class ColourwaysController extends AdminBaseController
@@ -53,6 +54,9 @@ class ColourwaysController extends AdminBaseController
             $colourway_lg_image->move($this->upload_folder . 'colourway/lg/', $imageName_lg);
         }
 
+        $update = DB::table('tbl_colourways')->where('product_id',$request->get('product_id'))
+            ->update(['colourway_order'=>'colourway_order+1']);
+        dd($update);
 
         $data = Colourway::create([
             'product_id' => $request->get('product_id'),
@@ -62,7 +66,7 @@ class ColourwaysController extends AdminBaseController
             'colourway_th_image' => $imageName_th,
             'colourway_lg_image' => $imageName_lg,
             'colourway_default' => $request->get('colourway_default'),
-            'colourway_order' => $last_order++,
+            'colourway_order' => 1,
         ]);
         return redirect()->route($this->base_route);
     }
@@ -124,5 +128,23 @@ class ColourwaysController extends AdminBaseController
         $extra_values = [];
         $extra_values['scope'] = 'Rug Designs';
         return $extra_values;
+    }
+
+    public function changeDefault(Request $request)
+    {
+        $id = $request->get('id');
+        $data = Colourway::findOrfail($id);
+
+        if($data->colourway_default==1)
+            $data->colourway_default =0;
+        else
+           $data->colourway_default=1;
+
+        $data->save();
+
+        return response()->json(json_encode([
+            'error'     =>false,
+            'default'   =>$data->colourway_default
+        ]));
     }
 }

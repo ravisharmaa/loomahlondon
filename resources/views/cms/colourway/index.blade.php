@@ -149,5 +149,4 @@
 @endsection
 
 @section('extra-scripts')
-
 @endsection

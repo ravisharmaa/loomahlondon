@@ -18,7 +18,11 @@
                                                                     width="24" height="24" border="0"></a>
             <a href="JavaScript:void(0);" onclick="return confirm('Do you want to delete this?')"  data-id = "" class="rug_del_link" rel="36"><img
                         src="{{asset($default_images.'icon_delete.png')}}" width="24" height="24" border="0"></a>
-
+            @if($colourway->colourway_default==1)
+                <a href="" class="status" data-id="{{$colourway->colourway_id}}"> Default</a>
+            @else
+                <a href="" class="status" data-id="{{$colourway->colourway_id}}">Not-Default</a>
+            @endif
             <div style="float:right;width:66px;padding-top:5px;">
                 <label><input type="checkbox" id="checkbox-36" class="publish_product" checked=""> Publish</label>
             </div>
@@ -52,4 +56,30 @@
            });
 
     });
+
+    $("document").ready(function(){
+        $(".status").click(function(e){
+           e.preventDefault();
+           var $this = $(this);
+           var id = $this.attr('data-id');
+           var v_token = '{{ csrf_token() }}';
+           var params = {'id':id,'_token':v_token};
+            $.ajax({
+                method:"POST",
+                url: '{{route($base_route.'.default_colourway')}}',
+                data : params,
+                success:function(response)
+                {
+                    var data = jQuery.parseJSON(response);
+                    if(data.default==1)
+                    {
+                        $this.html('').html('Default');
+                    } else {
+                        $this.html('').html('Not Default')
+                    }
+                }
+            })
+
+        });
+    })
 </script>

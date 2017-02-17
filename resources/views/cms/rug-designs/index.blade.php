@@ -1,6 +1,5 @@
 @extends('cms.layout.master')
 @section('extra-styles')
-
 @endsection
 
 @section('main-content')
