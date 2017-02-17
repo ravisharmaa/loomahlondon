@@ -52,7 +52,8 @@ class ColourwaysController extends AdminBaseController
             $colourway_th_image->move($this->upload_folder . 'colourway/th/', $imageName_th);
             $colourway_lg_image->move($this->upload_folder . 'colourway/lg/', $imageName_lg);
         }
-        $last_order = Colourway::max('colourway_order')?Colourway::max('colourway_order'):1;
+
+
         $data = Colourway::create([
             'product_id' => $request->get('product_id'),
             'colourway_name' => $request->get('colourway_name'),
