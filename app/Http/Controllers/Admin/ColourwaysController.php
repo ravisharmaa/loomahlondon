@@ -55,9 +55,14 @@ class ColourwaysController extends AdminBaseController
             $colourway_lg_image->move($this->upload_folder . 'lg/', $imageName_lg);
         }
 
-            $update = DB::table('tbl_colourways')->where('product_id',$request->get('product_id'))
+        /* $update = DB::table('tbl_colourways')->where('product_id',$request->get('product_id'))
                         ->update(['colourway_order'=>'`colourway_order`+1']);
-            //dd($update);
+         //dd($update);*/
+        $colourway_order = Colourway::max('colourway_order');
+        if(is_null($colourway_order))
+            $colourway_order = 1;
+        else
+            $colourway_order++;
 
         $data = Colourway::create([
             'product_id'            => $request->get('product_id'),
@@ -67,13 +72,13 @@ class ColourwaysController extends AdminBaseController
             'colourway_th_image'    => $imageName_th,
             'colourway_lg_image'    => $imageName_lg,
             'colourway_default'     => $request->get('colourway_default'),
-            'colourway_order'       => 1,
+            'colourway_order'       => $colourway_order,
             'colourway_status'      => 1
         ]);
         return redirect()->back();
     }
 
-        //$colourway_order = Colourway::max('colourway_order')?Colourway::max('colourway_order'):1
+//    $colourway_order = Colourway::max('colourway_order')?Colourway::max('colourway_order'):1;
 
     public function delete($id)
     {

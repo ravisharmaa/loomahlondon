@@ -19,6 +19,8 @@ Route::group(['prefix'=>'cms',                'as'=>'cms.',             'namespa
 
 $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'middleware'=>'auth',      'namespace'=>'Admin\\'], function() {
     $this->get('dashboard',                                 ['as'=>'dashboard',                                         'uses'=>'DashboardController']);
+    /*Rug Designs*/
+
     $this->get('home',                                      ['as'=>'home',                                              'uses'=>'DashboardController@home']);
     $this->get('rug-designs',                               ['as'=>'rug-designs',                                       'uses'=>'RugDesignsController@index']);
     $this->get('rug-designs/add',                           ['as'=>'rug-designs.add',                                   'uses'=>'RugDesignsController@add']);
@@ -27,6 +29,9 @@ $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'mid
     $this->get('rug-designs/delete/{id}',                   ['as'=>'rug-designs.delete',                                'uses'=>'RugDesignsController@delete']);
     $this->get('rug-designs/edit/{id}',                     ['as'=>'rug-designs.edit',                                  'uses'=>'RugDesignsController@edit']);
     $this->put('rug-designs/update/{id}',                   ['as'=>'rug-designs.update',                                'uses'=>'RugDesignsController@update']);
+    $this->post('rug-designs/sort/product-order',           ['as'=>'rug-designs.sort.product-order',                    'uses'=>'RugDesignsController@sorter']);
+    /*Colourways*/
+
     $this->get('rug-designs/colourway/{id}',                ['as'=>'rug-designs.colourway.add',                         'uses'=>'ColourwaysController@add']);
     $this->post('rug-designs/colourway/save',               ['as'=>'rug-designs.colourway.store',                       'uses'=>'ColourwaysController@store']);
     $this->get('rug-designs/colourway/show/{id}',           ['as'=>'rug-designs.colourway.show',                        'uses'=>'ColourwaysController@show']);

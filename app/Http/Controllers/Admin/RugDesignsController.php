@@ -15,6 +15,7 @@ use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 
 class RugDesignsController extends AdminBaseController
@@ -119,5 +120,20 @@ class RugDesignsController extends AdminBaseController
         $extra_values = [];
         $extra_values['scope'] = 'Rug Designs';
         return $extra_values;
+    }
+
+    public function sorter(Request $request)
+    {
+        $orderArray = $request->get('order');
+        dd($orderArray);
+        $i = 1;
+        foreach ($orderArray as $key)
+        {
+            DB::table('tbl_product_details')->where('product_id','=', $product_id)->toSql();
+        }
+        return response()->json(json_encode([
+            'message'=>'Success',
+        ]));
+
     }
 }

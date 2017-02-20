@@ -52,4 +52,32 @@
            });
 
     });
+
+    $("document").ready(function(){
+       $("#sorter").sortable({
+            opacity: 0.6,
+            cursor: "move",
+            update: function () {
+                var order    = $(this).sortable('serialize',{ key:"sortdata" });
+                var token    = '{{ csrf_token() }}';
+                var params   =  {'order':order, '_token':token};
+                $.ajax({
+                    method : "POST",
+                    data    : params,
+                    url    : '{{ route($base_route.'.sort.product-order')}}',
+
+                   error:function(request)
+                    {
+                        console.log(request.responseText);
+                    },
+                   success:function (data) {
+                      var newData = jQuery.parseJSON(data);
+                      console.log(newData);
+                   }
+               })
+           }
+
+
+       })
+    });
 </script>
