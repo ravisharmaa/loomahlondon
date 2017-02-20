@@ -31,6 +31,9 @@ $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'mid
     $this->post('rug-designs/colourway/save',               ['as'=>'rug-designs.colourway.store',                       'uses'=>'ColourwaysController@store']);
     $this->get('rug-designs/colourway/show/{id}',           ['as'=>'rug-designs.colourway.show',                        'uses'=>'ColourwaysController@show']);
     $this->post('rug-designs/colourway/change_default',     ['as'=>'rug-designs.colourway.default_colourway',           'uses'=>'ColourwaysController@changeDefault']);
+    $this->get('rug-designs/colourway/edit/{id}',           ['as'=>'rug-designs.colourway.edit',                        'uses'=>'ColourwaysController@edit']);
+    $this->put('rug-designs/colourway/update/{id}',         ['as'=>'rug-designs.colourway.update',                    'uses'=>'ColourwaysController@update']);
+    $this->get('rug-designs/colourway/delete/{id}',         ['as'=>'rug-designs.colourway.delete',                    'uses'=>'ColourwaysController@delete']);
 });
 
 Route::get('/',                                 ['as'=>'marcus-paul.home', 'uses'=>'Frontend\\FrontendController']);

@@ -107,8 +107,8 @@ class RugDesignsController extends AdminBaseController
             $data->product_image = $imageName;
         }
         $data->save();
-        $data->product_detail->product_knotcnt       =   $request->get('product_knotcnt');
-        $data->product_detail->product_size          =     $request->get('product_size');
+        $data->product_detail->product_knotcnt       =      $request->get('product_knotcnt');
+        $data->product_detail->product_size          =      $request->get('product_size');
         $data->product_detail->save();
         return redirect()->route($this->base_route);
 

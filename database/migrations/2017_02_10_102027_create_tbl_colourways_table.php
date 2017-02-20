@@ -18,7 +18,7 @@ class CreateTblColourwaysTable extends Migration
             $table->unsignedInteger('product_id')->nullable();
             $table->string('colourway_name',100)->nuallable();
             $table->string('colourway_alias',100)->nullable();
-            $table->string('colourway_description')->nullable();
+            $table->text('colourway_description')->nullable();
             $table->string('colourway_th_image')->nullable();
             $table->string('colourway_lg_image')->nullable();
             $table->boolean('colourway_default')->default('1');

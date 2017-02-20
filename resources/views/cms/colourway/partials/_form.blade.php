@@ -8,15 +8,15 @@
     <tr>
         <td class="formleft">Description</td>
         <td class="formright">
-            {{Form::textarea('colourway_desc',null,['class'=>'mytextarea','id'=>'colourway_description'])}}
+            {{Form::textarea('colourway_description',null,['class'=>'mytextarea','id'=>'colourway_description'])}}
         </td>
     </tr>
 
     <tr>
-        @if(isset($data->product_image))
-            <td class="formleft">Previous Thumbnail Image</td>
+        @if(isset($data['colourway']->colourway_th_image))
+            <td class="formleft"> Thumbnail Image</td>
             <td class="formright">
-                <img src="{{asset('images/'.$data->product_image)}}"  height ="150"  border="0">
+                <img src="{{asset('images/colourway/th/'.$data['colourway']->colourway_th_image) }}"  height ="150"  border="0">
             </td>
         @endif
     </tr>
@@ -30,6 +30,14 @@
 
     </tr>
     <tr>
+        @if(isset($data['colourway']->colourway_lg_image))
+            <td class="formleft"> Large Image</td>
+            <td class="formright">
+                <img src="{{asset('images/colourway/lg/'.$data['colourway']->colourway_lg_image) }}"  height ="150"  border="0">
+            </td>
+        @endif
+    </tr>
+    <tr>
         <td class="formleft">Upload Large Image</td>
         <td class="formright">
             {{Form::file('colourway_lg_image',null,['id'=>'colourway_lg_image','class'=>'rug_image'])}}
@@ -38,14 +46,16 @@
         </td>
     </tr>
 
+
     <tr>
         <td class="formleft"></td>
         <td class="formright">
-            Would you like to make this colourway the default colourway? <br/>
+            {{isset($data['colourway']->colourway_default) ? 'Is this the default Colourway ?' :
+            "Would you like to make this colourway the default colourway ?"
+            }}<br/>
             {{Form::radio('colourway_default',1,true,['id'=>'colourway_default'])}}Yes
-            <input type="radio" id="colourway_default" name="colourway_default" value="0" /> No
+            {{Form::radio('colourway_default',0)}}No
         </td>
-
     </tr>
     <tr  class="myform hide" style="display:none">
     <tr>

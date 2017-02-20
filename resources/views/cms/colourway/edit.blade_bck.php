@@ -1,4 +1,3 @@
-{{dd($data)}}
 @extends('cms.layout.master')
 @section('extra-styles')
 @endsection
