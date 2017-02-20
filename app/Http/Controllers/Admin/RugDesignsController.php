@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\AdminBaseController;
+use App\Model\Colourway;
 use App\Model\ProductDetail;
 use App\Http\Requests\ProductRequest;
 use App\Model\Product;
@@ -125,13 +126,16 @@ class RugDesignsController extends AdminBaseController
 
     public function sorter(Request $request)
     {
+
         $orderArray = $request->get('order');
         $i = 1;
-        dd($orderArray);
-        foreach ($orderArray as $key => $value)
+        foreach ($orderArray as $value)
         {
-            DB::table('tbl_product_details')->where('product_id','=', $value)->toSql();
+            $data = Product::findOrFail($value);
+            $data->product_detail->product_order = $i;
+            $data->product_detail->save();
             $i++;
+//            DB::table('tbl_colourways')->where('product_id','=', $value)->update(['colourway_order'=>$i++]);
         }
         return response()->json(json_encode([
             'message'=>'Success',

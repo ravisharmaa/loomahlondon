@@ -1,6 +1,6 @@
 <ul id="sorter" class="polaroid ui-sortable">
     @foreach($data as $d)
-    <li id="sortdata_{{$d->product_id}}" data-id="{{$d->product_id}}">
+    <li id="{{$d->product_id}}" data-id="{{$d->product_id}}">
         <div class="polaroidimg">
             <a href="#">
                 <img src="{{asset('images/'.$d->product_image)}}" width="200" border="0">
@@ -57,8 +57,8 @@
        $("#sorter").sortable({
             opacity: 0.6,
             cursor: "move",
-            update: function () {
-                var order    = $(this).sortable('serialize',{ key:"sortdata" });
+            update: function (event,ui) {
+                var order    = $(this).sortable('toArray');
                 var token    = '{{ csrf_token() }}';
                 var params   =  {'order':order, '_token':token};
                 $.ajax({
