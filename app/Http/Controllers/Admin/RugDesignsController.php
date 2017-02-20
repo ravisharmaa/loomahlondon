@@ -122,18 +122,38 @@ class RugDesignsController extends AdminBaseController
         return $extra_values;
     }
 
+
     public function sorter(Request $request)
     {
         $orderArray = $request->get('order');
-        dd($orderArray);
         $i = 1;
-        foreach ($orderArray as $key)
+        dd($orderArray);
+        foreach ($orderArray as $key => $value)
         {
-            DB::table('tbl_product_details')->where('product_id','=', $product_id)->toSql();
+            DB::table('tbl_product_details')->where('product_id','=', $value)->toSql();
+            $i++;
         }
         return response()->json(json_encode([
             'message'=>'Success',
         ]));
 
     }
+
+    public function setStatus(Request $request)
+    {
+       $id      = $request->get('id');
+       $data    = Product::findOrFail($id);
+       if($data->product_detail->product_status==1)
+           $data->product_detail->product_status = 0;
+       else
+           $data->product_detail->product_status = 1;
+
+       $data->product_detail->save();
+
+       return response()->json(json_encode([
+           'success'        => 'true',
+           'product_status' =>  $data->product_detail->product_status
+       ]));
+    }
+
 }

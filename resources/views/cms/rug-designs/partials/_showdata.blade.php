@@ -1,6 +1,6 @@
 <ul id="sorter" class="polaroid ui-sortable">
     @foreach($data as $d)
-    <li id="sortdata_{{$d->product_id}}">
+    <li id="sortdata_{{$d->product_id}}" data-id="{{$d->product_id}}">
         <div class="polaroidimg">
             <a href="#">
                 <img src="{{asset('images/'.$d->product_image)}}" width="200" border="0">
@@ -20,7 +20,7 @@
                         src="{{asset($default_images.'icon_delete.png')}}" width="24" height="24" border="0"></a>
 
             <div style="float:right;width:66px;padding-top:5px;">
-                <label><input type="checkbox" id="checkbox-36" class="publish_product" checked=""> Publish</label>
+                <label><input type="checkbox" data-id="{{$d->product_id}}" class="publish_product"> Publish</label>
             </div>
             <div id="img-36" style="float:right;width:30px;display:none;">
                 <img src="images/loading.gif" width="20" height="20" border="0">
@@ -80,4 +80,25 @@
 
        })
     });
+    
+    $("document").ready(function () {
+        $(".publish_product").click(function () {
+            var id      =   $(this).attr('data-id');
+            var token    = '{{ csrf_token() }}';
+            var params  =   {'id':id, '_token':token };
+            $.ajax({
+                method : "POST",
+                url : '{{route($base_route.'.set-status')}}',
+                data : params,
+                error:function (request) {
+                    console.log(request.responseText);
+                },
+                success:function (data) {
+                    var myData = jQuery.parseJSON(data);
+                    console.log(myData.product_status);
+                }
+
+            });
+        })
+    })
 </script>

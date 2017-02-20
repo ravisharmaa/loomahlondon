@@ -30,6 +30,7 @@ $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'mid
     $this->get('rug-designs/edit/{id}',                     ['as'=>'rug-designs.edit',                                  'uses'=>'RugDesignsController@edit']);
     $this->put('rug-designs/update/{id}',                   ['as'=>'rug-designs.update',                                'uses'=>'RugDesignsController@update']);
     $this->post('rug-designs/sort/product-order',           ['as'=>'rug-designs.sort.product-order',                    'uses'=>'RugDesignsController@sorter']);
+    $this->post('rug-designs/set/product-status',           ['as'=>'rug-designs.set-status',                            'uses'=>'RugDesignsController@setStatus']);
     /*Colourways*/
 
     $this->get('rug-designs/colourway/{id}',                ['as'=>'rug-designs.colourway.add',                         'uses'=>'ColourwaysController@add']);
