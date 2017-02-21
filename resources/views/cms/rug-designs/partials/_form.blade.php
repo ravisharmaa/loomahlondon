@@ -40,7 +40,7 @@
         <td class="formright">
             {{Form::file('product_image',null,['id'=>'rug_image','class'=>'rug_image'])}}
             <br /><b>The uploaded image will appear on the  page.
-                <br />The dimension of this image should be px in height. Please note that if the dimensions of the image are different than suggested the image will either appear as squashed or compromised in quality.</b>
+                <br />The dimension of this image should be 500px in width and 734px in height. Please note that if the dimensions of the image are different than suggested the image will either appear as squashed or compromised in quality.</b>
         </td>
 
     </tr>

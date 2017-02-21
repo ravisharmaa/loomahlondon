@@ -1,4 +1,5 @@
 <ul id="sorter" class="polaroid ui-sortable">
+    <?php $i = 1;?>
     @foreach($data as $d)
     <li id="{{$d->product_id}}" data-id="{{$d->product_id}}">
         <div class="polaroidimg">
@@ -9,7 +10,7 @@
         <div class="polaroidlabel">
             <div class="tr">
                 <div class="td">
-                    <span class="cat_sn">1</span>{{$d->product_name}}
+                    <span class="product_sn"> {{ $i }}.  </span>{{$d->product_name}}
                 </div>
             </div>
         </div>
@@ -27,7 +28,9 @@
             </div>
         </div>
     </li>
+        <?php $i++;?>
     @endforeach
+
 </ul>
 <div class="clearboth"></div>
 
@@ -72,7 +75,11 @@
                     },
                    success:function (data) {
                       var newData = jQuery.parseJSON(data);
-                      console.log(newData);
+                      var slide_order = 0;
+                      $(".product_sn").each(function(){
+                         $(this).html(++slide_order + '.');
+                      });
+
                    }
                })
            }
