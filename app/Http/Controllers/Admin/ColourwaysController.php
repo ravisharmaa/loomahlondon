@@ -81,7 +81,7 @@ class ColourwaysController extends AdminBaseController
     {
        $data = [];
        $data['product']     =   Product::findOrFail($id);
-       $data['colourways']  =   $data['product']->colourways()->where('colourway_status',1)->get();
+       $data['colourways']  =   $data['product']->colourways()->where('colourway_status',1)->orderBy('colourway_order','asc')->get();
        return view(parent::siteDefaultVars($this->view_path.'.partials._showdata'),compact('data'));
     }
 
@@ -137,19 +137,37 @@ class ColourwaysController extends AdminBaseController
 
     public function changeDefault(Request $request)
     {
-        $id = $request->get('id');
-        $data = Colourway::findOrfail($id);
-
-        if($data->colourway_default==1)
-            $data->colourway_default =0;
-        else
-           $data->colourway_default=1;
-
-        $data->save();
+        $id             = $request->get('id');
+        $colour_data    = Colourway::findOrFail($id);
+        $data           = Colourway::select('product_id','colourway_default')->where('product_id', $colour_data->product_id)->get();
+        foreach ($data as $d )
+        {
+            if($colour_data->colourway_default ==1 )
+            {
+                DB::table('tbl_colourways')->update(['colourway_default'=> 0])->where( $colour_data->product_id = $d->product_id);
+            }
+        }
 
         return response()->json(json_encode([
             'error'     =>false,
             'default'   =>$data->colourway_default
         ]));
+    }
+
+    public function changeOrder(Request $request)
+    {
+       $order = $request->get('order');
+       $i =1 ;
+       foreach ($order as $id)
+       {
+           $data = Colourway::findOrfail($id);
+           $data->colourway_order = $i;
+           $data->save();
+           $i++;
+       }
+       return response()->json(json_encode([
+           'success' => 'true',
+           'order'   => $data->colourway_oder
+       ]));
     }
 }

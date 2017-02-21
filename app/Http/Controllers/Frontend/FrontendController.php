@@ -21,7 +21,7 @@ class FrontendController extends FrontendBaseController
     protected $extra_values =   [];
     protected $mail         =   'frontend.emails';
 
-    public function __invoke()
+    public function home()
     {
         $this->extra_values['route_name']   =  Route::currentRouteName();
         return view(parent::loadDefaultVars($this->view_path.'.home',$this->extra_values));

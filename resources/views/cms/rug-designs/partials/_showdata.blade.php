@@ -21,7 +21,7 @@
                         src="{{asset($default_images.'icon_delete.png')}}" width="24" height="24" border="0"></a>
 
             <div style="float:right;width:66px;padding-top:5px;">
-                <label><input type="checkbox" data-id="{{$d->product_id}}" class="publish_product" value="check"> Publish</label>
+                <label><input type="checkbox" data-id="{{$d->product_id}}" class="publish_product" > Publish</label>
             </div>
             <div id="img-36" style="float:right;width:30px;display:none;">
                 <img src="images/loading.gif" width="20" height="20" border="0">

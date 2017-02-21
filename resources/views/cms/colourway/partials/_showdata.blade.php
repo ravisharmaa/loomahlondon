@@ -1,6 +1,7 @@
 <ul id="sorter" class="polaroid ui-sortable">
+    <?php $i = 1;?>
     @foreach($data['colourways'] as $colourway)
-    <li id="sortdata_{{$colourway->colourway_id}}">
+    <li id="{{$colourway->colourway_id}}">
         <div class="polaroidimg">
             <a href="#">
                 <img src="{{asset('images/colourway/th/'.$colourway->colourway_th_image)}}" width="200" border="0">
@@ -9,7 +10,7 @@
         <div class="polaroidlabel">
             <div class="tr">
                 <div class="td">
-                    <span class="cat_sn">1. </span>{{$colourway->colourway_name}}
+                    <span class="colourway_sn"> {{ $i }} </span>{{$colourway->colourway_name}}
                 </div>
             </div>
         </div>
@@ -31,6 +32,7 @@
             </div>
         </div>
     </li>
+        <?php $i++; ?>
    @endforeach
 </ul>
 <div class="clearboth"></div>
@@ -81,5 +83,35 @@
             })
 
         });
-    })
+    });
+
+    $("document").ready(function(){
+        $("#sorter").sortable({
+           opacity: 0.6,
+           cursor: "move",
+           update: function (event, ui) {
+               var order    =  $(this).sortable('toArray');
+               var token    =  '{{ csrf_token() }}';
+               var params   =   {'order':order, '_token':token};
+               $.ajax({
+                  method : "POST",
+                  url    :  '{{route($base_route.'.change-order')}}',
+                  data   : params,
+
+                   error:function(request){
+                      console.log(request.responseText);
+                   },
+                   success:function (data) {
+                       var newData = jQuery.parseJSON(data);
+                       var current_order = 0;
+                       $(".colourway_sn").each(function(){
+                          $(this).html(++current_order + '.');
+                       });
+
+                   }
+               });
+
+           }
+        });
+    });
 </script>
