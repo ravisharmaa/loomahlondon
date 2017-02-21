@@ -7,6 +7,7 @@
  */
 
 namespace App\Http\Controllers\Admin;
+use App\Classes\AppHelper;
 use App\Http\Controllers\Admin\AdminBaseController;
 use App\Model\Colourway;
 use App\Model\Product;
@@ -38,26 +39,16 @@ class ColourwaysController extends AdminBaseController
     {
         $imageName_th = null;
         $imageName_lg = null;
-        if ($request->hasFile('colourway_th_image') && $request->hasFile('colourway_lg_image')) {
 
-            $colourway_th_image     =   $request->file('colourway_th_image');
-            $colourway_lg_image     =   $request->file('colourway_lg_image');
-            $filename_th            =   $colourway_th_image->getClientOriginalName();
-            $filename_lg            =   $colourway_lg_image->getClientOriginalName();
-            $filename_lg            =   pathinfo($filename_lg, PATHINFO_FILENAME);
-            $filename_th            =   pathinfo($filename_th, PATHINFO_FILENAME);
-            $imageName_th           =   str_slug($filename_th) . '.' . $colourway_th_image->getClientOriginalExtension();
-            $imageName_lg           =   str_slug($filename_lg) . '.' . $colourway_lg_image->getClientOriginalExtension();
-            if (is_dir($this->upload_folder) == false) {
-                File::makeDirectory($this->upload_folder, 0777, true);
-            }
-            $colourway_th_image->move($this->upload_folder . 'th/', $imageName_th);
-            $colourway_lg_image->move($this->upload_folder . 'lg/', $imageName_lg);
+        if($request->hasFile('colourway_th_image')) {
+            $colourway_th_image = $request->file('colourway_th_image');
+            $imageName_th = AppHelper::uploadImage($colourway_th_image, $this->upload_folder . 'colourways/lg/');
+        }
+        if($request->hasFile('colourway_lg_image')) {
+            $colourway_lg_image = $request->file('colourway_lg_image');
+            $imageName_lg = AppHelper::uploadImage($colourway_lg_image, $this->upload_folder . 'colourways/th/');
         }
 
-        /* $update = DB::table('tbl_colourways')->where('product_id',$request->get('product_id'))
-                        ->update(['colourway_order'=>'`colourway_order`+1']);
-         //dd($update);*/
         $colourway_order = Colourway::max('colourway_order');
         if(is_null($colourway_order))
             $colourway_order = 1;
@@ -77,8 +68,6 @@ class ColourwaysController extends AdminBaseController
         ]);
         return redirect()->back();
     }
-
-//    $colourway_order = Colourway::max('colourway_order')?Colourway::max('colourway_order'):1;
 
     public function delete($id)
     {
