@@ -145,12 +145,21 @@ class ColourwaysController extends AdminBaseController
             if($colour_data->colourway_default ==1 )
             {
                 DB::table('tbl_colourways')->update(['colourway_default'=> 0])->where( $colour_data->product_id = $d->product_id);
+            } else {
+                DB::table('tbl_colourways')->update(['colourway_default'=> 1])->where( $colour_data->product_id = $d->product_id);
             }
         }
+        if($colour_data->colourway_default ==1 )
+            $colour_data->colourway_default = 0;
+        else
+            $colour_data->colourway_default = 1;
+
+        $colour_data->save();
 
         return response()->json(json_encode([
-            'error'     =>false,
-            'default'   =>$data->colourway_default
+            'success'   => 'true',
+            'data'      =>  $colour_data->colourway_default
+
         ]));
     }
 
