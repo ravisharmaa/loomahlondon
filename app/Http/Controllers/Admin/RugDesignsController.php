@@ -7,6 +7,7 @@
  */
 
 namespace App\Http\Controllers\Admin;
+use App\Classes\AppHelper;
 use App\Http\Controllers\Admin\AdminBaseController;
 use App\Model\Colourway;
 use App\Model\ProductDetail;
@@ -23,7 +24,8 @@ class RugDesignsController extends AdminBaseController
 {
     protected $base_route       =   'cms.rug-designs';
     protected $view_path        =   'cms.rug-designs';
-    protected $upload_folder    =   'images/rugs/';
+    protected $upload_folder    =   'images/';
+
 
     public function index()
     {
@@ -41,14 +43,8 @@ class RugDesignsController extends AdminBaseController
 
         $imageName = null;
         if($request->hasFile('product_image')) {
-            $image = $request->file('product_image');
-            $filename = $image->getClientOriginalName();
-            $filename = pathinfo($filename, PATHINFO_FILENAME);
-            $imageName = str_slug($filename) . '.' . $image->getClientOriginalExtension();
-            if (is_dir($this->upload_folder) == false) {
-                File::makeDirectory($this->upload_folder, 0777, true);
-            }
-            $image->move($this->upload_folder, $imageName);
+            $image      =   $request->file('product_image');
+            $imageName  =   AppHelper::uploadImage($image, $this->upload_folder.'rug-designs/');
         }
             $data = Product::create([
                 'product_name'  => $request->get('product_name'),
@@ -57,13 +53,21 @@ class RugDesignsController extends AdminBaseController
                 'product_image' => $imageName
             ]);
 
-            ProductDetail::create([
+            $product_order = ProductDetail::max('product_order');
+            if(is_null($product_order))
+                $product_order = 1;
+            else
+                $product_order++;
+
+        ProductDetail::create([
                 'product_id'        => $data->product_id,
                 'product_knotcnt'   => $request->get('product_knotcnt'),
                 'product_size'      => $request->get('product_size'),
+                'product_order'     =>  $product_order,
+                'product_status'    =>  0
             ]);
-        return redirect()->route($this->base_route.'.edit',[$data]);
 
+            return redirect()->route($this->base_route.'.edit',[$data]);
     }
 
 
@@ -77,8 +81,10 @@ class RugDesignsController extends AdminBaseController
 
     public function show()
     {
-
-        $data = Product::select('product_id','product_name','product_desc','product_image')->get();
+        $data = Product::select('tbl_products.product_id','tbl_products.product_name','tbl_products.product_desc','tbl_products.product_image','tbl_product_details.product_order')
+            ->leftJoin('tbl_product_details','tbl_product_details.product_id','=','tbl_products.product_id')
+            ->orderBy('tbl_product_details.product_order','asc')
+            ->get();
         return view(parent::siteDefaultVars($this->view_path.'.partials._showdata'), compact('data'));
     }
 
@@ -98,14 +104,8 @@ class RugDesignsController extends AdminBaseController
         if($request->hasFile('product_image'))
         {
             File::delete(public_path().'/' .$this->upload_folder. $data->product_image);
-            $image          = $request->file('product_image');
-            $filename       = $image->getClientOriginalName();
-            $filename       = pathinfo($filename, PATHINFO_FILENAME);
-            $imageName      = str_slug($filename) . '.' . $image->getClientOriginalExtension();
-            if (is_dir($this->upload_folder) == false) {
-                File::makeDirectory($this->upload_folder, 0777, true);
-            }
-            $image->move($this->upload_folder, $imageName);
+            $image      =   $request->file('product_image');
+            $imageName  =   AppHelper::uploadImage($image,$this->upload_folder.'rug-designs/');
             $data->product_image = $imageName;
         }
         $data->save();

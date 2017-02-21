@@ -8,6 +8,7 @@
 namespace App\Classes;
 use App\Model\SiteConfig;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\File;
 
 class AppHelper
 {
@@ -59,5 +60,17 @@ class AppHelper
         if($model_var->product_detail){
             return $model_var->product_detail->$relation;
         }
+    }
+
+    public static function uploadImage($imageFile, $destinationFolder)
+    {
+        $filename = $imageFile->getClientOriginalName();
+        $filename = pathinfo($filename, PATHINFO_FILENAME);
+        $imageName = str_slug($filename). '.' .$imageFile->getClientOriginalExtension();
+        if (is_dir($destinationFolder) == false) {
+            File::makeDirectory($destinationFolder, 0777, true);
+        }
+        $imageFile->move($destinationFolder, $imageName);
+        return $imageName;
     }
 }

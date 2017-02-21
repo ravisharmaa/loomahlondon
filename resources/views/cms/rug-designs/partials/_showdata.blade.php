@@ -3,7 +3,7 @@
     <li id="{{$d->product_id}}" data-id="{{$d->product_id}}">
         <div class="polaroidimg">
             <a href="#">
-                <img src="{{asset('images/'.$d->product_image)}}" width="200" border="0">
+                <img src="{{asset('images/rug-designs/'.$d->product_image)}}" width="200" border="0">
             </a>
         </div>
         <div class="polaroidlabel">
@@ -20,7 +20,7 @@
                         src="{{asset($default_images.'icon_delete.png')}}" width="24" height="24" border="0"></a>
 
             <div style="float:right;width:66px;padding-top:5px;">
-                <label><input type="checkbox" data-id="{{$d->product_id}}" class="publish_product"> Publish</label>
+                <label><input type="checkbox" data-id="{{$d->product_id}}" class="publish_product" value="check"> Publish</label>
             </div>
             <div id="img-36" style="float:right;width:30px;display:none;">
                 <img src="images/loading.gif" width="20" height="20" border="0">
@@ -95,7 +95,13 @@
                 },
                 success:function (data) {
                     var myData = jQuery.parseJSON(data);
-                    console.log(myData.product_status);
+                    console.log(myData);
+                    if(myData.product_status==1)
+                    {
+                        $(this).attr('checked','checked');
+                    } else {
+                        $(this).removeAttr('checked');
+                    }
                 }
 
             });
