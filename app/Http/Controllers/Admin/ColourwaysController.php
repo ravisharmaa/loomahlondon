@@ -14,7 +14,7 @@ use App\Model\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\DB;
+
 
 
 class ColourwaysController extends AdminBaseController
@@ -49,8 +49,6 @@ class ColourwaysController extends AdminBaseController
             $imageName_lg = AppHelper::uploadImage($colourway_lg_image, $this->upload_folder . 'colourways/th/');
         }
 
-        $colourway_order = Colourway::where('product_id',$request->get('product_id'))->max('colourway_order');
-
         $data = Colourway::create([
             'product_id'            => $request->get('product_id'),
             'colourway_name'        => $request->get('colourway_name'),
@@ -59,7 +57,7 @@ class ColourwaysController extends AdminBaseController
             'colourway_th_image'    => $imageName_th,
             'colourway_lg_image'    => $imageName_lg,
             'colourway_default'     => $request->get('colourway_default'),
-            'colourway_order'       => is_null($colourway_order) ? 1: $colourway_order+1,
+            'colourway_order'       => $this->setOrderOnCreate($request->get('product_id')),
             'colourway_status'      => 1
         ]);
         return redirect()->route($this->base_route.'.edit',[$data->colourway_id]);
@@ -77,7 +75,7 @@ class ColourwaysController extends AdminBaseController
     {
        $data = [];
        $data['product']     =   Product::findOrFail($id);
-       $data['colourways']  =   $data['product']->colourways()->where('colourway_status',1)->orderBy('colourway_order','asc')->get();
+       $data['colourways']  =   $data['product']->colourways()->orderBy('colourway_order','asc')->get();
        return view(parent::siteDefaultVars($this->view_path.'.partials._showdata'),compact('data'));
     }
 
@@ -147,6 +145,7 @@ class ColourwaysController extends AdminBaseController
 
         return response()->json(json_encode([
             'success'   => 'true',
+            'data'      =>  $colour_data->colourway_default,
         ]));
     }
 
@@ -165,5 +164,32 @@ class ColourwaysController extends AdminBaseController
            'success' => 'true',
            'order'   => $data->colourway_oder
        ]));
+    }
+
+
+    public function setOrderOnCreate($product_id)
+    {
+        $colourway_order        = Colourway::where('product_id',$product_id)->max('colourway_order');
+        return $colourway_order = is_null($colourway_order) ? 1 : $colourway_order+1;
+    }
+
+    public function publishedStatus(Request $request)
+    {
+
+        $id = $request->get('id');
+        $data = Colourway::find($id);
+       if($data->colourway_status === 1)
+           $data->colourway_status = 0;
+       else
+           $data->colourway_status = 1;
+
+      $data->save();
+
+       return response()->json(json_encode([
+           'success'    =>  'true',
+           'data'       =>  $data->colourway_status
+       ]));
+
+
     }
 }

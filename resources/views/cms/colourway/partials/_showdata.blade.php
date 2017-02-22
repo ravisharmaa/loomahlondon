@@ -19,13 +19,20 @@
                                                                     width="24" height="24" border="0"></a>
             <a href="JavaScript:void(0);" onclick="return confirm('Do you want to delete this?')"  data-id = "{{$colourway->colourway_id}}" class="colourway_del_link" rel="36"><img
                         src="{{asset($default_images.'icon_delete.png')}}" width="24" height="24" border="0"></a>
-            @if($colourway->colourway_default==1)
-                <a href="" class="status" data-id="{{$colourway->colourway_id}}"> Default</a>
-            @else
-                <a href="" class="status" data-id="{{$colourway->colourway_id}}">Not-Default</a>
-            @endif
+
             <div style="float:right;width:66px;padding-top:5px;">
-                <label><input type="checkbox" id="checkbox-36" class="publish_product" checked=""> Publish</label>
+            @if($colourway->colourway_default==1)
+                <label><input type="checkbox" class="status" data-id="{{$colourway->colourway_id}}" checked>Default</label>
+            @else
+                <label><input type="checkbox" class="status" data-id="{{$colourway->colourway_id}}">Default</label>
+            @endif
+            </div>
+            <div style="float:right;width:66px;padding-top:5px;">
+                @if($colourway->colourway_status==1)
+                    <label><input type="checkbox" data-id="{{ $colourway->colourway_id }}" id="publish_product"  checked=""> Publish</label>
+                @else
+                    <label><input type="checkbox" data-id="{{ $colourway->colourway_id }}" id="publish_product"> Publish</label>
+                @endif
             </div>
             <div id="img-36" style="float:right;width:30px;display:none;">
                 <img src="images/loading.gif" width="20" height="20" border="0">
@@ -60,8 +67,7 @@
     });
 
     $("document").ready(function(){
-        $(".status").click(function(e){
-           e.preventDefault();
+        $(".status").click(function(){
            var $this = $(this);
            var id = $this.attr('data-id');
            var v_token = '{{ csrf_token() }}';
@@ -73,11 +79,13 @@
                 success:function(response)
                 {
                     var data = jQuery.parseJSON(response);
-                    if(data.default==1)
+                    console.log(data);
+
+                    if(data.data==1)
                     {
-                        $this.html('').html('Default');
+                        $(this).attr('checked','checked');
                     } else {
-                        $this.html('').html('Not Default')
+                        $(this).removeAttr('checked');
                     }
                 }
             })
@@ -114,4 +122,32 @@
            }
         });
     });
+
+    $("#publish_product").click(function () {
+
+            var $this     =   $(this);
+            var id        =   $this.attr('data-id');
+            var token     =  '{{ csrf_token() }}';
+            var params    =   {'id':id,'_token':token};
+            $.ajax({
+                method: "POST",
+                url:    '{{route($base_route.'.published-status')}}',
+                data: params,
+                error:function(request)
+                {
+                    console.log(request.responseText);
+                },
+
+                success:function(data)
+                {
+                    var newData = jQuery.parseJSON(data);
+                    if(newData.data==1)
+                    {
+                        $(this).attr('checked','checked');
+                    } else {
+                        $(this).removeAttr('checked');
+                    }
+                }
+            })
+    })
 </script>
