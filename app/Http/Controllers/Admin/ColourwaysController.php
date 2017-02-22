@@ -49,11 +49,7 @@ class ColourwaysController extends AdminBaseController
             $imageName_lg = AppHelper::uploadImage($colourway_lg_image, $this->upload_folder . 'colourways/th/');
         }
 
-        $colourway_order = Colourway::max('colourway_order');
-        if(is_null($colourway_order))
-            $colourway_order = 1;
-        else
-            $colourway_order++;
+        $colourway_order = Colourway::where('product_id',$request->get('product_id'))->max('colourway_order');
 
         $data = Colourway::create([
             'product_id'            => $request->get('product_id'),
@@ -63,7 +59,7 @@ class ColourwaysController extends AdminBaseController
             'colourway_th_image'    => $imageName_th,
             'colourway_lg_image'    => $imageName_lg,
             'colourway_default'     => $request->get('colourway_default'),
-            'colourway_order'       => $colourway_order,
+            'colourway_order'       => is_null($colourway_order) ? 1: $colourway_order+1,
             'colourway_status'      => 1
         ]);
         return redirect()->route($this->base_route.'.edit',[$data->colourway_id]);
@@ -139,29 +135,18 @@ class ColourwaysController extends AdminBaseController
     {
         $id             = $request->get('id');
         $colour_data    = Colourway::findOrFail($id);
-        $data           = Colourway::select('product_id','colourway_default')->where('product_id', $colour_data->product_id)->get();
-        foreach ($data as $d )
-        {
-            if($colour_data->colourway_default ==1 )
-            {
-                DB::table('tbl_colourways')->where('product_id','=', $d->product_id)->update(['colourway_default'=> 0]);
-            } else {
-                DB::table('tbl_colourways')->where('product_id','=', $d->product_id)->update(['colourway_default'=> 1]);
-            }
-        }
-
-        if($colour_data->colourway_default === 1 ){
-            $colour_data->colourway_default = 0;
-            $colour_data->save();
-        } else{
+        if($colour_data->colourway_default==1)
+            $colour_data->colourway_default =0;
+        else
             $colour_data->colourway_default = 1;
-            $colour_data->save();
-        }
+        $colour_data->save();
+
+        $data = Colourway::   where('product_id', $colour_data->product_id)
+                    ->where('colourway_id','!=',$colour_data->colourway_id)
+                    ->update(['colourway_default'=>'0']);
 
         return response()->json(json_encode([
             'success'   => 'true',
-            'data'      =>  $colour_data->colourway_default
-
         ]));
     }
 

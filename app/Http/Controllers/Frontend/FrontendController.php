@@ -31,7 +31,12 @@ class FrontendController extends FrontendBaseController
     public function rugDesigns()
     {
         $data = [];
-        return view(parent::loadDefaultVars($this->view_path.'.rug-designs'));
+        $data['product']    = Product::select('tbl_products.product_id','tbl_products.product_name','tbl_products.product_alias','tbl_products.product_image','tbl_product_details.product_status')
+            ->leftJoin('tbl_product_details','tbl_product_details.product_id','=','tbl_products.product_id')
+            ->where('tbl_product_details.product_status','=',1)
+            ->orderBy('tbl_product_details.product_order','asc')
+            ->paginate(15);
+        return view(parent::loadDefaultVars($this->view_path.'.rug-designs'), compact('data'));
     }
 
     public function beSpokeRugs()

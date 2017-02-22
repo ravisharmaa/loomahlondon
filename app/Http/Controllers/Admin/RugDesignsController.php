@@ -46,12 +46,16 @@ class RugDesignsController extends AdminBaseController
             $image      =   $request->file('product_image');
             $imageName  =   AppHelper::uploadImage($image, $this->upload_folder.'rug-designs/');
         }
-            $data = Product::create([
-                'product_name'  => $request->get('product_name'),
-                'product_desc'  => $request->get('product_desc'),
-                'product_alias' => str_slug($request->get('product_name')),
+
+        $product_name       = $request->get('product_name');
+        $product_name_data  = Product::select('product_name')->where('product_name','=',$product_name)->first();
+
+        $data = Product::create([
+                'product_name'  =>  $product_name,
+                'product_desc'  =>  $request->get('product_desc'),
+                'product_alias' => str_slug($product_name_data['product_name']=== $product_name ? $product_name.'1':$product_name),
                 'product_image' => $imageName
-            ]);
+        ]);
 
             $product_order = ProductDetail::max('product_order');
             if(is_null($product_order))

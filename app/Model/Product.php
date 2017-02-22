@@ -22,4 +22,10 @@ class Product extends Model
         return $this->hasMany('App\Model\Colourway','product_id');
     }
 
+    /*public function setProductNameAttribute($value)
+    {
+        $product_data = Product::select('product_name')->where('product_name',$value);
+        dd($product_data);
+    }*/
+
 }
