@@ -12,5 +12,5 @@
 <link rel="manifest" href="{{asset('assets/frontend/img/fav/manifest.json')}}">
 <link rel="mask-icon" href="{{asset('assets/frontend/img/fav/safari-pinned-tab.svg')}}" color="#000000">
 <meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="{{$front_css.'mp.css'}}">
-<link rel="stylesheet" href="{{$front_css.'style.css'}}">
+<link rel="stylesheet" href="{{ $front_css.'mp.css'}}">
+<link rel="stylesheet" href="{{ $front_css.'style.css'}}">

@@ -11,8 +11,8 @@
                         @foreach($data['product'] as $p)
                         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-5m">
                             <figure class="mp-coll-cont relative">
-                                <img data-original="{{asset('images/rug-designs/'.$p->product_image)}}" src="img/load.png" class="img-full load relative" alt="{{ $p->product_name }}" title="{{ $p->product_name }}" height="277px" width="189px"/>
-                                <a href="{{route($base_route.'.rug-details', $p->product_alias)}}">
+                                <img data-original="{{asset('images/rug-designs/'.$p->product_image)}}" src="img/load.png" class="img-full load relative" alt="{{ $p->product_name }}" title="{{ $p->product_name }}"/>
+                                <a href="{{route($base_route.'.rug-design-details', [$p->product_alias])}}">
                                     <figcaption class="absolute cover">
                                         <h3>{{$p->product_name}}</h3>
                                     </figcaption>

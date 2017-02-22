@@ -35,7 +35,7 @@ class FrontendBaseController extends AppBaseController
 
     public function loadDefaultVars($view_path, $extra_values=null)
     {
-        View::composer($view_path, function($view) use ($view_path,$extra_values) {
+        View::composer($view_path, function($view) use ($view_path, $extra_values) {
             $view->with('base_route',       $this->base_route);
             $view->with('header',           $this->header);
             $view->with('front_css',        $this->front_css);

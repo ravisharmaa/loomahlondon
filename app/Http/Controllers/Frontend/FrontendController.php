@@ -73,12 +73,12 @@ class FrontendController extends FrontendBaseController
 
     public function rugDetails($alias)
     {
-       $data = [];
        $data = Product::select('tbl_products.product_id','tbl_products.product_name',
            'tbl_products.product_alias',
            'tbl_products.product_desc',
+           'tbl_products.product_image',
            'tbl_product_details.product_knotcnt',
-           'tbl_product_details.product_width',
+           'tbl_product_details.product_size',
            'tbl_product_details.product_status',
            'tbl_colourways.colourway_name')
                 ->leftJoin('tbl_product_details','tbl_product_details.product_id','=','tbl_products.product_id')
@@ -86,8 +86,8 @@ class FrontendController extends FrontendBaseController
                 ->where('tbl_product_details.product_status','=',1)
                 ->where('tbl_colourways.colourway_default','=',1)
                 ->where('tbl_products.product_alias','=',$alias)
-                ->get();
-       dd($data);
+                ->first();
 
+        return view(parent::loadDefaultVars($this->view_path.'.rug_details'), compact('data'));
     }
 }
