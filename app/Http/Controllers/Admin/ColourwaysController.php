@@ -66,7 +66,7 @@ class ColourwaysController extends AdminBaseController
             'colourway_order'       => $colourway_order,
             'colourway_status'      => 1
         ]);
-        return redirect()->back();
+        return redirect()->route($this->base_route.'.edit',[$data->colourway_id]);
     }
 
     public function delete($id)

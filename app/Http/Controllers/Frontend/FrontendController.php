@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Requests\ContactRequest;
 use Illuminate\Support\Facades\Mail;
+use App\Model\Product;
 
 
 class FrontendController extends FrontendBaseController
@@ -29,6 +30,7 @@ class FrontendController extends FrontendBaseController
 
     public function rugDesigns()
     {
+        $data = [];
         return view(parent::loadDefaultVars($this->view_path.'.rug-designs'));
     }
 
