@@ -40,10 +40,11 @@ Route::get('/',                                 ['as'=>'marcus-paul.home', 'uses
 
     Route::group(['prefix'=>'',                 'as'=>'marcus-paul.',               'namespace'=>'Frontend\\'], function(){
 
-        $this->get('rug-designs',               ['as'=>'rug-designs',                   'uses'=>        'FrontendController@rugDesigns']);
-        $this->get('bespoke-rug-service',       ['as'=>'bespoke-rug-service',           'uses'=>        'FrontendController@beSpokeRugs']);
-        $this->get('about-us',                  ['as'=>'about-us',                      'uses'=>        'FrontendController@aboutUs']);
-        $this->get('contact-us',                ['as'=>'contact-us',                    'uses'=>        'FrontendController@contactUs']);
+        $this->get('rug-designs',                               ['as'=>'rug-designs',                   'uses'=>        'FrontendController@rugDesigns']);
+        $this->get('bespoke-rug-service',                       ['as'=>'bespoke-rug-service',           'uses'=>        'FrontendController@beSpokeRugs']);
+        $this->get('about-us',                                  ['as'=>'about-us',                      'uses'=>        'FrontendController@aboutUs']);
+        $this->get('contact-us',                                ['as'=>'contact-us',                    'uses'=>        'FrontendController@contactUs']);
+        $this->get('rug-design-details/{slug}',                 ['as'=>'rug-details',                   'uses'=>        'FrontendController@rugDetails']);
         $this->post('send-mail',                ['as'=>'send-mail',                     'uses'=>        'FrontendController@sendMail']);
 
 });

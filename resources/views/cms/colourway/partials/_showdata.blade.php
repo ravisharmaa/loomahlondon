@@ -22,11 +22,12 @@
 
             <div style="float:right;width:66px;padding-top:5px;">
             @if($colourway->colourway_default==1)
-                <label><input type="checkbox" class="status" data-id="{{$colourway->colourway_id}}" checked>Default</label>
+                <label><input type="checkbox" class="status" data-id="{{$colourway->colourway_id}}" checked> Default</label>
             @else
-                <label><input type="checkbox" class="status" data-id="{{$colourway->colourway_id}}">Default</label>
+                <label><input type="checkbox" class="status" data-id="{{$colourway->colourway_id}}"> Default</label>
             @endif
             </div>
+            <br/>
             <div style="float:right;width:66px;padding-top:5px;">
                 @if($colourway->colourway_status==1)
                     <label><input type="checkbox" data-id="{{ $colourway->colourway_id }}" id="publish_product"  checked=""> Publish</label>

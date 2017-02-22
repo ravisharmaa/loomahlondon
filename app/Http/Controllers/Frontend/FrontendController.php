@@ -68,6 +68,11 @@ class FrontendController extends FrontendBaseController
           $message->to($data['email']);
           $message->subject("FW: Marcus Paul Ltd: Enquiry Received");
       });
-      return response()->json('Success');
+
+    }
+
+    public function rugDetails($alias)
+    {
+        dd($alias);
     }
 }
