@@ -114,7 +114,7 @@
                        var newData = jQuery.parseJSON(data);
                        var current_order = 0;
                        $(".colourway_sn").each(function(){
-                          $(this).html(++current_order + '.');
+                          $(this).html(++current_order+ '.');
                        });
 
                    }
