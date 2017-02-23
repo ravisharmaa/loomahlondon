@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Requests\ContactRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Model\Product;
+use App\Model\Colourway;
 
 
 class FrontendController extends FrontendBaseController
@@ -73,20 +74,36 @@ class FrontendController extends FrontendBaseController
 
     public function rugDetails($alias)
     {
-       $data = Product::select('tbl_products.product_id','tbl_products.product_name',
+        $data = [];
+        $data['product'] = Product::select('tbl_products.product_id','tbl_products.product_name',
            'tbl_products.product_alias',
            'tbl_products.product_desc',
            'tbl_products.product_image',
            'tbl_product_details.product_knotcnt',
            'tbl_product_details.product_size',
            'tbl_product_details.product_status',
-           'tbl_colourways.colourway_name')
+           'tbl_colourways.colourway_name',
+            'tbl_colourways.colourway_lg_image')
                 ->leftJoin('tbl_product_details','tbl_product_details.product_id','=','tbl_products.product_id')
                 ->leftJoin('tbl_colourways','tbl_colourways.product_id','=','tbl_products.product_id')
                 ->where('tbl_product_details.product_status','=',1)
                 ->where('tbl_colourways.colourway_default','=',1)
                 ->where('tbl_products.product_alias','=',$alias)
                 ->first();
+
+        $data['colourway'] = Colourway::select('tbl_colourways.colourway_id',
+            'tbl_products.product_id',
+            'tbl_colourways.colourway_id',
+            'tbl_colourways.product_id',
+            'tbl_colourways.colourway_name',
+            'tbl_colourways.colourway_name',
+            'tbl_colourways.colourway_th_image',
+            'tbl_colourways.colourway_lg_image',
+            'tbl_colourways.colourway_order'
+        )->leftJoin('tbl_products','tbl_products.product_id','=','tbl_colourways.product_id')
+            ->where('tbl_products.product_alias','=',$alias)
+            ->orderBy('tbl_colourways.colourway_order','asc')
+            ->get();
 
         return view(parent::loadDefaultVars($this->view_path.'.rug_details'), compact('data'));
     }

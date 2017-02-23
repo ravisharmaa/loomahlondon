@@ -16,7 +16,7 @@
         @if(isset($data['colourway']->colourway_th_image))
             <td class="formleft"> Thumbnail Image</td>
             <td class="formright">
-                <img src="{{asset('images/colourway/th/'.$data['colourway']->colourway_th_image) }}"  height ="150"  border="0">
+                <img src="{{asset('images/colourways/th/'.$data['colourway']->colourway_th_image) }}"  height ="150"  border="0">
             </td>
         @endif
     </tr>
@@ -33,7 +33,7 @@
         @if(isset($data['colourway']->colourway_lg_image))
             <td class="formleft"> Large Image</td>
             <td class="formright">
-                <img src="{{asset('images/colourway/lg/'.$data['colourway']->colourway_lg_image) }}"  height ="150"  border="0">
+                <img src="{{asset('images/colourways/lg/'.$data['colourway']->colourway_lg_image) }}"  height ="150"  border="0">
             </td>
         @endif
     </tr>
