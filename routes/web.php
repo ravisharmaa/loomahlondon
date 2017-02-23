@@ -36,16 +36,12 @@ $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'mid
 });
 
 
-Route::get('/',                                 ['as'=>'marcus-paul.home', 'uses'=>'Frontend\\FrontendController@home']);
+Route::get('/',                                         ['as'=>'marcus-paul.home',                          'uses'=>'Frontend\\FrontendController@home']);
+$this->get('rug-designs',                               ['as'=>'marcus-paul.rug-designs',                   'uses'=>        'Frontend\\FrontendController@rugDesigns']);
+$this->get('bespoke-rug-service',                       ['as'=>'marcus-paul.bespoke-rug-service',           'uses'=>        'Frontend\\FrontendController@beSpokeRugs']);
+$this->get('about-us',                                  ['as'=>'marcus-paul.about-us',                      'uses'=>        'Frontend\\FrontendController@aboutUs']);
+$this->get('contact-us',                                ['as'=>'marcus-paul.contact-us',                    'uses'=>        'Frontend\\FrontendController@contactUs']);
+$this->get('rug-design-details/{slug}',                 ['as'=>'marcus-paul.rug-design-details',            'uses'=>        'Frontend\\FrontendController@rugDetails']);
+$this->post('send-mail',                                ['as'=>'marcus-paul.send-mail',                     'uses'=>        'Frontend\\FrontendController@sendMail']);
 
-    Route::group(['prefix'=>'',                 'as'=>'marcus-paul.',               'namespace'=>'Frontend\\'], function(){
-
-        $this->get('rug-designs',                               ['as'=>'rug-designs',                   'uses'=>        'FrontendController@rugDesigns']);
-        $this->get('bespoke-rug-service',                       ['as'=>'bespoke-rug-service',           'uses'=>        'FrontendController@beSpokeRugs']);
-        $this->get('about-us',                                  ['as'=>'about-us',                      'uses'=>        'FrontendController@aboutUs']);
-        $this->get('contact-us',                                ['as'=>'contact-us',                    'uses'=>        'FrontendController@contactUs']);
-        $this->get('rug-design-details/{slug}',                 ['as'=>'rug-design-details',                   'uses'=>        'FrontendController@rugDetails']);
-        $this->post('send-mail',                                ['as'=>'send-mail',                     'uses'=>        'FrontendController@sendMail']);
-
-});
 
