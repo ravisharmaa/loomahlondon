@@ -27,6 +27,9 @@ class ResetPasswordController extends Controller
      *
      * @return void
      */
+
+    protected $redirectTo = 'cms/dashboard';
+
     public function __construct()
     {
         $this->middleware('guest');
