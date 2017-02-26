@@ -36,7 +36,7 @@
                 <div class="txtfield_login">
                     {!! captcha_image_html('MyCaptcha') !!}
 
-                    <div class="btnfields"><input class="btnfield_input" type="submit" name="submitted" value="Login" style="border: 1px solid #ab9b94;" /> <a href="{{url('cms/password/reset')}}" style="text-decoration:none;">Forgot Password?</a></div>
+                    <div class="btnfields"><input class="btnfield_input" type="submit" name="submitted" value="Login" style="border: 1px solid #ab9b94;" /> <a href="{{url('password/reset')}}" style="text-decoration:none;">Forgot Password?</a></div>
         </div>
 
     </form><br />

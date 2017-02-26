@@ -32,7 +32,7 @@ class ResetPasswordController extends Controller
         $this->middleware('guest');
     }
 
-   public function getEmail()
+  /* public function getEmail()
    {
        return view('auth.passwords.email');
    }
@@ -41,15 +41,15 @@ class ResetPasswordController extends Controller
    public function postEmail(Request $request)
    {
        $this->validate($request, ['email' => 'required|email']);
-
        $response = Password::sendResetLink($request->only('email'), function (Message $message) {
            $message->subject($this->getEmailSubject());
 
        });
 
        switch ($response) {
+
            case Password::RESET_LINK_SENT:
-               return redirect()->back()->with('status', trans($response));
+              return redirect()->back()->with('status', trans($response));
 
            case Password::INVALID_USER:
                return redirect()->back()->withErrors(['email' => trans($response)]);
@@ -61,6 +61,16 @@ class ResetPasswordController extends Controller
    {
        return isset($this->subject ) ? $this->subject : 'Your Password Reset Link';
    }
+*/
+  /* public function getReset($token)
+   {
+       if (is_null($token)) {
+           throw new NotFoundHttpException;
+       }
 
+       return view('auth.reset')->with('token', $token);
+
+
+   }*/
 
 }
