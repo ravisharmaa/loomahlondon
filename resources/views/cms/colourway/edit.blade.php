@@ -10,7 +10,7 @@
     <br />
     <div class="clearboth"></div>
     <div style="float:left; margin-right:40px; width: 350px;" class="main_img">
-        <img src="{{asset('images/colourway/th/'.$data['colourway']->colourway_th_image)}}" width="300" border="0" />
+        <img src="{{asset('images/rug-designs/'.$data['product']->product_image)}}" width="300" border="0" />
     </div>
     <div style="float:left; width: 570px;" class="summary4">
         <style>
@@ -22,6 +22,10 @@
 
         <div style="font-size: 11pt; border-bottom: 1px dotted #cccccc; padding-bottom:5px;">  <h3>Descriptions</h3></div>
         <br />
+        <b>Product Description </b>:
+        <br /><br />
+        {{ $data['product']->product_desc }}
+        <br /><br />
         <b>Product Knot Count </b>: {{ $data['product']->product_detail->product_knotcnt }}
         <br /><br />
         <b>Repeat</b>: {{$data['product']->product_detail->product_size }}

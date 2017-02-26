@@ -16,7 +16,7 @@
                 <nav class="mp-nav pull-left fadeIn overlay" id="overlay">
                     <div class="mob-nav">
                         <ul>
-                            <li class="{{Request::is('rug-designs*')||('rug-designs/*')?'active':''}}">
+                            <li class="{{Request::is('rug-designs*') ?'active':''}}">
                                 <a href="{{route(AppHelper::getDefaultRouteParams('rug-designs'))}}" class="anchor">Rug Designs</a>
                             </li>
                             <li class="{{Request::is('bespoke-rug-service*')?'active':''}}">

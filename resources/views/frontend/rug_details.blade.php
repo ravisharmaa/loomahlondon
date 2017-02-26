@@ -1,3 +1,4 @@
+
 @extends($master)
 @section('extra-css')
 @endsection
@@ -12,24 +13,12 @@
                             <div class="aside">
                                 <h4 class="mp-color">Colourway(s)</h4>
                                 <ul>
+                                    @foreach($data['colourway'] as $c)
                                     <li><a href="coral-light-grey.php">
-                                            <img data-original="images/products/th/coral-02-th.jpg" src="img/sqload.png" alt="" class="img-full load">
-                                        </a></li>
-                                    <li><a href="#">
-                                            <img data-original="images/products/th/coral-03-th.jpg" src="img/sqload.png" alt="" class="img-full load">
-                                        </a></li>
-                                    <li><a href="#">
-                                            <img data-original="images/products/th/coral-04-th.jpg" src="img/sqload.png" alt="" class="img-full load">
-                                        </a></li>
-                                    <li><a href="#">
-                                            <img data-original="images/products/th/coral-05-th.jpg" src="img/sqload.png" alt="" class="img-full load">
-                                        </a></li>
-                                    <li><a href="#">
-                                            <img data-original="images/products/th/coral-06-th.jpg" src="img/sqload.png" alt="" class="img-full load">
-                                        </a></li>
-                                    <li><a href="#">
-                                            <img data-original="images/products/th/coral-07-th.jpg" src="img/sqload.png" alt="" class="img-full load">
-                                        </a></li>
+                                            <img data-original="{{asset('images/colourways/th/'.$c->colourway_th_image)}}" src="img/sqload.png" alt="" class="img-full load">
+                                        </a>
+                                    </li>
+                                    @endforeach
                                 </ul>
                                 <!-- aside end-->
                             </div>
@@ -50,18 +39,18 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-6 col-md-7">
                                         <div class="mp-detail">
-                                            <h2>Coral</h2>
-                                            <h3>Gray/Natural</h3>
+                                            <h2>{{isset($data['product']->product_name)   ? $data['product']->product_name:''}}</h2>
+                                            <h3>{{isset($data['product']->colourway_name) ? $data['product']->colourway_name:''}}</h3>
                                             <p>
-                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa.
+                                                {{isset($data['product']->product_desc) ? $data['product']->product_desc:''}}
                                             </p>
                                             <h5>Details</h5>
                                             <dl class="clearfix">
                                                 <dt>Knot Count:</dt>
-                                                <dd>100</dd>
+                                                <dd>{{isset($data['product']->product_knotcnt) ? $data['product']->product_knotcnt:''}}</dd>
                                                 <div class="clearfix"></div>
                                                 <dt>Size:</dt>
-                                                <dd>200 x 300 cms</dd>
+                                                <dd>{{isset($data['product']->product_size) ? $data['product']->product_size:''}} </dd>
                                             </dl>
                                             <button type="button" name="Enquire now" class="enq-pop fancybox.ajax btn mp-enquire" href="enquire-now.php">
                                                 <span>Enquire</span>
@@ -72,8 +61,8 @@
                                         <div class="mp-zoom-img flexslider">
                                             <ul class="slides">
                                                 <li>
-                                                    <a class="img-pop" href="images/products/lg/coral-lg-01.jpg">
-                                                        <img src="images/products/md/coral-01.jpg" class="img-full" alt="Coral" title="Coral" />
+                                                    <a class="img-pop" href="{{asset('images/colourways/lg/'.$data['product']->colourway_lg_image)}}">
+                                                        <img src="{{asset('images/rug-designs/'.$data['product']->product_image)}}" class="img-full" alt="Coral" title="Coral" />
                                                     </a>
                                                 </li>
                                             <!-- <li>
@@ -169,6 +158,37 @@
                         start: function(slider){
                             //$('body').removeClass('loading');
                         }
+                    });
+                });
+
+            </script>
+
+            <script>
+                $("document").ready(function(){
+                    $(".colourway_data").click(function(e){
+                        e.preventDefault();
+                        var $this  =     $(this);
+                        var id     =     $this.attr('data-id');
+                        var url    =    '{{asset('/')}}';
+
+                        $.ajax({
+                            method: "GET",
+                            url : ' {{url('get-colourway-data')}}'+'/'+ id,
+                            error:function (request) {
+                                console.log(request.responseText);
+                            },
+                            success:function (data) {
+                                var newData = jQuery.parseJSON(data);
+                                if(newData.data[0].colourway_name){
+                                    $("#colourway_name").html('<h3>'+ newData.data[0].colourway_name + '</h3>' );
+                                    $("#image_data").attr('href',url +'images/colourway/lg/'+ newData.data[0].colourway_lg_image);
+                                    $("#main_image").attr('src', url+'images/colourway/lg/'+newData.data[0].colourway_lg_image)
+
+                                }
+
+                            }
+
+                        })
                     });
                 });
 

@@ -31,7 +31,7 @@
         @if(isset($data->product_image))
             <td class="formleft">Previous Thumbnail Image</td>
             <td class="formright">
-                <img src="{{asset('images/'.$data->product_image)}}"  height ="150"  border="0">
+                <img src="{{asset('images/rug-designs/'.$data->product_image)}}"  height ="150"  border="0">
             </td>
         @endif
     </tr>
