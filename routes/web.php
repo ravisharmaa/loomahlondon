@@ -4,7 +4,8 @@ Route::group(['prefix'=>'cms',                'as'=>'cms.',             'namespa
     $this->get('',                           ['as'=>'login',             'uses'=>'LoginController@getLogin']);
     $this->post('',                          ['as'=>'login',             'uses'=>'LoginController@login']);
     $this->get('logout',                     ['as'=>'logout',            'uses'=>'LoginController@logout']);
-    $this->get('password/reset',             ['as'=>'reset.password',    'uses'=>'ResetPasswordController@showLinkRequestForm']);
+    $this->get('password/reset',             ['as'=>'reset.password',    'uses'=>'ResetPasswordController@getEmail']);
+    $this->post('password/email',             ['as'=>'reset.email',       'uses'=>'ResetPasswordController@postEmail']);
 });
 
 $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'middleware'=>'auth',      'namespace'=>'Admin\\'], function() {
