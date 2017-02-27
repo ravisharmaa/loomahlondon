@@ -114,7 +114,33 @@
         </div>
     </div>
     <div class="clearboth"></div>
+    <div class="accordion"><a href="JavaScript:void(0);" rel="cat_seo" class="accordiontab" >CLICK HERE TO EDIT THE DETAILS OF  {{ucwords($data->product_name)}}</a></div>
+    <div id="cat_seo" class="accordionblock" style="display:none;">
+        <div class="info">
+            Provide the title, description and its image that you wish to update.
+        </div>
 
+        {{Form::model($data,['route'=>[$base_route.'.update',$data->product_id],'method'=>'PUT','id'=>'form_rug_add','enctype'=>'multipart/form-data','files'=>true])}}
+        @include('cms.rug-designs.partials._form',['btnText'=>'Save'])
+        {{Form::close()}}
+
+        <script>
+
+            $(".chb").change(function() {
+                $(".chb").prop('checked', false);
+                $(this).prop('checked', true);
+            });
+
+            $(".yes").click(function(){
+                $(".hide").show();
+
+            });
+            $(".no").click(function(){
+                $(".hide").hide();
+
+            });
+        </script>
+    </div>
 
 @endsection
 

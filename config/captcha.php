@@ -69,7 +69,7 @@ return [
     'MyCaptcha' => [
         'UserInputID'   => 'CaptchaCode',
         'CodeLength'    => 4,
-        'ImageWidth'    =>180,
+        'ImageWidth'    =>150,
         'ImageHeight'   =>50,
         'CustomLightColor'=>'#E9E9E9',
         'ImageStyle'=>[

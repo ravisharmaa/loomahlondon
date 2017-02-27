@@ -10,7 +10,7 @@
         <div class="polaroidlabel">
             <div class="tr">
                 <div class="td">
-                    <span class="product_sn"> {{ $i }}.  </span>{{$d->product_name}}
+                    <span class="product_sn"> {{ $i }}.  </span>{!! $d->product_name !!}
                 </div>
             </div>
         </div>
