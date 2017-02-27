@@ -5,7 +5,10 @@
 
 {{--Custom Style-Sheet Used By the Template--}}
 <link href="{{asset($css_path.'mystyle.css')}}" rel="stylesheet" type="text/css" />
-{{--End Custom--}}
+<link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
+
+
+    {{--End Custom--}}
 
 {{--Libraries--}}
 

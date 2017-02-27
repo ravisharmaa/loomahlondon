@@ -187,16 +187,17 @@ return [
         /*
          * Google  Captcha Package
          * */
-        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
         /*
          * Simple Captcha Package
          * */
-        Mews\Captcha\CaptchaServiceProvider::class,
         /*
          * Custom Service Provider
          * */
         App\Providers\AppHelperServiceProvider::class,
+
+        LaravelCaptcha\Providers\LaravelCaptchaServiceProvider::class
+
     ],
 
     /*
@@ -263,10 +264,10 @@ return [
         /*
          * Laravel mew-captcha
          * */
-        'Captcha' => Mews\Captcha\Facades\Captcha::class,
         /*
          * Custom Facade
          * */
+
         'AppHelper'=> App\Facades\AppHelperFacade::class,
 
     ],

@@ -87,7 +87,7 @@ class FrontendController extends FrontendBaseController
                 ->leftJoin('tbl_product_details','tbl_product_details.product_id','=','tbl_products.product_id')
                 ->leftJoin('tbl_colourways','tbl_colourways.product_id','=','tbl_products.product_id')
                 ->where('tbl_product_details.product_status','=',1)
-                ->where('tbl_colourways.colourway_default','=',1)
+//                ->where('tbl_colourways.colourway_default','=',1)
                 ->where('tbl_products.product_alias','=',$alias)
                 ->first();
 

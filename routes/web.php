@@ -4,8 +4,12 @@ Route::group(['prefix'=>'cms',                'as'=>'cms.',             'namespa
     $this->get('',                           ['as'=>'login',             'uses'=>'LoginController@getLogin']);
     $this->post('',                          ['as'=>'login',             'uses'=>'LoginController@login']);
     $this->get('logout',                     ['as'=>'logout',            'uses'=>'LoginController@logout']);
-    $this->get('password/reset',             ['as'=>'reset.password',    'uses'=>'ResetPasswordController@showLinkRequestForm']);
 });
+
+Route::get('password/reset',                    ['as'=>'reset.password',        'uses'=>'Auth\\ForgotPasswordController@showLinkRequestForm']);
+Route::post('password/email',                   ['as'=>'reset.password.email',  'uses'=>'Auth\\ForgotPasswordController@sendResetLinkEmail']);
+Route::get('password/after-mail/{token}',       ['as'=>'password.reset',        'uses'=>'Auth\\ResetPasswordController@showResetForm']);
+Route::post('password/confirm-reset',           ['as'=>'reset.confirm',         'uses'=>'Auth\\ResetPasswordController@reset']);
 
 $this->group(['prefix'=>'cms/',                 'as'=>'cms.',               'middleware'=>'auth',      'namespace'=>'Admin\\'], function() {
     $this->get('dashboard',                                 ['as'=>'dashboard',                                         'uses'=>'DashboardController']);
