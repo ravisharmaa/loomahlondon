@@ -105,6 +105,9 @@ class FrontendController extends FrontendBaseController
             ->orderBy('tbl_colourways.colourway_order','asc')
             ->get();
 
+        $nextPrevious= Product::orderBy('product_id')->take('2')->get();
+        $data['next']       =   $nextPrevious['1'];
+        $data['previous']   =   $nextPrevious['0'];
         return view(parent::loadDefaultVars($this->view_path.'.rug_details'), compact('data'));
     }
 }

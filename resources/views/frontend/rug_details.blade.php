@@ -32,8 +32,12 @@
                                         <li><a href="rug-designs.php">Back to Index</a></li>
                                     </ul>
                                     <ul class="pull-right">
-                                        <li><a href="#">Previous</a></li>
-                                        <li><a href="#">Next</a></li>
+                                        {{$data['previous']->product_name!=$data['product']->product_name
+                                        ? '<li><a href="">Previous</a></li>' :''
+                                        }}
+                                        {{$data['product']->product_name != $data['next']->product_name
+                                        ? '<li><a href="">Next</a></li>' :''
+                                        }}
                                     </ul>
                                 </div>
                                 <div class="row">
